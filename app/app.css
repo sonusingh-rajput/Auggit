@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  
+  /* Primary Brand Guidelines */
+  --color-auggit-primary: #41a0c8;
+  --color-auggit-accent: #f7c037;
+  --color-auggit-navy: #062039;
+  --color-auggit-charcoal: #353535;
+  --color-auggit-grey: #979797;
+  --color-auggit-white: #ffffff;
+  
+  /* Secondary Brand Guidelines */
+  --color-auggit-sky-light: #9eddf7;
+  --color-auggit-cream: #ffeda0;
+  --color-auggit-deep-blue: #1267a7;
+  --color-auggit-border: #e3e3e3;
+  --color-auggit-surface: #f1f2f2;
+  
+  /* Environmental / Go-Green Aspects Only */
+  --color-auggit-green: #5e8b22;
+  --color-auggit-lime: #93cb3a;
+
+  /* Backward Compatibility Aliases */
+  --color-auggit-dark: #062039;
+  --color-auggit-light: #f1f2f2;
+  --color-auggit-muted: #979797;
+}
+
+/* Smooth Scrolling & Base Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Light Mode Defaults */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #353535;
+}
+
+/* Dark Mode Overrides */
+.dark {
+  --bg-color: #062039;
+  --text-color: #f1f2f2;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f2f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9eddf7;
+  border-radius: 9999px;
+  border: 2px solid #f1f2f2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #41a0c8;
+}
+
+/* Custom Text Selection */
+::selection {
+  background-color: #41a0c8;
+  color: #ffffff;
+}
