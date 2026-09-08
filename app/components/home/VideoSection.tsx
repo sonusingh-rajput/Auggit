@@ -136,7 +136,7 @@ export default function VideoSection() {
 
               <iframe
                 className="w-full h-full"
-                src="https://www.youtube.com/embed/9QXRfMYpTqg?autoplay=1"
+                src="https://www.youtube.com/embed/VKt00L0RgG0?si=ZP6joEZTfF40VSIi &autoplay=1&rel=0&modestbranding=1"
                 title="Auggit Company Official Video"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
