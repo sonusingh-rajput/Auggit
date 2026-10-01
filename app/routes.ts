@@ -10,6 +10,8 @@ export default [
   route("product/slaice", "routes/product-slaice.tsx"),
   route("casestudy", "routes/case-studies.tsx"),
   route("casestudy/:slug", "routes/case-studies.$slug.tsx"),
+  route("research", "routes/research-articles.tsx"),
+  route("research/:slug", "routes/research-articles.$slug.tsx"),
   route("contact", "routes/contact.tsx"),
   route("*", "routes/$.tsx"),
 ] satisfies RouteConfig;

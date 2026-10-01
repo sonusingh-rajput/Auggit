@@ -18,12 +18,13 @@ const navItems = [
   { name: "About Us", href: "/about", icon: HiUser },
   { 
     name: "Resources", 
-    href: "/casestudy", 
+    href: "/research", 
     icon: HiDocumentText,
     dropdown: [
+       { name: "Research articles", href: "/research" },
       { name: "Case study", href: "/casestudy" },
       { name: "Use case", href: "/usecase" },
-      { name: "FAQs", href: "/faq" },
+      { name: "Q&As", href: "/faq" },
     ]
   },
 ];
@@ -40,7 +41,9 @@ export default function Navbar() {
     if (path.startsWith("/product")) return "Products";
     if (path.startsWith("/about")) return "About Us";
     if (path.startsWith("/faq")) return "FAQs";
-    if (path.startsWith("/usecase") || path.startsWith("/faq")) return "Resources";
+    if (path.startsWith("/usecase") || path.startsWith("/faq")) 
+    if (["/research", "/casestudy", "/usecase", "/faq"].some((p) => path.startsWith(p)))
+      return "Resources";
     return "";
   };
 
