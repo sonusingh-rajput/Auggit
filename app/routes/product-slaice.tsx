@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState } from "react";
 import {
   FiDatabase,
   FiShield,
@@ -12,6 +12,8 @@ import {
   FiLayers,
   FiCpu,
   FiBarChart2,
+  FiChevronDown,
+  FiHelpCircle,
 } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
 
@@ -105,6 +107,82 @@ const steps = [
   },
 ];
 
+const slaiceFaqs = [
+  {
+    id: "01",
+    question: "What is SLaiCE?",
+    answer:
+      "SLaiCE is an SAP-approved product and published on the SAP Store, that selectively moves data subsets between SAP systems, with optional data masking, while preserving system integrity. Built using SAP products and tools, it runs entirely within the existing SAP landscape and never moves data outside it.",
+  },
+  {
+    id: "02",
+    question: "How does SLaiCE work?",
+    answer:
+      "SLaiCE works by identifying the required data in the source SAP system based on predefined rules such as date ranges, business objects, or organizational structures. Once configured, it securely moves only the selected data to one or more target systems, following SAP's standard business and security controls.",
+  },
+  {
+    id: "03",
+    question: "What is SAP data subsetting?",
+    answer:
+      "SAP data subsetting is the process of extracting a defined, consistent portion of SAP data, such as a specific company code or time period, instead of copying an entire system. It is used to build smaller, targeted environments for testing, migration, or compliance without the cost of a full replication.",
+  },
+  {
+    id: "04",
+    question: "What technology does SLaiCE use?",
+    answer:
+      "SLaiCE is built entirely on SAP-native technologies, leveraging SLT (SAP Landscape Transformation) replication services, SAP Data Services, and other SAP-provided solutions. This native foundation ensures seamless integration and consistent performance within an organization's existing SAP landscape, without relying on external or third-party replication tools.",
+  },
+  {
+    id: "05",
+    question: "What platforms does SLaiCE work on?",
+    answer:
+      "SLaiCE works on SAP ECC, SAP S/4HANA on premise, and SAP S/4HANA private cloud. This covers organizations still running ECC, those already on S/4HANA, and those operating in a private cloud SAP environment, without requiring a separate version of the tool for each platform.",
+  },
+  {
+    id: "06",
+    question: "Does SLaiCE support data masking or scrambling?",
+    answer:
+      "Yes, SLaiCE supports data masking and scrambling, applied at the point of extraction from the source system. Masking rules are configured based on business requirements, data objects, and field level sensitivity. If data is already masked or encrypted at the source, SLaiCE replicates it in that same protected form.",
+  },
+  {
+    id: "07",
+    question: "Does SLaiCE support custom or add-on tables?",
+    answer:
+      "Yes, SLaiCE supports custom tables and partner add-ons. These can be selected for data slicing, masked where required, and included in dependency-aware replication scenarios alongside standard SAP tables. No additional development work is needed to bring custom or partner add-on tables into the replication process.",
+  },
+  {
+    id: "08",
+    question: "What is the execution process of SLaiCE?",
+    answer:
+      "SLaiCE follows a source-system-driven execution process, meaning every activity is initiated and executed from the source SAP system itself. From there, data is selectively extracted to one or more target systems, using SAP-native mechanisms to control selection, entirely within the customer's own SAP landscape.",
+  },
+  {
+    id: "09",
+    question: "Where does SLaiCE store the extracted data?",
+    answer:
+      "SLaiCE does not extract the data outside the customer’s SAP landscape. SLaiCE moves data directly from the source to target while data that is already encrypted at the source stays encrypted during replication, so confidentiality and integrity are maintained across the entire landscape.",
+  },
+  {
+    id: "10",
+    question: "Can SLaiCE process unstructured data?",
+    answer:
+      "SLaiCE does not independently scan or classify structured or unstructured data on its own. Instead, it integrates with existing SAP or third-party data discovery and classification tools already in the customer's landscape, then replicates data according to the classifications and masking policies those tools define.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: slaiceFaqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
 interface SlaiceFeature {
   icon: any;
   title: string;
@@ -173,6 +251,7 @@ const BenefitCard = ({ benefit, index }: { benefit: SlaiceBenefit; index: number
 export default function ProductSlaice() {
   const heroRef = useRef(null);
   const isHeroInView = useInView(heroRef, { once: true, amount: 0.3 });
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-[#f1f2f2]/60 to-white text-[#353535] overflow-x-hidden">
@@ -180,7 +259,7 @@ export default function ProductSlaice() {
       {/* ========== HERO SECTION ========== */}
       <section
         ref={heroRef}
-        className="relative px-6 pt-10 pb-10 sm:pt-14 sm:pb-12 max-w-7xl mx-auto"
+        className="relative px-6 pt-20 pb-20 sm:pt-28 sm:pb-24 max-w-7xl mx-auto"
       >
         {/* Subtle background pattern */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-b-[2.5rem]">
@@ -344,15 +423,15 @@ export default function ProductSlaice() {
             Key Capabilities
           </span>
           <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold text-[#062039]">
-           Precise. Audit Ready. Unaltered.<br/>{" "} 
+            Select. Filter. Save.{" "}
             <span className="bg-gradient-to-r from-[#41a0c8] to-[#1267a7] bg-clip-text text-transparent">
-              Data with audit trail.
+              It's That Simple.
             </span>
           </h2>
-          {/* <p className="mt-3 text-[#353535] text-base">
+          <p className="mt-3 text-[#353535] text-base">
             SLaiCE gives you the power to carve out exactly the data you need with
             full control and zero overhead.
-          </p>  */}
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -501,6 +580,112 @@ export default function ProductSlaice() {
             </motion.div>
           </div>
         </motion.div>
+      </section>
+
+      {/* ========== AUGGIT SLAICE FAQS ========== */}
+      <section id="faq" className="px-4 sm:px-6 py-16 sm:py-24 max-w-5xl mx-auto">
+        {/* JSON-LD Schema Markup */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold tracking-[0.25em] uppercase text-[#41a0c8] bg-[#f1f2f2] rounded-full border border-[#9eddf7]">
+            <FiHelpCircle className="w-3.5 h-3.5 text-[#f7c037]" />
+            Knowledge Base
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#062039] tracking-tight">
+            Auggit SLaiCE{" "}
+            <span className="bg-gradient-to-r from-[#41a0c8] to-[#1267a7] bg-clip-text text-transparent">
+              FAQs
+            </span>
+          </h2>
+          <div className="w-16 h-1 bg-[#f7c037] rounded-full mx-auto mt-3" />
+          <p className="mt-4 text-[#353535] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Everything you need to know about SLaiCE architecture, SAP replication, data subsetting, and security controls.
+          </p>
+        </motion.div>
+
+        <div className="space-y-4">
+          {slaiceFaqs.map((faq, index) => {
+            const isOpen = openFaq === index;
+            return (
+              <motion.div
+                key={faq.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "bg-white border-[#41a0c8] shadow-lg shadow-[#41a0c8]/10"
+                    : "bg-white/90 hover:bg-white border-[#e3e3e3] hover:border-[#9eddf7] shadow-sm"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? null : index)}
+                  className="flex items-center justify-between w-full py-5 px-5 sm:px-6 text-left cursor-pointer transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-center gap-4 sm:gap-5 pr-4">
+                    <span
+                      className={`text-xs font-extrabold px-2.5 py-1 rounded-lg border shrink-0 transition-colors ${
+                        isOpen
+                          ? "bg-[#41a0c8] text-white border-[#41a0c8]"
+                          : "bg-[#f1f2f2] text-[#1267a7] border-[#e3e3e3]"
+                      }`}
+                    >
+                      {faq.id}
+                    </span>
+                    <h3
+                      className={`text-base sm:text-lg font-bold transition-colors ${
+                        isOpen ? "text-[#1267a7]" : "text-[#062039]"
+                      }`}
+                    >
+                      {faq.question}
+                    </h3>
+                  </div>
+
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className={`p-2 rounded-full shrink-0 transition-colors ${
+                      isOpen
+                        ? "bg-[#41a0c8] text-white"
+                        : "bg-[#f1f2f2] text-[#353535] hover:text-[#41a0c8]"
+                    }`}
+                  >
+                    <FiChevronDown className="w-4 h-4" />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-6 px-5 sm:px-6 pt-2 border-t border-[#f1f2f2] text-sm sm:text-base text-[#353535] leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
+        </div>
       </section>
 
       {/* ========== BOTTOM CTA ========== */}
