@@ -73,8 +73,11 @@ export default function AutomationSuite() {
             >
               <div className="w-full max-w-lg">
                 <img
-                  src="/Automation_Suite_image/Automation_Suite_Heroimage.png"
+                  src="/Automation_Suite_image/Automation_Suite_Heroimage.webp"
                   alt="Automation Suite Intelligent Operations"
+                  width={600}
+                  height={450}
+                  decoding="async"
                   className="w-full h-auto object-contain drop-shadow-2xl"
                 />
               </div>
@@ -110,8 +113,12 @@ export default function AutomationSuite() {
 
               <div className="rounded-2xl border border-[#e3e3e3] p-4 bg-[#f1f2f2]/30 flex justify-center">
                 <img
-                  src="/Automation_Suite_image/Automation_Suite_Operational_Challenges.png"
+                  src="/Automation_Suite_image/Automation_Suite_Operational_Challenges.webp"
                   alt="Operational Complexity and Paperwork Challenges"
+                  width={500}
+                  height={350}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full max-h-72 object-contain"
                 />
               </div>
@@ -251,8 +258,12 @@ export default function AutomationSuite() {
             >
               <div className="w-full max-w-xl">
                 <img
-                  src="/Automation_Suite_image/Automation_Suite_Introducing.png"
+                  src="/Automation_Suite_image/Automation_Suite_Introducing.webp"
                   alt="Introducing Automation Suite Architecture"
+                  width={600}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain drop-shadow-xl"
                 />
               </div>
@@ -279,12 +290,12 @@ export default function AutomationSuite() {
             {[
               {
                 title: "Vendor Management",
-                img: "/Automation_Suite_image/Automation_Suite_Vendor_Management.png",
+                img: "/Automation_Suite_image/Automation_Suite_Vendor_Management.webp",
                 desc: "Digitize vendor onboarding through centralized document submission, Automated verification of documents, approvals, and communication.",
               },
               {
                 title: "Supplier Invoicing and Material Movement",
-                img: "/Automation_Suite_image/Automation_Suite_Supplier_Invoicing_and_Material_Movement.png",
+                img: "/Automation_Suite_image/Automation_Suite_Supplier_Invoicing_and_Material_Movement.webp",
                 desc: "Simplify supply chain operations by connecting material movement, supplier invoice verification, supporting documents, approvals, and automated matching on a single platform.",
               },
               {
@@ -294,7 +305,7 @@ export default function AutomationSuite() {
               },
               {
                 title: "Weighbridge Integration",
-                img: "/Automation_Suite_image/Automation_Suite_Weighbridge_Integration.png",
+                img: "/Automation_Suite_image/Automation_Suite_Weighbridge_Integration.webp",
                 desc: "Integrate weighbridge operations with business processes to automatically capture weight data, eliminate manual entry, and improve the accuracy and traceability of material movement.",
               },
             ].map((item, idx) => (
@@ -422,8 +433,12 @@ export default function AutomationSuite() {
             <div className="lg:col-span-5 flex justify-center items-center">
               <div className="w-full max-w-md">
                 <img
-                  src="/Automation_Suite_image/Automation_Suite_Intelligent_Platform_Capabilities.png"
+                  src="/Automation_Suite_image/Automation_Suite_Intelligent_Platform_Capabilities.webp"
                   alt="Platform Capabilities Network"
+                  width={500}
+                  height={380}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain drop-shadow-lg"
                 />
               </div>
@@ -515,8 +530,12 @@ export default function AutomationSuite() {
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-lg">
                 <img
-                  src="/Automation_Suite_image/Automation_Suite_Why_Automation_Suite.png"
+                  src="/Automation_Suite_image/Automation_Suite_Why_Automation_Suite.webp"
                   alt="Measurable Value with Productivity, Visibility and Compliance"
+                  width={600}
+                  height={400}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-auto object-contain drop-shadow-lg"
                 />
               </div>
@@ -528,11 +547,11 @@ export default function AutomationSuite() {
       {/* ========================================================================= */}
       {/* 7. THANK YOU / CTA (Page 7) */}
       {/* ========================================================================= */}
-      <section className="bg-[#062039] text-white py-16 sm:py-24">
+      {/* <section className="bg-[#062039] text-white py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            {/* Left Content */}
-            <motion.div
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"> */}
+      {/* Left Content */}
+      {/* <motion.div
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -560,10 +579,10 @@ export default function AutomationSuite() {
                   Ready to transform your <br />
                   <span>business operations?</span>
                 </h3>
-              </div>
+              </div> */}
 
-              {/* Demo button */}
-              <div className="pt-2">
+      {/* Demo button */}
+      {/* <div className="pt-2">
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#41a0c8] hover:bg-[#1267a7] text-white font-bold text-sm transition-colors shadow-md"
@@ -571,9 +590,9 @@ export default function AutomationSuite() {
                   <span>Schedule a Demo</span>
                   <FiArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
+              </div> */}
 
-              <div className="pt-4 text-xs sm:text-sm font-semibold text-[#9eddf7] flex items-center gap-4">
+      {/* <div className="pt-4 text-xs sm:text-sm font-semibold text-[#9eddf7] flex items-center gap-4">
                 <a
                   href="https://www.auggit.com"
                   target="_blank"
@@ -585,10 +604,10 @@ export default function AutomationSuite() {
                 <span>•</span>
                 <span>contact@auggit.in</span>
               </div>
-            </motion.div>
+            </motion.div> */}
 
-            {/* Right Graphic */}
-            <motion.div
+      {/* Right Graphic */}
+      {/* <motion.div
               initial={{ opacity: 0, scale: 0.98 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
@@ -605,7 +624,7 @@ export default function AutomationSuite() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

@@ -1,29 +1,30 @@
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { FiArrowRight, FiMapPin, FiPhone, FiMail } from "react-icons/fi";
+import { SiSap } from "react-icons/si";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-gradient-to-b from-[#062039] via-[#062039] to-[#062039] text-[#f1f2f2] border-t border-[#1267a7]/30 transition-colors">
-      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
-        
-        {/* Brand & Contact Column (Spans 2 cols) */}
+    <footer className="w-full bg-[#041525] text-[#f1f2f2] border-t border-[#1267a7]/30 transition-colors">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+
+        {/* Brand & Contact Column (Spans 2 cols on lg) */}
         <div className="lg:col-span-2 space-y-6">
           <div className="flex items-center gap-3">
-            <img 
-              src="/Auggit-logo-2.png" 
-              alt="Auggit Logo" 
-              className="h-14 md:h-20 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(65,160,200,0.35)]" 
+            <img
+              src="/Auggit-logo-2.png"
+              alt="Auggit Logo"
+              className="h-14 md:h-16 w-auto object-contain filter drop-shadow-[0_2px_12px_rgba(65,160,200,0.35)]"
             />
           </div>
           <p className="text-sm text-[#9eddf7]/80 leading-relaxed max-w-sm">
-            Secure document management and enterprise compliance tracking built for modern digital workflows.
+            Empowering enterprise SAP compliance, precision data slicing, and end-to-end supply chain document automation across India.
           </p>
-          
+
           {/* Contact Details */}
-          <div className="space-y-3 text-sm text-[#f1f2f2]/80 pt-2">
+          <div className="space-y-3 text-xs text-[#f1f2f2]/80 pt-2">
             <div className="flex items-start gap-3">
-              <FiMapPin className="w-5 h-5 text-[#41a0c8] shrink-0 mt-0.5" />
-              <span>Anna Nagar, Chennai, India</span>
+              <FiMapPin className="w-4 h-4 text-[#41a0c8] shrink-0 mt-0.5" />
+              <span>Anna Nagar, Chennai, India (Headquarters)</span>
             </div>
             <div className="flex items-center gap-3">
               <FiPhone className="w-4 h-4 text-[#41a0c8] shrink-0" />
@@ -34,175 +35,190 @@ export default function Footer() {
               <span>sales@auggit.com</span>
             </div>
           </div>
+
+          <div className="pt-2">
+            <a
+              href="/book-poc"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f7c037] hover:bg-[#e5b02a] text-[#062039] font-black text-xs uppercase tracking-wider shadow-lg transition-all"
+            >
+              <span>Book Your Free POC</span>
+              <FiArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
 
-        {/* Support Column */}
+        {/* Products Column (Each product linked separately per PDF Page 8) */}
         <div className="space-y-4">
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white border-l-2 border-[#41a0c8] pl-2.5">
-            Support
+          <h4 className="text-xs font-bold uppercase tracking-wider text-white border-l-2 border-[#41a0c8] pl-2.5">
+            Auggit Products
           </h4>
-          <ul className="space-y-2.5 text-sm text-[#9eddf7]/70">
+          <ul className="space-y-2 text-xs text-[#9eddf7]/70">
             <li>
-              <a href="/faq" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Getting Started
+              <a href="/product/slaice" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> SLaiCE (Built on SAP)
               </a>
             </li>
             <li>
-              <a href="/faq" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> FAQs
+              <a href="/product/edms" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> eDMS Platform
+              </a>
+            </li>
+            <li>
+              <a href="/product/automation-suite/vendor-onboarding" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Vendor Onboarding Tool
+              </a>
+            </li>
+            <li>
+              <a href="/product/automation-suite/ap-automation" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> AP Automation (MIRO – MIGO)
+              </a>
+            </li>
+            <li>
+              <a href="/product/automation-suite/gate-pass" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Gate Pass Management
+              </a>
+            </li>
+            <li>
+              <a href="/product/automation-suite/weighbridge" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Weighbridge Integration
+              </a>
+            </li>
+            <li>
+              <a href="/product/automation-suite/automatic-data-entry" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Automatic Data Entry (ADE)
+              </a>
+            </li>
+            <li>
+              <a href="/product/automation-suite/edms-demo" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#f7c037]">›</span> Request a Demo
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Services & Solutions Column */}
+        <div className="space-y-4">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-white border-l-2 border-[#41a0c8] pl-2.5">
+            Services & Solutions
+          </h4>
+          <ul className="space-y-2 text-xs text-[#9eddf7]/70">
+            <li>
+              <a href="/services" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> SAP Integrations Service
+              </a>
+            </li>
+            <li>
+              <a href="/services" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> SAP Consulting Service
+              </a>
+            </li>
+            <li>
+              <a href="/services" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> RISE Server Memory Control
+              </a>
+            </li>
+            <li>
+              <a href="/services" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Migration Advisory (Brown/Green/Blue)
+              </a>
+            </li>
+            <li>
+              <a href="/solutions" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Manufacturing Solutions
+              </a>
+            </li>
+            <li>
+              <a href="/solutions" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Automotive & OEM Solutions
+              </a>
+            </li>
+            <li>
+              <a href="/solutions" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Airports & Aviation Logistics
+              </a>
+            </li>
+            <li>
+              <a href="/partner-with-us" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Reseller Partners
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        {/* Resources & Support Column */}
+        <div className="space-y-4">
+          <h4 className="text-xs font-bold uppercase tracking-wider text-white border-l-2 border-[#41a0c8] pl-2.5">
+            Resources & Legal
+          </h4>
+          <ul className="space-y-2 text-xs text-[#9eddf7]/70">
+            <li>
+              <a href="/research" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Research Articles
               </a>
             </li>
             <li>
               <a href="/casestudy" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Case Studies
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Report an issue
-              </a>
-            </li>
-            <li>
-              <a href="/contact" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Contact Help Desk
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {/* Products Column */}
-        <div className="space-y-4">
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white border-l-2 border-[#41a0c8] pl-2.5">
-            Products
-          </h4>
-          <ul className="space-y-2.5 text-sm text-[#9eddf7]/70">
-            <li>
-              <a href="/product/automation-suite" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Automation Suite
-              </a>
-            </li>
-            <li>
-              <a href="/product/slaice" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> SLaiCE Integration
+                <span className="text-[#41a0c8]">›</span> Customer Case Studies
               </a>
             </li>
             <li>
               <a href="/usecase" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Use Cases
-              </a>
-            </li>
-            
-          </ul>
-        </div>
-
-        {/* Legal Column */}
-        <div className="space-y-4">
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white border-l-2 border-[#41a0c8] pl-2.5">
-            Legal
-          </h4>
-          <ul className="space-y-2.5 text-sm text-[#9eddf7]/70">
-            <li>
-              <a href="#" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Terms & Conditions
+                <span className="text-[#41a0c8]">›</span> Selective Slicing Use Cases
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Privacy Policy
+              <a href="/faq" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Compliance & Product FAQs
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Cookie Notice
+              <a href="/blog" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Enterprise Insights & Blog
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-white transition-colors flex items-center gap-1 group">
-                <span className="text-[#41a0c8] opacity-0 group-hover:opacity-100 transition-opacity">›</span> Trust Center
+              <a href="/about" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> About Us & Leadership
+              </a>
+            </li>
+            <li>
+              <a href="/contact" className="hover:text-white transition-colors flex items-center gap-1 group">
+                <span className="text-[#41a0c8]">›</span> Contact & Office Locations
               </a>
             </li>
           </ul>
-        </div>
 
-        {/* Social & Connect Column */}
-        <div className="space-y-4">
-          <h4 className="text-sm font-semibold uppercase tracking-wider text-white border-l-2 border-[#41a0c8] pl-2.5">
-            Follow Us
-          </h4>
-          <div className="flex items-center gap-3 text-[#9eddf7]">
-            <a href="#" className="p-2.5 rounded-xl bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all shadow-md active:scale-95" aria-label="LinkedIn">
-              <FaLinkedinIn className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2.5 rounded-xl bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all shadow-md active:scale-95" aria-label="YouTube">
-              <FaYoutube className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2.5 rounded-xl bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all shadow-md active:scale-95" aria-label="Facebook">
-              <FaFacebookF className="w-4 h-4" />
-            </a>
-            <a href="#" className="p-2.5 rounded-xl bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all shadow-md active:scale-95" aria-label="Instagram">
-              <FaInstagram className="w-4 h-4" />
-            </a>
+          <div className="pt-2">
+            <h5 className="text-[11px] font-bold uppercase tracking-wider text-white mb-2">Connect</h5>
+            <div className="flex items-center gap-2 text-[#9eddf7]">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all" aria-label="LinkedIn">
+                <FaLinkedinIn className="w-3.5 h-3.5" />
+              </a>
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all" aria-label="YouTube">
+                <FaYoutube className="w-3.5 h-3.5" />
+              </a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all" aria-label="Facebook">
+                <FaFacebookF className="w-3.5 h-3.5" />
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-lg bg-[#062039] border border-[#1267a7]/50 hover:bg-[#41a0c8] hover:text-white transition-all" aria-label="Instagram">
+                <FaInstagram className="w-3.5 h-3.5" />
+              </a>
+            </div>
           </div>
-          <p className="text-xs text-[#9eddf7]/70 pt-2">
-            Stay updated with our latest insights and product updates.
-          </p>
         </div>
 
       </div>
 
-      {/* Trust Badges & Certifications Row */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8 py-6 border-t border-[#1267a7]/30">
-        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-          {/* Clutch Badge */}
-          <div className="bg-white/10 border border-[#9eddf7]/20 p-2.5 rounded-xl backdrop-blur-sm flex items-center justify-center shadow-lg hover:border-[#41a0c8] transition-colors">
-            <img 
-              src="/AvailableOn_QR_R_blue.svg" 
-              alt="Top Consulting Company Clutch UK" 
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain" 
-            />
-          </div>
-          
-          {/* SAP Partner Badge */}
-          <div className="bg-white/10 border border-[#9eddf7]/20 p-2.5 rounded-xl backdrop-blur-sm flex items-center justify-center shadow-lg hover:border-[#41a0c8] transition-colors">
-            <img 
-              src="/SAP_Partner_R.svg" 
-              alt="SAP Partner" 
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain" 
-            />
-          </div>
-
-          {/* ISO 27001 Badge */}
-          <div className="bg-white/10 border border-[#9eddf7]/20 p-2.5 rounded-xl backdrop-blur-sm flex items-center justify-center shadow-lg hover:border-[#41a0c8] transition-colors">
-            <img 
-              src="/AvailableOn_R_blue.svg" 
-              alt="ISO 27001:2022 Certified" 
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain" 
-            />
-          </div>
-
-          {/* Patent Pending Badge */}
-          <div className="bg-white/10 border border-[#9eddf7]/20 p-2.5 rounded-xl backdrop-blur-sm flex items-center justify-center shadow-lg hover:border-[#41a0c8] transition-colors">
-            <img 
-              src="/patent-pending-icon-stamp-innovation.png" 
-              alt="Patent Pending" 
-              className="h-8 sm:h-10 md:h-12 w-auto object-contain" 
-            />
-          </div>
+      {/* Bottom Bar */}
+      <div className="border-t border-[#1267a7]/20 py-6 px-6 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-[#9eddf7]/60 gap-4">
+        <div>
+          © {new Date().getFullYear()} Auggit Enterprise Solutions. All rights reserved. Built for SAP Landscapes.
         </div>
-
-        {/* Legal links below badges on mobile */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mt-4 text-xs text-[#9eddf7]/70 md:hidden">
-          <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-          <span>|</span>
-          <a href="#" className="hover:text-white transition-colors">Cookie Policy</a>
+        <div className="flex items-center gap-6">
+          <span>Section 128(1) Compliant</span>
+          <span>Section 62 IT Act Ready</span>
+          <span>Listed on SAP Store</span>
         </div>
-      </div>
-
-      {/* Bottom Copyright Bar */}
-      <div className="bg-[#062039] py-4 border-t border-[#1267a7]/20 text-center">
-        <p className="text-xs text-[#9eddf7]/60 px-4">
-          Auggit {new Date().getFullYear()} &copy; All Rights Reserved. Enterprise Document Management Solutions.
-        </p>
       </div>
     </footer>
   );

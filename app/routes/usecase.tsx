@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
 import {
   FiArrowRight,
   FiChevronLeft,
@@ -284,11 +284,10 @@ export default function UseCasesPage({ useCasesData: propData }: UseCasesPagePro
                 key={number}
                 type="button"
                 onClick={() => handlePageChange(number)}
-                className={`w-10 h-10 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm ${
-                  currentPage === number
+                className={`w-10 h-10 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm ${currentPage === number
                     ? "bg-[#41a0c8] text-white shadow-md shadow-[#41a0c8]/30"
                     : "bg-white border border-[#e3e3e3] text-[#353535] hover:bg-slate-50"
-                }`}
+                  }`}
                 aria-label={`Go to page ${number}`}
               >
                 {number}

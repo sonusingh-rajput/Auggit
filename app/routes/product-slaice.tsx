@@ -375,7 +375,7 @@ export default function ProductSlaice() {
                   <span className="font-mono text-[#41a0c8]">SLT Direct Replication</span>
                 </div>
                 <div className="w-full bg-[#f1f2f2] h-2.5 rounded-full overflow-hidden">
-                  <motion.div 
+                  <motion.div
                     className="bg-gradient-to-r from-[#41a0c8] to-[#1267a7] h-full rounded-full"
                     animate={{ width: ["30%", "85%", "60%", "95%"] }}
                     transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
@@ -623,11 +623,10 @@ export default function ProductSlaice() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: index * 0.04 }}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
-                  isOpen
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${isOpen
                     ? "bg-white border-[#41a0c8] shadow-lg shadow-[#41a0c8]/10"
                     : "bg-white/90 hover:bg-white border-[#e3e3e3] hover:border-[#9eddf7] shadow-sm"
-                }`}
+                  }`}
               >
                 <button
                   type="button"
@@ -637,18 +636,16 @@ export default function ProductSlaice() {
                 >
                   <div className="flex items-center gap-4 sm:gap-5 pr-4">
                     <span
-                      className={`text-xs font-extrabold px-2.5 py-1 rounded-lg border shrink-0 transition-colors ${
-                        isOpen
+                      className={`text-xs font-extrabold px-2.5 py-1 rounded-lg border shrink-0 transition-colors ${isOpen
                           ? "bg-[#41a0c8] text-white border-[#41a0c8]"
                           : "bg-[#f1f2f2] text-[#1267a7] border-[#e3e3e3]"
-                      }`}
+                        }`}
                     >
                       {faq.id}
                     </span>
                     <h3
-                      className={`text-base sm:text-lg font-bold transition-colors ${
-                        isOpen ? "text-[#1267a7]" : "text-[#062039]"
-                      }`}
+                      className={`text-base sm:text-lg font-bold transition-colors ${isOpen ? "text-[#1267a7]" : "text-[#062039]"
+                        }`}
                     >
                       {faq.question}
                     </h3>
@@ -657,11 +654,10 @@ export default function ProductSlaice() {
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
-                    className={`p-2 rounded-full shrink-0 transition-colors ${
-                      isOpen
+                    className={`p-2 rounded-full shrink-0 transition-colors ${isOpen
                         ? "bg-[#41a0c8] text-white"
                         : "bg-[#f1f2f2] text-[#353535] hover:text-[#41a0c8]"
-                    }`}
+                      }`}
                   >
                     <FiChevronDown className="w-4 h-4" />
                   </motion.div>

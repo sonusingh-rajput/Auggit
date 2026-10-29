@@ -15,6 +15,8 @@ import WhatsAppFloat from "~/components/common/WhatsAppFloat";
 import ScrollProgressBar from "~/components/common/ScrollProgressBar";
 import "./app.css";
 
+import GsapProvider from "~/components/common/GsapProvider";
+
 export function Layout({ children }: { children: React.ReactNode }) {
 
   return (
@@ -26,6 +28,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {/* Favicon Link added here */}
         <link rel="icon" type="image/png" href="/favicon.png" />
 
+        {/* Preload Critical LCP Hero Image */}
+        <link rel="preload" as="image" href="/hero_image1.webp" type="image/webp" fetchPriority="high" />
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -36,25 +41,27 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-[#ffffff] text-[#353535] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#41a0c8] selection:text-white">
-        {/* Top Scroll Indicator */}
-        <ScrollProgressBar />
+        <GsapProvider>
+          {/* Top Scroll Indicator */}
+          <ScrollProgressBar />
 
-        {/* Global Nav */}
-        <Navbar />
+          {/* Global Nav */}
+          <Navbar />
 
-        {/* Main Content */}
-        <main className="flex-grow">
-          {children}
-        </main>
+          {/* Main Content */}
+          <main className="flex-grow">
+            {children}
+          </main>
 
-        {/* Global Footer */}
-        <Footer />
+          {/* Global Footer */}
+          <Footer />
 
-        {/* Floating WhatsApp Button */}
-        <WhatsAppFloat />
+          {/* Floating WhatsApp Button */}
+          <WhatsAppFloat />
 
-        <ScrollRestoration />
-        <Scripts />
+          <ScrollRestoration />
+          <Scripts />
+        </GsapProvider>
       </body>
     </html>
   );

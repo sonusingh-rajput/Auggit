@@ -143,7 +143,7 @@ export default function CaseStudiesPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-[#f1f2f2]/60 to-white text-[#353535] py-12 sm:py-20 px-4 sm:px-6 lg:px-16 space-y-16 sm:space-y-20">
-      
+
       {/* Header Banner */}
       <div className="max-w-4xl mx-auto text-center space-y-6 pt-6">
         <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold tracking-[0.25em] uppercase text-[#41a0c8] bg-white rounded-full border border-[#9eddf7] shadow-sm">
@@ -170,9 +170,9 @@ export default function CaseStudiesPage() {
             className="bg-white/95 backdrop-blur-2xl rounded-3xl overflow-hidden border border-[#e3e3e3] hover:border-[#9eddf7] shadow-[0_15px_40px_rgba(65,160,200,0.08)] flex flex-col justify-between group transition-all"
           >
             <div className="relative aspect-video overflow-hidden bg-slate-100">
-              <img 
-                src={study.image} 
-                alt={study.title} 
+              <img
+                src={study.image}
+                alt={study.title}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute top-4 left-4 bg-[#062039]/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full border border-white/20">
@@ -224,11 +224,10 @@ export default function CaseStudiesPage() {
             <button
               key={number}
               onClick={() => handlePageChange(number)}
-              className={`w-10 h-10 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm ${
-                currentPage === number
+              className={`w-10 h-10 rounded-xl text-xs font-bold transition-all cursor-pointer shadow-sm ${currentPage === number
                   ? "bg-[#41a0c8] text-white shadow-md shadow-[#41a0c8]/30"
                   : "bg-white border border-[#e3e3e3] text-[#353535] hover:bg-slate-50"
-              }`}
+                }`}
             >
               {number}
             </button>

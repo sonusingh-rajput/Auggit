@@ -287,11 +287,10 @@ const FaqItem = ({ item, isOpen, toggle, product }: FaqItemProps) => {
 
   return (
     <motion.div
-      className={`relative overflow-hidden rounded-2xl transition-all duration-300 ${
-        isOpen
+      className={`relative overflow-hidden rounded-2xl transition-all duration-300 ${isOpen
           ? "bg-white/95 shadow-xl shadow-[#41a0c8]/10 border border-[#9eddf7]"
           : "bg-white/80 hover:bg-white shadow-md shadow-slate-200/50 border border-[#e3e3e3] hover:border-[#9eddf7]"
-      }`}
+        }`}
       initial={false}
       whileHover={{ scale: 1.01 }}
       transition={{ duration: 0.2 }}
@@ -320,11 +319,10 @@ const FaqItem = ({ item, isOpen, toggle, product }: FaqItemProps) => {
         <motion.span
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
-          className={`flex-shrink-0 ml-4 p-2 rounded-full transition-all duration-300 ${
-            isOpen
+          className={`flex-shrink-0 ml-4 p-2 rounded-full transition-all duration-300 ${isOpen
               ? `bg-gradient-to-r ${accentColor} text-white shadow-md shadow-[#41a0c8]/30`
               : "bg-slate-100 text-slate-500 group-hover:bg-[#9eddf7]/40 group-hover:text-[#41a0c8]"
-          }`}
+            }`}
         >
           <FiChevronDown className="w-4 h-4" />
         </motion.span>
@@ -440,11 +438,10 @@ export default function FaqAll() {
                 setActiveTab("slaice");
                 setOpenIndex(null);
               }}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                activeTab === "slaice"
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "slaice"
                   ? "bg-[#41a0c8] text-white shadow-md shadow-[#41a0c8]/30"
                   : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
-              }`}
+                }`}
             >
               <SiSap className="w-4 h-4" />
               SLaiCE
@@ -454,11 +451,10 @@ export default function FaqAll() {
                 setActiveTab("edms");
                 setOpenIndex(null);
               }}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${
-                activeTab === "edms"
+              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "edms"
                   ? "bg-[#062039] text-white shadow-md shadow-[#062039]/30"
                   : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
-              }`}
+                }`}
             >
               <FiBox className="w-4 h-4" />
               eDMS
@@ -479,11 +475,10 @@ export default function FaqAll() {
                 setSlaiceSubTab("mandate");
                 setOpenIndex(null);
               }}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer border ${
-                slaiceSubTab === "mandate"
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer border ${slaiceSubTab === "mandate"
                   ? "bg-[#41a0c8] text-white border-[#41a0c8] shadow-md shadow-[#41a0c8]/25"
                   : "bg-white text-[#062039] border-[#e3e3e3] hover:border-[#41a0c8] hover:bg-[#f1f2f2]/60"
-              }`}
+                }`}
             >
               Company Mandate
             </button>
@@ -492,11 +487,10 @@ export default function FaqAll() {
                 setSlaiceSubTab("migration");
                 setOpenIndex(null);
               }}
-              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer border ${
-                slaiceSubTab === "migration"
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer border ${slaiceSubTab === "migration"
                   ? "bg-[#41a0c8] text-white border-[#41a0c8] shadow-md shadow-[#41a0c8]/25"
                   : "bg-white text-[#062039] border-[#e3e3e3] hover:border-[#41a0c8] hover:bg-[#f1f2f2]/60"
-              }`}
+                }`}
             >
               SAP HANA Migration
             </button>

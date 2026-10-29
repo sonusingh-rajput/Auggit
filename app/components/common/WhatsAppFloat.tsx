@@ -9,7 +9,7 @@ export default function WhatsAppFloat() {
       initial={{ scale: 0, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       transition={{ duration: 0.4, delay: 0.5 }}
-      className="fixed bottom-6 right-6 z-50 group"
+      className="fixed bottom-6 right-6 z-50 group transform-gpu"
     >
       <a
         href={whatsappUrl}
@@ -18,8 +18,8 @@ export default function WhatsAppFloat() {
         aria-label="Chat on WhatsApp"
         className="relative flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-[0_10px_25px_rgba(16,185,129,0.4)] transition-all duration-300 hover:scale-110 active:scale-95"
       >
-        {/* Pulse ring animation effect */}
-        <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-75 animate-ping -z-10" />
+        {/* Subtle glow effect */}
+        <span className="absolute inset-0 rounded-full bg-emerald-400 opacity-0 group-hover:opacity-40 transition-opacity duration-300 -z-10 scale-125" />
         
         <FaWhatsapp className="w-8 h-8 fill-current" />
 

@@ -357,8 +357,12 @@ export default function ProductEdms() {
           >
             <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#062039]/10 border border-[#e3e3e3] bg-white">
               <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=75&fm=webp"
                 alt="Document Management Dashboard"
+                width={800}
+                height={500}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-cover opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#f1f2f2]/80 via-transparent to-transparent" />
@@ -503,11 +507,24 @@ export default function ProductEdms() {
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 pt-2 relative z-10">
             <a
+              href="/product/automation-suite/edms-demo"
+              className="px-8 py-3.5 rounded-full bg-[#f7c037] hover:bg-[#e5b02a] text-[#062039] font-bold text-sm transition-all shadow-lg flex items-center gap-2 group cursor-pointer hover:scale-105"
+            >
+              <span>Request a Live Demo</span>
+              <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#062039]" />
+            </a>
+            <a
               href="/contact"
               className="px-8 py-3.5 rounded-full bg-white hover:bg-[#f1f2f2] text-[#062039] font-bold text-sm transition-all shadow-lg flex items-center gap-2 group cursor-pointer hover:scale-105"
             >
               <span>Talk to our team</span>
               <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-[#41a0c8]" />
+            </a>
+            <a
+              href="/faq"
+              className="px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2"
+            >
+              <span>View eDMS FAQs</span>
             </a>
           </div>
         </motion.div>
