@@ -39,7 +39,7 @@ export default function ServicesPage() {
       badge: "In-Place Upgrade",
       pros: "Retains existing configuration, historical master data, and custom developments with lower initial implementation disruption.",
       cons: "Carries over decades of technical debt, legacy tables, and bloated database volume into expensive HANA memory.",
-      bestFor: "Organizations with highly stable ECC configurations and limited business process change requirements.",
+      bestFor: "Organizations with highly stable SAP ECC configurations and limited business process change requirements.",
       auggitRole: "Auggit carves out cold data prior to conversion, shrinking downtime by 60%.",
     },
     {
@@ -81,7 +81,7 @@ export default function ServicesPage() {
         <div className="text-center max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-sm border border-[#41a0c8]/30 text-[#41a0c8] text-xs font-bold uppercase tracking-wider shadow-sm mb-4">
             <SiSap className="w-4 h-4 text-[#062039]" />
-            Enterprise SAP Advisory & Engineering
+            Enterprise SAP Advisory and Engineering
           </div>
           <h1 className="text-4xl sm:text-6xl font-black text-[#062039] tracking-tight">
             SAP Services &{" "}
@@ -113,7 +113,7 @@ export default function ServicesPage() {
                   : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
               }`}
             >
-              SAP Consulting & RISE Memory Control
+              SAP Consulting and RISE Memory Control
             </button>
             <button
               onClick={() => setActiveTab("migration")}
@@ -151,7 +151,7 @@ export default function ServicesPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                     {[
                       { title: "Zero Core Modification", desc: "No alteration to standard SAP code; 100% compliant with SAP clean core principles." },
-                      { title: "Native ABAP & RFC Connectors", desc: "Certified handshake protocols ensuring data consistency and sub-second responses." },
+                      { title: "Native ABAP and RFC Connectors", desc: "Certified handshake protocols ensuring data consistency and sub-second responses." },
                       { title: "Multi-ERP Bridges", desc: "Bi-directional synchronization between SAP, Tally Prime, and Zoho Books." },
                       { title: "Hardware Interlocks", desc: "Direct connectivity to digital indicators, weighbridges, and security barriers." },
                     ].map((item, i) => (
@@ -171,7 +171,7 @@ export default function ServicesPage() {
                     <h3 className="text-lg font-bold text-[#f7c037]">Integration Capabilities:</h3>
                     <div className="space-y-2 text-xs text-slate-200">
                       <div className="flex justify-between py-1.5 border-b border-white/10">
-                        <span>SAP S/4HANA OData & BAPIs</span> <span className="font-bold text-emerald-400">Supported</span>
+                        <span>SAP S/4HANA OData and BAPIs</span> <span className="font-bold text-emerald-400">Supported</span>
                       </div>
                       <div className="flex justify-between py-1.5 border-b border-white/10">
                         <span>SAP ECC 6.0 RFC Handshakes</span> <span className="font-bold text-emerald-400">Supported</span>
@@ -180,7 +180,7 @@ export default function ServicesPage() {
                         <span>SAP RISE Private Cloud Security</span> <span className="font-bold text-emerald-400">Validated</span>
                       </div>
                       <div className="flex justify-between py-1.5 border-b border-white/10">
-                        <span>GST E-Way Bill & E-Invoice APIs</span> <span className="font-bold text-emerald-400">Integrated</span>
+                        <span>GST E-Way Bill and E-Invoice APIs</span> <span className="font-bold text-emerald-400">Integrated</span>
                       </div>
                       <div className="flex justify-between py-1.5">
                         <span>Production Latency Impact</span> <span className="font-bold text-emerald-400">&lt; 0.5%</span>
@@ -217,7 +217,7 @@ export default function ServicesPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
                 <div className="p-6 rounded-2xl bg-rose-50 border border-rose-200">
                   <div className="text-xs font-bold uppercase text-rose-700 tracking-wider mb-2">
-                    Without Slicing (Full Lift & Shift)
+                    Without Slicing (Full Lift and Shift)
                   </div>
                   <div className="text-2xl font-black text-rose-900 mb-1">~16 TB HANA RAM</div>
                   <p className="text-xs text-rose-700 leading-relaxed">
@@ -253,7 +253,7 @@ export default function ServicesPage() {
                     1
                   </div>
                   <div>
-                    <h4 className="font-bold text-sm text-[#062039]">Data Profiling & Slicing</h4>
+                    <h4 className="font-bold text-sm text-[#062039]">Data Profiling and Slicing</h4>
                     <p className="text-xs text-slate-500 mt-0.5">Identify tables consuming RAM (BSEG, ACDOCA, MATDOC) older than threshold.</p>
                   </div>
                 </div>
@@ -356,7 +356,7 @@ export default function ServicesPage() {
                   Book a Free Consultation with an SAP Architect
                 </h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  Discuss your upcoming S/4HANA migration, review RISE memory footprint estimates, or design high-throughput ERP integrations with zero sales pressure.
+                  Discuss your upcoming SAP S/4HANA migration, review RISE memory footprint estimates, or design high-throughput ERP integrations with zero sales pressure.
                 </p>
 
                 <div className="space-y-3 pt-2">
@@ -366,11 +366,11 @@ export default function ServicesPage() {
                   </div>
                   <div className="flex items-center gap-2.5 text-xs font-semibold text-[#062039]">
                     <FiCheckCircle className="w-4 h-4 text-emerald-600" />
-                    <span>HANA RAM Sizing & Cost Analysis</span>
+                    <span>HANA RAM Sizing and Cost Analysis</span>
                   </div>
                   <div className="flex items-center gap-2.5 text-xs font-semibold text-[#062039]">
                     <FiCheckCircle className="w-4 h-4 text-emerald-600" />
-                    <span>Section 128 & Statutory Compliance Review</span>
+                    <span>Section 128 and Statutory Compliance Review</span>
                   </div>
                 </div>
               </div>

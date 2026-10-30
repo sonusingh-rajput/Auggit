@@ -377,7 +377,7 @@ export default function AutomationSuite() {
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 {
-                  title: "AI/LLM powered OCR & Intelligent Data Capture",
+                  title: "AI/LLM powered OCR and Intelligent Data Capture",
                   icon: FiMaximize2,
                   desc: "Extracts metadata from documents for faster, structured information processing. Using OCR and Agentic AI LLMs",
                 },
