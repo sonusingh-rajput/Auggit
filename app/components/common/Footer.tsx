@@ -45,6 +45,53 @@ export default function Footer() {
               <FiArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>
+
+          {/* Integrated ERP Ecosystem Badges */}
+          <div className="pt-4 border-t border-[#1267a7]/20 space-y-2.5">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-[#41a0c8] animate-pulse"></span>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#9eddf7]/90">
+                Certified ERP Integrations
+              </span>
+            </div>
+            <div className="flex items-center gap-3">
+              <div
+                className="h-11 px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-transform group cursor-pointer"
+                title="SAP Certified Ecosystem (ECC, S/4HANA, RISE)"
+              >
+                <img
+                  src="/logos/sap-logo.svg"
+                  alt="SAP Logo"
+                  className="h-6 w-auto object-contain filter group-hover:brightness-105"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                className="h-11 px-3.5 py-1.5 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-transform group cursor-pointer"
+                title="Tally Solutions - Power of Simplicity"
+              >
+                <img
+                  src="/logos/tally-logo.png"
+                  alt="Tally - Power of Simplicity Logo"
+                  className="h-6 w-auto object-contain filter group-hover:brightness-105"
+                  loading="lazy"
+                />
+              </div>
+
+              <div
+                className="h-11 px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-transform group cursor-pointer"
+                title="Zoho Enterprise Cloud Integration"
+              >
+                <img
+                  src="/logos/zoho-logo.svg"
+                  alt="Zoho Logo"
+                  className="h-5 w-auto object-contain filter group-hover:brightness-105"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Products Column (Each product linked separately per PDF Page 8) */}
@@ -209,16 +256,72 @@ export default function Footer() {
 
       </div>
 
+      {/* Enterprise ERP Ecosystem Banner Strip */}
+      <div className="border-t border-[#1267a7]/25 bg-[#03101c] py-6 px-6">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#f7c037] bg-[#f7c037]/10 px-3 py-1 rounded-full border border-[#f7c037]/25">
+              <span className="w-2 h-2 rounded-full bg-[#f7c037] animate-pulse"></span>
+              Supported ERP Platforms
+            </span>
+            <span className="text-xs text-[#9eddf7]/70">
+              Native bi-directional connectors & enterprise compliance for SAP, Tally Prime, and Zoho ecosystems.
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 shrink-0">
+            {/* SAP Logo */}
+            <div
+              className="h-10 px-3.5 py-1 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-all"
+              title="SAP Certified Ecosystem (ECC, S/4HANA, RISE)"
+            >
+              <img
+                src="/logos/sap-logo.svg"
+                alt="SAP Logo"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Tally Logo */}
+            <div
+              className="h-10 px-3.5 py-1 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-all"
+              title="Tally Solutions - Power of Simplicity"
+            >
+              <img
+                src="/logos/tally-logo.png"
+                alt="Tally - Power of Simplicity Logo"
+                className="h-6 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Zoho Logo */}
+            <div
+              className="h-10 px-3.5 py-1 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-all"
+              title="Zoho Enterprise Cloud"
+            >
+              <img
+                src="/logos/zoho-logo.svg"
+                alt="Zoho Logo"
+                className="h-5 w-auto object-contain"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Bottom Bar */}
       <div className="border-t border-[#1267a7]/20 py-6 px-6 max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between text-xs text-[#9eddf7]/60 gap-4">
         <div>
           © {new Date().getFullYear()} Auggit Enterprise Solutions. All rights reserved. Built for SAP Landscapes.
         </div>
-        <div className="flex items-center gap-6">
+        {/* <div className="flex items-center gap-6">
           <span>Section 128(1) Compliant</span>
           <span>Section 62 IT Act Ready</span>
           <span>Listed on SAP Store</span>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

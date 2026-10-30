@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Link } from "react-router";
 import { FiArrowRight, FiCheckCircle, FiShield, FiDatabase, FiCpu, FiPlayCircle } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
@@ -23,13 +24,31 @@ const slaiceFeatures = [
 ];
 
 export default function SlaiceProductSection() {
-  return (
-    <section className="relative overflow-hidden bg-white text-[#353535] py-16 sm:py-20 px-6 lg:px-16 border-b border-[#e3e3e3]">
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { amount: 0.25 });
 
+  return (
+    <section
+      id="featured-slaice"
+      ref={sectionRef}
+      className={`relative overflow-hidden py-16 sm:py-24 px-6 lg:px-16 border-b transition-colors duration-700 ease-in-out ${
+        isInView
+          ? "bg-[#eaf4fc] border-[#c2e2f5]"
+          : "bg-white border-[#e3e3e3]"
+      } text-[#353535]`}
+    >
       {/* Background Accent Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -left-20 w-80 h-80 bg-[#9eddf7]/20 rounded-full blur-xl" />
-        <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#ffeda0]/15 rounded-full blur-xl" />
+        <div
+          className={`absolute top-1/4 -left-20 w-80 h-80 rounded-full blur-3xl transition-all duration-700 ${
+            isInView ? "bg-[#41a0c8]/30 scale-125" : "bg-[#9eddf7]/15 scale-100"
+          }`}
+        />
+        <div
+          className={`absolute bottom-10 right-10 w-96 h-96 rounded-full blur-3xl transition-all duration-700 ${
+            isInView ? "bg-[#38bdf8]/20 scale-125" : "bg-[#ffeda0]/15 scale-100"
+          }`}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -43,7 +62,11 @@ export default function SlaiceProductSection() {
           className="lg:col-span-6 relative flex justify-center"
         >
           <div className="relative w-full max-w-xl group">
-            <div className="absolute inset-0 bg-[#41a0c8]/15 rounded-3xl blur-xl -z-10 group-hover:bg-[#41a0c8]/25 transition-all duration-500" />
+            <div
+              className={`absolute inset-0 rounded-3xl blur-2xl -z-10 transition-all duration-500 ${
+                isInView ? "bg-[#41a0c8]/25 scale-105" : "bg-[#41a0c8]/15 scale-100"
+              }`}
+            />
 
             <div className="relative bg-white rounded-3xl p-3 border border-[#e3e3e3] shadow-[0_20px_50px_rgba(6,32,57,0.1)] overflow-hidden">
               <img
@@ -57,7 +80,7 @@ export default function SlaiceProductSection() {
               />
             </div>
 
-            {/* Floating Highlight Pill - SLT removed per PDF Page 1 */}
+            {/* Floating Highlight Pill */}
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
@@ -77,7 +100,7 @@ export default function SlaiceProductSection() {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="lg:col-span-6 space-y-6 text-left"
         >
-          <div className="inline-flex items-center gap-2 bg-[#f1f2f2] text-[#41a0c8] px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border border-[#9eddf7] shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white text-[#41a0c8] px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border border-[#9eddf7] shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#41a0c8] animate-pulse"></span>
             Featured Product • SLaiCE (Built on SAP)
           </div>
@@ -115,9 +138,9 @@ export default function SlaiceProductSection() {
               return (
                 <div
                   key={idx}
-                  className="flex items-start gap-3 p-3 rounded-xl bg-[#f1f2f2]/60 border border-[#e3e3e3] hover:border-[#9eddf7] transition-colors"
+                  className="flex items-start gap-3 p-3 rounded-xl bg-white/80 border border-[#e3e3e3] hover:border-[#9eddf7] transition-colors shadow-sm"
                 >
-                  <div className="p-2 rounded-lg bg-white text-[#41a0c8] shadow-sm shrink-0">
+                  <div className="p-2 rounded-lg bg-[#f0f9ff] text-[#41a0c8] shadow-sm shrink-0">
                     <Icon className="w-4 h-4" />
                   </div>
                   <span className="text-xs text-[#353535] font-medium leading-snug">
@@ -129,7 +152,7 @@ export default function SlaiceProductSection() {
           </div>
 
           {/* SLaiCE Performance Metrics (PDF Page 6: 10X, 5X, 100%) */}
-          <div className="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-slate-50 border border-slate-200 text-center">
+          <div className="grid grid-cols-3 gap-3 p-4 rounded-2xl bg-white/90 border border-slate-200 text-center shadow-sm">
             <div>
               <div className="text-xl font-black text-[#062039]">10X</div>
               <div className="text-[10px] text-slate-500 font-semibold uppercase">Faster Cutover</div>

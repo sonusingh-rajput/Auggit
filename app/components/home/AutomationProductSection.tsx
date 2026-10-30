@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import { Link } from "react-router";
 import { FiArrowRight, FiCheckCircle, FiLayers, FiFileText, FiTrendingUp, FiPlayCircle, FiCpu } from "react-icons/fi";
 
@@ -22,13 +23,31 @@ const automationFeatures = [
 ];
 
 export default function AutomationProductSection() {
-  return (
-    <section className="relative overflow-hidden bg-[#f8fafc] text-[#353535] py-16 sm:py-20 px-6 lg:px-16 border-b border-[#e3e3e3]">
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { amount: 0.25 });
 
+  return (
+    <section
+      id="featured-automation"
+      ref={sectionRef}
+      className={`relative overflow-hidden py-16 sm:py-24 px-6 lg:px-16 border-b transition-colors duration-700 ease-in-out ${
+        isInView
+          ? "bg-[#eaf1f8] border-[#c0d6ea]"
+          : "bg-[#f8fafc] border-[#e3e3e3]"
+      } text-[#353535]`}
+    >
       {/* Background Subtle Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-1/4 -right-20 w-80 h-80 bg-[#9eddf7]/20 rounded-full blur-xl" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-[#ffeda0]/15 rounded-full blur-xl" />
+        <div
+          className={`absolute top-1/4 -right-20 w-80 h-80 rounded-full blur-3xl transition-all duration-700 ${
+            isInView ? "bg-[#1267a7]/25 scale-125" : "bg-[#9eddf7]/15 scale-100"
+          }`}
+        />
+        <div
+          className={`absolute bottom-10 left-10 w-96 h-96 rounded-full blur-3xl transition-all duration-700 ${
+            isInView ? "bg-[#41a0c8]/20 scale-125" : "bg-[#ffeda0]/15 scale-100"
+          }`}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
@@ -109,7 +128,11 @@ export default function AutomationProductSection() {
           className="lg:col-span-6 relative flex justify-center"
         >
           <div className="relative w-full max-w-xl group">
-            <div className="absolute inset-0 bg-[#41a0c8]/15 rounded-3xl blur-2xl -z-10 group-hover:bg-[#41a0c8]/25 transition-all duration-500" />
+            <div
+              className={`absolute inset-0 rounded-3xl blur-2xl -z-10 transition-all duration-500 ${
+                isInView ? "bg-[#1267a7]/25 scale-105" : "bg-[#41a0c8]/15 scale-100"
+              }`}
+            />
 
             <div className="relative bg-white rounded-3xl p-3 border border-[#e3e3e3] shadow-[0_20px_50px_rgba(6,32,57,0.1)] overflow-hidden">
               <img

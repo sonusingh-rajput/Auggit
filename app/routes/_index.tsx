@@ -29,7 +29,7 @@ export default function Index() {
       <HomeProductsGrid />
 
       {/* 7. Integrations Section (SAP, Tally, Zoho) */}
-      <IntegrationsSection />
+      {/* <IntegrationsSection /> */}
 
       {/* 8. Customer Testimonials (Case Studies, Real CFO Quotes, LinkedIn Video Testimonial) */}
       <TestimonialSection />

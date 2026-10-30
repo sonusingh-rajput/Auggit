@@ -491,22 +491,23 @@ export default function Navbar() {
                     onClick={() => setActiveDropdown(null)}
                     className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
                   >
-                    About Us & Leadership
-                  </Link>
-                  <Link
-                    to="/partner-with-us"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
-                  >
-                    Reseller Partners (Partner with us)
+                    About Us 
                   </Link>
                   <Link
                     to="/contact"
                     onClick={() => setActiveDropdown(null)}
                     className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
                   >
-                    Contact Us & Offices
+                    Contact Us 
                   </Link>
+                  <Link
+                    to="/partner-with-us"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
+                  >
+                    Partner with us
+                  </Link>
+                  
                 </motion.div>
               )}
             </AnimatePresence>
@@ -549,19 +550,20 @@ export default function Navbar() {
                   transition={{ duration: 0.18 }}
                   className="absolute top-full right-0 mt-3 w-56 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 p-2 z-50 space-y-1"
                 >
-                  <Link
-                    to="/research"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
-                  >
-                    Research Articles
-                  </Link>
+                  
                   <Link
                     to="/blog"
                     onClick={() => setActiveDropdown(null)}
                     className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
                   >
-                    Blog
+                    Blogs
+                  </Link>
+                   <Link
+                    to="/faq"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
+                  >
+                    FAQs
                   </Link>
                   <Link
                     to="/casestudy"
@@ -571,19 +573,20 @@ export default function Navbar() {
                     Case Studies
                   </Link>
                   <Link
+                    to="/research"
+                    onClick={() => setActiveDropdown(null)}
+                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
+                  >
+                    Research Articles
+                  </Link>
+                  {/* <Link
                     to="/usecase"
                     onClick={() => setActiveDropdown(null)}
                     className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
                   >
                     Use Cases
-                  </Link>
-                  <Link
-                    to="/faq"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
-                  >
-                    Frequently Asked Q&As
-                  </Link>
+                  </Link> */}
+                 
                 </motion.div>
               )}
             </AnimatePresence>
