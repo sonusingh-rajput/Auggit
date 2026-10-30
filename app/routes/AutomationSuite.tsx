@@ -315,7 +315,7 @@ export default function AutomationSuite() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.35, delay: idx * 0.06 }}
-                className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-[#41a0c8] transition-colors flex flex-col justify-between"
+                className="bg-white/5 rounded-2xl p-6 border border-white/10 hover:border-[#41a0c8] transition-colors flex flex-col justify-start"
               >
                 {/* Visual */}
                 <div className="h-40 mb-4 flex items-center justify-center rounded-xl bg-[#062039]/50 border border-white/5">
@@ -327,7 +327,7 @@ export default function AutomationSuite() {
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+                  <h3 className="text-base sm:text-lg font-bold text-white leading-snug lg:min-h-[4.5rem]">
                     {item.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-[#f1f2f2]/80 leading-relaxed">
@@ -337,6 +337,22 @@ export default function AutomationSuite() {
               </motion.div>
             ))}
           </div>
+
+          {/* AI-enabled Intelligent Document Repository */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35 }}
+            className="bg-white/5 rounded-2xl p-6 sm:p-8 border border-white/10 hover:border-[#41a0c8] transition-colors"
+          >
+            <h3 className="text-base sm:text-lg font-bold text-white leading-snug">
+              AI Enabled Intelligent Document Repository
+            </h3>
+            <p className="mt-3 text-xs sm:text-sm text-[#f1f2f2]/80 leading-relaxed">
+              A centralized, AI enabled repository that stores, classifies, and links documents across all modules for instant search, retrieval, and complete traceability.
+            </p>
+          </motion.div>
         </div>
       </section>
 
@@ -361,7 +377,7 @@ export default function AutomationSuite() {
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 {
-                  title: "OCR & Intelligent Data Capture",
+                  title: "AI/LLM powered OCR & Intelligent Data Capture",
                   icon: FiMaximize2,
                   desc: "Extracts metadata from documents for faster, structured information processing. Using OCR and Agentic AI LLMs",
                 },
@@ -388,7 +404,7 @@ export default function AutomationSuite() {
                 {
                   title: "Document Health Report",
                   icon: FiActivity,
-                  desc: "Real-time visibility into missing, incomplete and pending records",
+                  desc: "Real-time monitoring of missing, incomplete and pending documentation",
                 },
                 {
                   title: "TAG Report",
