@@ -12,6 +12,7 @@ import {
   FiLayers,
 } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
+import ProcessFlow from "../components/ProcessFlow";
 
 export default function GatePassPage() {
   const [passType, setPassType] = useState<"inward" | "outward" | "returnable">("inward");
@@ -72,6 +73,64 @@ export default function GatePassPage() {
             </a>
           </div>
         </div>
+
+        {/* PROCESS FLOW (per Gate Pass Management workflow) */}
+        <ProcessFlow
+          heading="Gate Pass Management Workflow"
+          subheading="Direction of movement decides the flow: material inward, sales movement, returnable (RGP) or non-returnable (NRGP) gate pass."
+          tracks={[
+            {
+              label: "Material Inward",
+              note: "Vehicle arrives at the gate carrying PO and invoice, or invoice only.",
+              steps: [
+                { title: "PO reference captured at the gate", detail: "PO available: embedded QR code scanned. Only invoice available: invoice scanned and PO number captured." },
+                { title: "PO details fetched and matched in SAP", detail: "Vendor details, PO number, material, quantity." },
+                { title: "Automated gate-entry document created" },
+                { title: "Gate-entry document and invoice stored in Auggit eDMS", detail: "Tagged against the respective PO." },
+                { title: "Gate entry approved", detail: "Vehicle permitted to enter." },
+              ],
+            },
+            {
+              label: "Sales Movement (Material Outward)",
+              note: "Customer dispatch.",
+              steps: [
+                { title: "Sales order and outbound delivery created in SAP" },
+                { title: "Material picked and packed for dispatch" },
+                { title: "Goods issue posted in SAP" },
+                { title: "Invoice, delivery challan and e-way bill generated", detail: "As applicable." },
+                { title: "Sales gate pass generated", detail: "With unique QR/barcode." },
+                { title: "Gate pass and dispatch documents stored in Auggit eDMS", detail: "Against the respective sales order / outbound delivery." },
+                { title: "QR/barcode scanned and verified at the gate", detail: "Customer, material, quantity, vehicle, dispatch documents." },
+                { title: "Material exit recorded and sales movement closed" },
+              ],
+            },
+            {
+              label: "RGP - Returnable Gate Pass",
+              note: "Material is expected to return.",
+              steps: [
+                { title: "Outward movement initiated", detail: "Material, quantity, purpose, destination, vehicle details." },
+                { title: "Request approved and SAP transaction updated", detail: "Relevant goods-movement transaction recorded." },
+                { title: "RGP generated", detail: "QR/barcode, expected return date." },
+                { title: "Stored in Auggit eDMS and verified at gate", detail: "Documents tagged; outbound weight captured, if applicable." },
+                { title: "Material exits, RGP remains open", detail: "Return due date monitored." },
+                { title: "Material returns to the gate", detail: "QR/RGP number scanned; quantity and condition verified." },
+                { title: "Return updated in SAP and RGP closed" },
+              ],
+            },
+            {
+              label: "NRGP - Non-Returnable Gate Pass",
+              note: "Material will not return.",
+              steps: [
+                { title: "Outward movement initiated", detail: "Material, quantity, purpose, destination, vehicle details." },
+                { title: "Request approved and SAP transaction updated", detail: "Relevant goods-movement transaction recorded." },
+                { title: "NRGP generated", detail: "QR/barcode, e-way bill if applicable." },
+                { title: "Stored in Auggit eDMS and verified at gate", detail: "Documents tagged; outbound weight captured, if applicable." },
+                { title: "Material exit recorded", detail: "QR/barcode scanned and exit confirmed." },
+                { title: "NRGP closed" },
+              ],
+            },
+          ]}
+        />
 
         {/* 2. INTERACTIVE GATE PASS SIMULATOR */}
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl">
@@ -176,6 +235,37 @@ export default function GatePassPage() {
             </div>
           </div>
         </div>
+
+        {/* CUSTOMER STORY (per Auggit Solution - Partners deck, Use Case 5) */}
+        <ProcessFlow
+          eyebrow="Customer Story"
+          heading="The 7-Step Manual Process Maze"
+          subheading="A French fries manufacturer for McDonald's and PepsiCo ran an incredibly manual, un-tracked and scattered workflow. During audits, many documents went missing, because the process was spread across the PO team, gate staff, QC team, accounts and the CEO."
+          tracks={[
+            {
+              label: "Before Auggit",
+              note: "The final step was the bottleneck, delayed by manual compilation of all physical documents scattered across the 6 prior steps.",
+              steps: [
+                { title: "PO received on WhatsApp" },
+                { title: "Truck arrives with e-way bill and invoice" },
+                { title: "Gate team makes manual entries" },
+                { title: "Quality team checks random potatoes" },
+                { title: "If passed, truck goes to weighing and unload" },
+                { title: "Accounts department enters documents" },
+                { title: "Sent for CEO approval" },
+              ],
+            },
+            {
+              label: "With Auggit",
+              steps: [
+                { title: "Document workflow defined" },
+                { title: "Tagging for traceability" },
+                { title: "Online CEO approvals" },
+                { title: "Zero document loss" },
+              ],
+            },
+          ]}
+        />
 
         {/* 3. KEY OPERATIONAL BENEFITS */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

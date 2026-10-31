@@ -14,6 +14,7 @@ import {
   FiSend,
 } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
+import ProcessFlow from "../components/ProcessFlow";
 
 export default function ApAutomationPage() {
   const [invoiceForm, setInvoiceForm] = useState({
@@ -93,6 +94,39 @@ export default function ApAutomationPage() {
             </a>
           </div>
         </div>
+
+        {/* PROCESS FLOW (per Supplier Invoice Processing workflow) */}
+        <ProcessFlow
+          heading="Supplier Invoice Processing Workflow"
+          tracks={[
+            {
+              label: "Invoice Capture and Matching",
+              steps: [
+                { title: "Supplier invoice received" },
+                { title: "Invoice details extracted through AI-enabled data capture", detail: "Vendor, invoice number, date, tax and amount details." },
+                { title: "Invoice linked with the relevant PO and GRN in Auggit eDMS", detail: "GRN linked where applicable." },
+                { title: "Corresponding PO and supporting documents fetched" },
+                { title: "Two-way or three-way matching performed", detail: "Two-way: PO and supplier invoice. Three-way: PO, GRN and supplier invoice." },
+              ],
+            },
+            {
+              label: "Matching Outcome",
+              steps: [
+                { title: "Discrepancy raised", detail: "Invoice parked, corrected, and the matching process repeated." },
+                { title: "Invoice verified", detail: "Matching completed successfully; invoice proceeds to approval." },
+              ],
+            },
+            {
+              label: "Approval and Payment",
+              steps: [
+                { title: "Invoice approval workflow" },
+                { title: "Invoice tagged and stored in Auggit eDMS" },
+                { title: "Approved invoice posted in SAP" },
+              ],
+            },
+          ]}
+          outcome="Payment processed as per payment terms"
+        />
 
         {/* 2. THE MIRO - MIGO 3-WAY MATCHING ARCHITECTURE */}
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl">
