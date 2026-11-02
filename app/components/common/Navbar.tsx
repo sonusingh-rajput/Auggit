@@ -11,6 +11,7 @@ import {
   HiX,
   HiBriefcase,
   HiLightBulb,
+  HiUserGroup,
 } from "react-icons/hi";
 import {
   FiArrowRight,
@@ -40,7 +41,8 @@ export default function Navbar() {
     if (path.startsWith("/product") || path.startsWith("/book-poc") || path.startsWith("/request-demo")) return "Products";
     if (path.startsWith("/services")) return "Services";
     if (path.startsWith("/solutions")) return "Solutions";
-    if (path.startsWith("/about") || path.startsWith("/partner-with-us")) return "Company";
+    if (path.startsWith("/about")) return "Company";
+    if (path.startsWith("/partner-with-us")) return "Partner";
     if (["/research", "/blog", "/casestudy", "/usecase", "/faq"].some((p) => path.startsWith(p))) return "Resources";
     return "";
   };
@@ -500,18 +502,29 @@ export default function Navbar() {
                   >
                     Contact Us 
                   </Link>
-                  <Link
-                    to="/partner-with-us"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
-                  >
-                    Partner with us
-                  </Link>
                   
                 </motion.div>
               )}
             </AnimatePresence>
           </div>
+
+          {/* 5b. PARTNER WITH US */}
+          <Link
+            to="/partner-with-us"
+            className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
+              activeTab === "Partner" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+            }`}
+          >
+            {activeTab === "Partner" && (
+              <motion.div
+                layoutId="activePill"
+                className="absolute inset-0 bg-white rounded-full -z-10 border border-[#e3e3e3] shadow-[0_2px_10px_rgba(6,32,57,0.06)]"
+                transition={{ type: "spring", stiffness: 450, damping: 35 }}
+              />
+            )}
+            <HiUserGroup className={`w-4 h-4 ${activeTab === "Partner" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
+            <span>Partner with Us</span>
+          </Link>
 
           {/* 6. RESOURCES */}
           <div
@@ -723,14 +736,19 @@ export default function Navbar() {
                   <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block text-[#062039]">
                     About Us & Leadership
                   </Link>
-                  <Link to="/partner-with-us" onClick={() => setMobileMenuOpen(false)} className="block text-[#062039]">
-                    Reseller Partners
-                  </Link>
                   <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-[#062039]">
                     Contact Us & Offices
                   </Link>
                 </div>
               </div>
+
+              <Link
+                to="/partner-with-us"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-base font-bold text-[#062039] py-1 border-b border-slate-100"
+              >
+                Partner with Us
+              </Link>
 
               {/* Mobile Resources */}
               <div className="border-b border-slate-100 pb-2">

@@ -1,0 +1,138 @@
+.partner-hero {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+  background: linear-gradient(115deg, #061a32 0%, #09254a 55%, #071a35 100%);
+  display: flex;
+  align-items: center;
+  padding: 70px 7%;
+  color: white;
+  isolation: isolate;
+}
+
+.partner-hero .partner-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.partner-hero .hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.partner-hero .glow-one {
+  width: 400px;
+  height: 400px;
+  background: #1265c7;
+  opacity: 0.18;
+  top: -200px;
+  left: -100px;
+}
+
+.partner-hero .glow-two {
+  width: 500px;
+  height: 500px;
+  background: #147bda;
+  opacity: 0.16;
+  bottom: -300px;
+  right: 0;
+}
+
+.partner-hero .partner-content {
+  max-width: 700px;
+}
+
+.partner-hero .partner-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #79baff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  margin-bottom: 28px;
+}
+
+.partner-hero .eyebrow-line {
+  width: 35px;
+  height: 2px;
+  background: #55a7ff;
+}
+
+.partner-hero h1 {
+  font-size: clamp(42px, 4.2vw, 68px);
+  line-height: 1.13;
+  letter-spacing: -1.5px;
+  font-weight: 650;
+  margin: 0;
+}
+
+.partner-hero h1 span {
+  background: linear-gradient(90deg, #55a9ff, #a5d5ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.partner-hero .partner-description {
+  max-width: 570px;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #c0d0e3;
+  margin: 28px 0 0;
+}
+
+.partner-hero .partner-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partner-hero .partner-visual img {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  /* Fade the image's own background into the hero so no box edge shows */
+  -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 62%, transparent 100%);
+  mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 62%, transparent 100%);
+}
+
+@media (max-width: 1000px) {
+  .partner-hero {
+    padding: 75px 5%;
+  }
+
+  .partner-hero .partner-container {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-hero .partner-content {
+    max-width: 750px;
+  }
+}
+
+@media (max-width: 600px) {
+  .partner-hero {
+    padding: 65px 22px;
+  }
+
+  .partner-hero h1 {
+    font-size: 40px;
+    letter-spacing: -1.5px;
+  }
+
+  .partner-hero .partner-description {
+    font-size: 15px;
+  }
+
+}
