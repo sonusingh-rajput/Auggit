@@ -69,41 +69,51 @@ export default function TestimonialSection() {
       <div className="max-w-7xl mx-auto relative z-10 space-y-16">
 
         {/* 1. Customer Case Studies Highlight Bar (PDF Page 8) */}
-        <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
-            <div>
-              <span className="text-[11px] font-bold uppercase tracking-wider text-[#41a0c8]">
-                Proven Client Results
-              </span>
-              <h3 className="text-xl font-extrabold text-[#062039]">
-                Featured Enterprise Case Studies
-              </h3>
-            </div>
-            <Link
-              to="/casestudy"
-              className="text-xs font-bold text-[#41a0c8] hover:text-[#1267a7] flex items-center gap-1.5"
-            >
-              <span>View All Case Studies</span>
-              <FiArrowRight className="w-3.5 h-3.5" />
-            </Link>
+        <div className="space-y-8">
+          {/* Section Header matching standard styling with balanced spacing */}
+          <div className="text-center max-w-2xl mx-auto flex flex-col items-center gap-3">
+            <span className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-[#41a0c8] bg-[#f1f2f2] px-4 py-1.5 rounded-full border border-slate-200 shadow-sm">
+              Proven Client Results
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#062039] tracking-tight">
+              Featured Enterprise Case Studies
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-500 max-w-xl">
+              Real-world ROI, compliance milestones, and operational speed achieved across manufacturing, aviation, and automotive leaders.
+            </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-            {caseStudiesShared.map((cs, i) => (
+          <div className="p-6 rounded-3xl bg-slate-50 border border-slate-200 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+              <span className="text-xs font-bold text-slate-600">
+                Validated Industry Benchmarks & Case Highlights:
+              </span>
               <Link
-                key={i}
-                to={`/casestudy`}
-                className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-[#41a0c8] shadow-sm hover:shadow-md transition-all group"
+                to="/casestudy"
+                className="text-xs font-bold text-[#41a0c8] hover:text-[#1267a7] flex items-center gap-1.5 transition-colors"
               >
-                <div className="text-xs font-extrabold text-[#062039] group-hover:text-[#41a0c8] transition-colors leading-snug line-clamp-1">
-                  {cs.name}
-                </div>
-                <div className="text-[10px] text-emerald-600 font-bold mt-1 flex items-center gap-1">
-                  <FiCheckCircle className="w-3 h-3 flex-shrink-0" />
-                  <span>{cs.metric}</span>
-                </div>
+                <span>View All Case Studies</span>
+                <FiArrowRight className="w-3.5 h-3.5" />
               </Link>
-            ))}
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {caseStudiesShared.map((cs, i) => (
+                <Link
+                  key={i}
+                  to={`/casestudy`}
+                  className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-[#41a0c8] shadow-sm hover:shadow-md transition-all group"
+                >
+                  <div className="text-xs font-extrabold text-[#062039] group-hover:text-[#41a0c8] transition-colors leading-snug line-clamp-1">
+                    {cs.name}
+                  </div>
+                  <div className="text-[10px] text-emerald-600 font-bold mt-1 flex items-center gap-1">
+                    <FiCheckCircle className="w-3 h-3 flex-shrink-0" />
+                    <span>{cs.metric}</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
 

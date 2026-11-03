@@ -41,7 +41,7 @@ export default function Footer() {
               href="/book-poc"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#f7c037] hover:bg-[#e5b02a] text-[#062039] font-black text-xs uppercase tracking-wider shadow-lg transition-all"
             >
-              <span>Book Your Free POC</span>
+              <span>Request Demo</span>
               <FiArrowRight className="w-3.5 h-3.5" />
             </a>
           </div>

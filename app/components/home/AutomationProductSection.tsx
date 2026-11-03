@@ -1,7 +1,7 @@
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Link } from "react-router";
-import { FiArrowRight, FiCheckCircle, FiLayers, FiFileText, FiTrendingUp, FiPlayCircle, FiCpu } from "react-icons/fi";
+import { FiArrowRight, FiCheckCircle, FiLayers, FiFileText, FiTrendingUp, FiCpu, FiPlay, FiX } from "react-icons/fi";
 
 const automationFeatures = [
   {
@@ -23,6 +23,7 @@ const automationFeatures = [
 ];
 
 export default function AutomationProductSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { amount: 0.25 });
 
@@ -58,7 +59,7 @@ export default function AutomationProductSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="lg:col-span-6 space-y-6 text-left"
+          className="lg:col-span-5 space-y-6 text-left"
         >
           <div className="inline-flex items-center gap-2 bg-white text-[#41a0c8] px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border border-[#9eddf7] shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#41a0c8] animate-pulse"></span>
@@ -97,7 +98,7 @@ export default function AutomationProductSection() {
             })}
           </div>
 
-          {/* Action Buttons & YouTube Video Link per PDF Page 6 */}
+          {/* Action Button - Explore Automation Suite only */}
           <div className="flex flex-wrap items-center gap-4 pt-2">
             <Link
               to="/product/automation-suite"
@@ -106,55 +107,82 @@ export default function AutomationProductSection() {
               <span>Explore Automation Suite</span>
               <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-
-            <a
-              href="https://www.youtube.com/watch?v=aLZsnVJbzFY"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white hover:bg-slate-50 text-[#062039] border border-slate-200 text-xs font-bold shadow-sm transition-all"
-            >
-              <FiPlayCircle className="w-4 h-4 text-rose-600" />
-              <span>Watch Video (1:44)</span>
-            </a>
           </div>
         </motion.div>
 
-        {/* Right Column: Visual Mockup */}
+        {/* Right Column: Visual Mockup / Video Player (Increased Size) */}
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="lg:col-span-6 relative flex justify-center"
+          className="lg:col-span-7 relative flex justify-center w-full"
         >
-          <div className="relative w-full max-w-xl group">
+          <div className="relative w-full max-w-2xl group">
             <div
               className={`absolute inset-0 rounded-3xl blur-2xl -z-10 transition-all duration-500 ${
                 isInView ? "bg-[#1267a7]/25 scale-105" : "bg-[#41a0c8]/15 scale-100"
               }`}
             />
 
-            <div className="relative bg-white rounded-3xl p-3 border border-[#e3e3e3] shadow-[0_20px_50px_rgba(6,32,57,0.1)] overflow-hidden">
-              <img
-                src="/Automation_Suite_image/Automation_Suite_Introducing.webp"
-                alt="Auggit Automation Suite Dashboard"
-                width={640}
-                height={380}
-                loading="lazy"
-                decoding="async"
-                className="w-full h-auto rounded-2xl object-cover transform group-hover:scale-[1.01] transition-transform duration-500"
-              />
+            <div className="relative bg-white rounded-3xl p-2 sm:p-3 border border-[#e3e3e3] shadow-[0_20px_50px_rgba(6,32,57,0.12)] overflow-hidden aspect-video">
+              {isPlaying ? (
+                <div className="relative w-full h-full rounded-2xl overflow-hidden bg-black">
+                  <iframe
+                    src="https://www.youtube-nocookie.com/embed/aLZsnVJbzFY?autoplay=1&rel=0"
+                    title="Auggit Automation Suite Video"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full border-0 rounded-2xl"
+                  />
+                  {/* Close / X button */}
+                  <button
+                    onClick={() => setIsPlaying(false)}
+                    className="absolute top-3 right-3 z-30 w-8 h-8 rounded-full bg-[#062039]/90 hover:bg-rose-600 text-white flex items-center justify-center shadow-xl border border-white/30 backdrop-blur-md transition-all hover:scale-110 cursor-pointer"
+                    title="Close Video"
+                    aria-label="Close Video"
+                  >
+                    <FiX className="w-4 h-4" />
+                  </button>
+                </div>
+              ) : (
+                <div
+                  onClick={() => setIsPlaying(true)}
+                  className="relative w-full h-full rounded-2xl overflow-hidden cursor-pointer group/video"
+                >
+                  <img
+                    src="/automation-video-thumbnail.webp"
+                    alt="Auggit Automation Suite Interface Video"
+                    width={800}
+                    height={450}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-cover transform group-hover/video:scale-105 transition-transform duration-500"
+                  />
+                  {/* Video Play Overlay */}
+                  <div className="absolute inset-0 bg-[#062039]/30 group-hover/video:bg-[#062039]/15 transition-colors flex flex-col items-center justify-center gap-3">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/95 text-rose-600 shadow-2xl flex items-center justify-center transform group-hover/video:scale-110 transition-transform">
+                      <FiPlay className="w-7 h-7 sm:w-8 sm:h-8 ml-1 fill-rose-600" />
+                    </div>
+                    <span className="text-xs sm:text-sm font-extrabold text-white bg-[#062039]/85 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-md">
+                      Watch Video
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Floating Highlight Pill */}
-            <motion.div
-              animate={{ y: [0, -6, 0] }}
-              transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
-              className="absolute -bottom-4 left-4 sm:left-8 bg-white/95 backdrop-blur-md border border-[#9eddf7] shadow-[0_10px_25px_rgba(6,32,57,0.12)] px-4 py-2 rounded-xl flex items-center gap-2 transform-gpu"
-            >
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="text-xs font-bold text-[#062039]">Live Enterprise Automation</span>
-            </motion.div>
+            {!isPlaying && (
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut", delay: 0.5 }}
+                className="absolute -bottom-4 left-4 sm:left-8 bg-white/95 backdrop-blur-md border border-[#9eddf7] shadow-[0_10px_25px_rgba(6,32,57,0.12)] px-4 py-2 rounded-xl flex items-center gap-2 transform-gpu"
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span className="text-xs font-bold text-[#062039]">Live Enterprise Automation</span>
+              </motion.div>
+            )}
           </div>
         </motion.div>
 

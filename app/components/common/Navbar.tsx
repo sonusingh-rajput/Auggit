@@ -39,8 +39,8 @@ export default function Navbar() {
     const path = location.pathname;
     if (path === "/") return "Home";
     if (path.startsWith("/product") || path.startsWith("/book-poc") || path.startsWith("/request-demo")) return "Products";
-    if (path.startsWith("/services")) return "Services";
-    if (path.startsWith("/solutions")) return "Solutions";
+    // if (path.startsWith("/services")) return "Services";
+    if (path.startsWith("/solutions")) return "Industries";
     if (path.startsWith("/about")) return "Company";
     if (path.startsWith("/partner-with-us")) return "Partner";
     if (["/research", "/blog", "/casestudy", "/usecase", "/faq"].some((p) => path.startsWith(p))) return "Resources";
@@ -307,7 +307,7 @@ export default function Navbar() {
                         onClick={() => setActiveDropdown(null)}
                         className="px-4 py-2 rounded-xl bg-[#062039] hover:bg-[#1267a7] text-white text-xs font-bold shadow-md transition-all flex items-center gap-1.5"
                       >
-                        <span>Book Your Free POC</span>
+                        <span>Request Demo</span>
                         <FiArrowRight className="w-3.5 h-3.5" />
                       </Link>
                     </div>
@@ -317,8 +317,8 @@ export default function Navbar() {
             </AnimatePresence>
           </div>
 
-          {/* 3. SERVICES */}
-          <div
+          {/* 3. SERVICES (COMMENTED OUT) */}
+          {/* <div
             className="relative px-1"
             onMouseEnter={() => setActiveDropdown("Services")}
             onMouseLeave={() => setActiveDropdown(null)}
@@ -390,66 +390,25 @@ export default function Navbar() {
                 </motion.div>
               )}
             </AnimatePresence>
-          </div>
+          </div> */}
 
-          {/* 4. SOLUTIONS */}
-          <div
-            className="relative px-1"
-            onMouseEnter={() => setActiveDropdown("Solutions")}
-            onMouseLeave={() => setActiveDropdown(null)}
+          {/* 4. INDUSTRIES */}
+          <Link
+            to="/solutions"
+            className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
+              activeTab === "Industries" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+            }`}
           >
-            <Link
-              to="/solutions"
-              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
-                activeTab === "Solutions" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
-              }`}
-            >
-              {activeTab === "Solutions" && (
-                <motion.div
-                  layoutId="activePill"
-                  className="absolute inset-0 bg-white rounded-full -z-10 border border-[#e3e3e3] shadow-[0_2px_10px_rgba(6,32,57,0.06)]"
-                  transition={{ type: "spring", stiffness: 450, damping: 35 }}
-                />
-              )}
-              <HiLightBulb className={`w-4 h-4 ${activeTab === "Solutions" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
-              <span>Solutions</span>
-              <HiChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === "Solutions" ? "rotate-180 text-[#41a0c8]" : "text-[#979797]"
-                }`}
+            {activeTab === "Industries" && (
+              <motion.div
+                layoutId="activePill"
+                className="absolute inset-0 bg-white rounded-full -z-10 border border-[#e3e3e3] shadow-[0_2px_10px_rgba(6,32,57,0.06)]"
+                transition={{ type: "spring", stiffness: 450, damping: 35 }}
               />
-            </Link>
-
-            <AnimatePresence>
-              {activeDropdown === "Solutions" && (
-                <motion.div
-                  initial={{ opacity: 0, y: 10, scale: 0.96 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 10, scale: 0.96 }}
-                  transition={{ duration: 0.18 }}
-                  className="absolute top-full left-0 mt-3 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 p-3 z-50 space-y-1"
-                >
-                  {[
-                    { name: "Real Estate & Infrastructure", href: "/solutions" },
-                    { name: "Heavy Manufacturing & Plants", href: "/solutions" },
-                    { name: "Retail & Multi-Store FMCG", href: "/solutions" },
-                    { name: "Garments (Version Control)", href: "/solutions" },
-                    { name: "Airports & Aviation Hubs", href: "/solutions" },
-                    { name: "Auto Manufacturers & Tier-1 OEMs", href: "/solutions" },
-                  ].map((ind, i) => (
-                    <Link
-                      key={i}
-                      to={ind.href}
-                      onClick={() => setActiveDropdown(null)}
-                      className="block px-3 py-2 rounded-xl text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 transition-colors"
-                    >
-                      {ind.name}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+            )}
+            <HiLightBulb className={`w-4 h-4 ${activeTab === "Industries" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
+            <span>Industries</span>
+          </Link>
 
           {/* 5. COMPANY */}
           <div
@@ -486,23 +445,15 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.96 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute top-full left-0 mt-3 w-56 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 p-2 z-50 space-y-1"
+                  className="absolute top-full left-0 mt-3 w-48 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 p-2 z-50 space-y-1"
                 >
                   <Link
                     to="/about"
                     onClick={() => setActiveDropdown(null)}
                     className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
                   >
-                    About Us 
+                    About Us
                   </Link>
-                  <Link
-                    to="/contact"
-                    onClick={() => setActiveDropdown(null)}
-                    className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
-                  >
-                    Contact Us 
-                  </Link>
-                  
                 </motion.div>
               )}
             </AnimatePresence>
@@ -607,16 +558,8 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Right Action: Free POC & Contact */}
+      {/* Right Action: Contact */}
       <div className="flex items-center gap-3">
-        <Link
-          to="/book-poc"
-          className="hidden xl:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#f7c037] hover:bg-[#e5b02a] text-[#062039] text-xs font-black uppercase tracking-wider shadow-sm transition-all hover:scale-105"
-        >
-          <span>Free POC</span>
-          <FiArrowRight className="w-3.5 h-3.5" />
-        </Link>
-
         <Link
           to="/contact"
           className="hidden sm:inline-flex items-center gap-2 bg-[#41a0c8] hover:bg-[#1267a7] text-white px-5 py-2 rounded-full font-bold text-xs transition-all shadow-[0_4px_16px_rgba(65,160,200,0.3)] hover:scale-105"
@@ -695,15 +638,15 @@ export default function Navbar() {
                         - Automatic Data Entry (ADE)
                       </Link>
                       <Link to="/book-poc" onClick={() => setMobileMenuOpen(false)} className="block font-bold text-[#f7c037]">
-                        - Book Your Free POC ★
+                        - Request Demo ★
                       </Link>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Mobile Services */}
-              <div className="border-b border-slate-100 pb-2">
+              {/* Mobile Services (COMMENTED OUT) */}
+              {/* <div className="border-b border-slate-100 pb-2">
                 <div className="text-xs font-bold uppercase tracking-wider text-[#41a0c8] mb-2">
                   Services
                 </div>
@@ -718,12 +661,12 @@ export default function Navbar() {
                     SAP ECC to SAP S/4HANA Advisory
                   </Link>
                 </div>
-              </div>
+              </div> */}
 
-              {/* Mobile Solutions */}
+              {/* Mobile Industries */}
               <div className="border-b border-slate-100 pb-2">
                 <Link to="/solutions" onClick={() => setMobileMenuOpen(false)} className="block text-base font-bold text-[#062039]">
-                  Solutions (6 Industry Verticals)
+                  Industries
                 </Link>
               </div>
 
@@ -734,10 +677,7 @@ export default function Navbar() {
                 </div>
                 <div className="pl-3 space-y-1.5 text-sm">
                   <Link to="/about" onClick={() => setMobileMenuOpen(false)} className="block text-[#062039]">
-                    About Us & Leadership
-                  </Link>
-                  <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="block text-[#062039]">
-                    Contact Us & Offices
+                    About Us
                   </Link>
                 </div>
               </div>
@@ -780,7 +720,7 @@ export default function Navbar() {
                   onClick={() => setMobileMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full bg-[#f7c037] text-[#062039] py-3 rounded-xl font-extrabold text-sm shadow-md"
                 >
-                  Book Your Free POC <FiArrowRight className="w-4 h-4" />
+                  Request Demo <FiArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/contact"

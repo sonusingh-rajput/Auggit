@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { FiChevronDown, FiDatabase, FiBox } from "react-icons/fi";
+import { FiChevronDown, FiDatabase, FiBox, FiCpu } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
 
 // ========== SLaiCE COMPANY MANDATE FAQ DATA ==========
@@ -267,6 +267,58 @@ const edmsFaqData = [
   },
 ];
 
+// ========== AUTOMATION SUITE FAQ DATA ==========
+const automationSuiteFaqs = [
+  {
+    id: "01",
+    question: "What is the AUGGIT Automation Suite?",
+    answer:
+      "AUGGIT Automation Suite is a collection of business process automation solutions designed to reduce manual work, digitize documents, automate data entry, and streamline operational workflows. It helps organizations connect documents, business processes, and enterprise systems to improve efficiency, accuracy, and visibility.",
+  },
+  {
+    id: "02",
+    question: "What business processes can AUGGIT automate?",
+    answer:
+      "AUGGIT can help automate document management, vendor onboarding, accounts payable (AP) Automation, supplier invoice processing, Goods Receipt Note ( MIRO/ MIGO), Material Movement, gate pass management, data entry automation into Tally, document digitization, digital signatures, and weighing-scale integration. The specific scope depends on the products and workflows implemented.",
+  },
+  {
+    id: "03",
+    question: "Which industries can benefit from Auggit Automation Suite?",
+    answer:
+      "Auggit Automation Suite benefits manufacturing, engineering, automotive, pharmaceuticals, FMCG, chemicals, and other document-intensive industries. Organizations that handle large volumes of invoices, purchase orders, compliance documents, vendor records, and material movements gain the most, because Auggit automates the manual document handling and checking those processes depend on.",
+  },
+  {
+    id: "04",
+    question: "Does Auggit replace our existing ERP system?",
+    answer:
+      "No, Auggit does not replace your existing ERP system. It complements the ERP by automating the processes around it, such as digitizing documents, validating information, and managing approvals. Auggit then transfers the relevant data to supported systems, including SAP, Oracle, Zoho, and Tally.",
+  },
+  {
+    id: "05",
+    question: "Can Auggit integrate with SAP, Oracle, Zoho, and Tally?",
+    answer:
+      "Yes, Auggit integrates with SAP, Oracle, Zoho, and Tally, and with many other ERP systems. Depending on the use case, the integration enables data exchange, automated data entry, document linking, and workflow automation. The exact scope depends on the ERP environment and the process being automated.",
+  },
+  {
+    id: "06",
+    question: "How does AUGGIT reduce manual work?",
+    answer:
+      "AUGGIT reduces repetitive activities such as entering invoice data, checking vendor documents, searching for missing records, matching documents, preparing gate passes, and transferring information between systems. Automation rules and approval of workflows help teams focus on exceptions and decisions rather than repetitive tasks.",
+  },
+  {
+    id: "07",
+    question: "Can Auggit automate our existing business processes?",
+    answer:
+      "Yes, Auggit can automate existing business processes. It is configured around your current workflows, document types, validation rules, and approval requirements, so teams keep familiar steps. The implementation scope is set by the current process, the integration requirements, and the automation objectives agreed at the start of the project.",
+  },
+  {
+    id: "08",
+    question: "Can organizations implement individual Auggit products or the complete suite?",
+    answer:
+      "Yes, organizations can implement individual Auggit products or the complete suite. A business can start with one solution for a specific requirement, or combine several products into a broader automation initiative. This lets teams address their highest-priority processes first and expand the automation over time.",
+  },
+];
+
 // ========== REUSABLE FAQ ITEM COMPONENT ==========
 interface FaqItemData {
   id: string;
@@ -283,13 +335,18 @@ interface FaqItemProps {
 
 const FaqItem = ({ item, isOpen, toggle, product }: FaqItemProps) => {
   const isSlaice = product === "slaice";
-  const accentColor = isSlaice ? "from-[#41a0c8] to-[#1267a7]" : "from-[#062039] to-[#1267a7]";
+  const isAutomation = product === "automation";
+  const accentColor = isSlaice
+    ? "from-[#41a0c8] to-[#1267a7]"
+    : isAutomation
+      ? "from-[#1267a7] to-[#062039]"
+      : "from-[#062039] to-[#1267a7]";
 
   return (
     <motion.div
       className={`relative overflow-hidden rounded-2xl transition-all duration-300 ${isOpen
-          ? "bg-white/95 shadow-xl shadow-[#41a0c8]/10 border border-[#9eddf7]"
-          : "bg-white/80 hover:bg-white shadow-md shadow-slate-200/50 border border-[#e3e3e3] hover:border-[#9eddf7]"
+        ? "bg-white/95 shadow-xl shadow-[#41a0c8]/10 border border-[#9eddf7]"
+        : "bg-white/80 hover:bg-white shadow-md shadow-slate-200/50 border border-[#e3e3e3] hover:border-[#9eddf7]"
         }`}
       initial={false}
       whileHover={{ scale: 1.01 }}
@@ -320,8 +377,8 @@ const FaqItem = ({ item, isOpen, toggle, product }: FaqItemProps) => {
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3, type: "spring", stiffness: 200 }}
           className={`flex-shrink-0 ml-4 p-2 rounded-full transition-all duration-300 ${isOpen
-              ? `bg-gradient-to-r ${accentColor} text-white shadow-md shadow-[#41a0c8]/30`
-              : "bg-slate-100 text-slate-500 group-hover:bg-[#9eddf7]/40 group-hover:text-[#41a0c8]"
+            ? `bg-gradient-to-r ${accentColor} text-white shadow-md shadow-[#41a0c8]/30`
+            : "bg-slate-100 text-slate-500 group-hover:bg-[#9eddf7]/40 group-hover:text-[#41a0c8]"
             }`}
         >
           <FiChevronDown className="w-4 h-4" />
@@ -349,7 +406,7 @@ const FaqItem = ({ item, isOpen, toggle, product }: FaqItemProps) => {
 
 // ========== MAIN FAQ ALL COMPONENT ==========
 export default function FaqAll() {
-  const [activeTab, setActiveTab] = useState<"slaice" | "edms">("slaice");
+  const [activeTab, setActiveTab] = useState<"automation" | "edms" | "slaice">("automation");
   const [slaiceSubTab, setSlaiceSubTab] = useState<"mandate" | "migration">("mandate");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -358,18 +415,22 @@ export default function FaqAll() {
   };
 
   const currentData =
-    activeTab === "slaice"
-      ? slaiceSubTab === "mandate"
-        ? companyMandateFaqs
-        : sapHanaMigrationFaqs
-      : edmsFaqData;
+    activeTab === "automation"
+      ? automationSuiteFaqs
+      : activeTab === "edms"
+        ? edmsFaqData
+        : slaiceSubTab === "mandate"
+          ? companyMandateFaqs
+          : sapHanaMigrationFaqs;
 
   const productLabel =
-    activeTab === "slaice"
-      ? slaiceSubTab === "mandate"
-        ? "SLaiCE (Company Mandate)"
-        : "SLaiCE (SAP S/4HANA Migration)"
-      : "eDMS";
+    activeTab === "automation"
+      ? "Automation Suite"
+      : activeTab === "edms"
+        ? "eDMS"
+        : slaiceSubTab === "mandate"
+          ? "SLaiCE (Company Mandate)"
+          : "SLaiCE (SAP S/4HANA Migration)";
 
   // Dynamic JSON-LD Schema for rich snippet indexing
   const faqSchema = {
@@ -430,34 +491,47 @@ export default function FaqAll() {
           </p>
         </div>
 
-        {/* Primary Tabs (SLaiCE vs eDMS) */}
+        {/* Primary Tabs (Automation Suite vs eDMS vs SLaiCE) */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex p-1.5 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#e3e3e3] shadow-lg shadow-slate-200/50">
+          <div className="inline-flex flex-wrap justify-center p-1.5 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#e3e3e3] shadow-lg shadow-slate-200/50 gap-1">
             <button
               onClick={() => {
-                setActiveTab("slaice");
+                setActiveTab("automation");
                 setOpenIndex(null);
               }}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "slaice"
-                  ? "bg-[#41a0c8] text-white shadow-md shadow-[#41a0c8]/30"
-                  : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
+              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "automation"
+                ? "bg-[#1267a7] text-white shadow-md shadow-[#1267a7]/30"
+                : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
                 }`}
             >
-              <SiSap className="w-4 h-4" />
-              SLaiCE
+              <FiCpu className="w-4 h-4" />
+              Automation Suite
             </button>
             <button
               onClick={() => {
                 setActiveTab("edms");
                 setOpenIndex(null);
               }}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "edms"
-                  ? "bg-[#062039] text-white shadow-md shadow-[#062039]/30"
-                  : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
+              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "edms"
+                ? "bg-[#062039] text-white shadow-md shadow-[#062039]/30"
+                : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
                 }`}
             >
               <FiBox className="w-4 h-4" />
               eDMS
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab("slaice");
+                setOpenIndex(null);
+              }}
+              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "slaice"
+                ? "bg-[#41a0c8] text-white shadow-md shadow-[#41a0c8]/30"
+                : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
+                }`}
+            >
+              <SiSap className="w-4 h-4" />
+              SLaiCE
             </button>
           </div>
         </div>
@@ -476,8 +550,8 @@ export default function FaqAll() {
                 setOpenIndex(null);
               }}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer border ${slaiceSubTab === "mandate"
-                  ? "bg-[#41a0c8] text-white border-[#41a0c8] shadow-md shadow-[#41a0c8]/25"
-                  : "bg-white text-[#062039] border-[#e3e3e3] hover:border-[#41a0c8] hover:bg-[#f1f2f2]/60"
+                ? "bg-[#41a0c8] text-white border-[#41a0c8] shadow-md shadow-[#41a0c8]/25"
+                : "bg-white text-[#062039] border-[#e3e3e3] hover:border-[#41a0c8] hover:bg-[#f1f2f2]/60"
                 }`}
             >
               Company Mandate
@@ -488,8 +562,8 @@ export default function FaqAll() {
                 setOpenIndex(null);
               }}
               className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer border ${slaiceSubTab === "migration"
-                  ? "bg-[#41a0c8] text-white border-[#41a0c8] shadow-md shadow-[#41a0c8]/25"
-                  : "bg-white text-[#062039] border-[#e3e3e3] hover:border-[#41a0c8] hover:bg-[#f1f2f2]/60"
+                ? "bg-[#41a0c8] text-white border-[#41a0c8] shadow-md shadow-[#41a0c8]/25"
+                : "bg-white text-[#062039] border-[#e3e3e3] hover:border-[#41a0c8] hover:bg-[#f1f2f2]/60"
                 }`}
             >
               SAP HANA Migration

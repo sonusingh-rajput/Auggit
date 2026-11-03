@@ -69,7 +69,7 @@ export default function BookPocPage() {
           <div className="lg:col-span-5 space-y-6">
             <div className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl">
               <h3 className="text-xl font-extrabold text-[#062039] mb-4">
-                What is Included in Your Free POC:
+                What is Included in Your Live Demo:
               </h3>
               <ul className="space-y-4">
                 {[
@@ -134,7 +134,7 @@ export default function BookPocPage() {
                   <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center">
                     <FiCheckCircle className="w-10 h-10" />
                   </div>
-                  <h3 className="text-2xl font-extrabold text-[#062039]">POC Application Received!</h3>
+                  <h3 className="text-2xl font-extrabold text-[#062039]">Demo Application Received!</h3>
                   <p className="text-slate-600 text-sm max-w-md mx-auto">
                     Thank you, <span className="font-bold text-[#062039]">{formData.name}</span>. An Auggit Solutions Engineer has been assigned to your account and will initiate your sandbox setup within 4 business hours.
                   </p>
@@ -142,14 +142,14 @@ export default function BookPocPage() {
                     onClick={() => setSubmitted(false)}
                     className="mt-4 px-6 py-2.5 rounded-full bg-[#f1f2f2] text-xs font-bold text-[#062039] hover:bg-slate-200 transition-colors"
                   >
-                    Submit Another POC Request
+                    Submit Another Demo Request
                   </button>
                 </motion.div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="border-b border-slate-100 pb-4 mb-2">
                     <h3 className="text-xl font-extrabold text-[#062039]">
-                      Register for Your 14-Day Free POC
+                      Register for Your Live Demo
                     </h3>
                     <p className="text-xs text-slate-500 mt-1">
                       Zero software charges. Zero hardware requirement. Complete in 3 simple steps.
@@ -217,7 +217,7 @@ export default function BookPocPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                        Primary Module for POC *
+                        Primary Module for Demo *
                       </label>
                       <select
                         value={formData.module}
@@ -254,7 +254,7 @@ export default function BookPocPage() {
 
                   <div>
                     <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                      POC Goals or Questions
+                      Demo Goals or Questions
                     </label>
                     <textarea
                       rows={3}
@@ -269,7 +269,7 @@ export default function BookPocPage() {
                     type="submit"
                     className="w-full py-4 rounded-xl bg-gradient-to-r from-[#41a0c8] to-[#1267a7] hover:from-[#3590b8] hover:to-[#0d5389] text-white font-extrabold text-sm shadow-xl shadow-[#41a0c8]/25 hover:shadow-2xl transition-all flex items-center justify-center gap-2 group cursor-pointer"
                   >
-                    <span>Confirm & Schedule Free POC</span>
+                    <span>Confirm & Schedule Demo</span>
                     <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                   </button>
 

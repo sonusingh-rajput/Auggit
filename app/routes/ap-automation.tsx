@@ -90,7 +90,7 @@ export default function ApAutomationPage() {
               href="/book-poc"
               className="px-8 py-3.5 rounded-full bg-white hover:bg-[#f1f2f2] text-[#062039] font-bold text-sm border border-slate-200 shadow-md hover:scale-105 transition-all"
             >
-              Book Your Free POC
+              Request Demo
             </a>
           </div>
         </div>
@@ -433,7 +433,7 @@ export default function ApAutomationPage() {
               href="/book-poc"
               className="px-8 py-3.5 rounded-full bg-[#41a0c8] hover:bg-[#348db2] text-white font-bold text-sm shadow-md transition-all"
             >
-              Book Your Free POC →
+              Request Demo →
             </a>
             <a
               href="/product/automation-suite/gate-pass"

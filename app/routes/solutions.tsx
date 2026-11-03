@@ -179,7 +179,7 @@ export default function SolutionsPage() {
                   href="/book-poc"
                   className="text-xs font-bold text-slate-600 hover:text-[#062039]"
                 >
-                  Free POC
+                  Request Demo
                 </a>
               </div>
             </motion.div>
@@ -205,7 +205,7 @@ export default function SolutionsPage() {
               href="/book-poc"
               className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-all whitespace-nowrap"
             >
-              Book Free POC
+              Request Demo
             </a>
           </div>
         </div>

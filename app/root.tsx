@@ -7,7 +7,9 @@ import {
   isRouteErrorResponse,
   useRouteError,
   Link,
+  useLocation,
 } from "react-router";
+import { useEffect } from "react";
 import { FiAlertTriangle, FiRefreshCw, FiHome } from "react-icons/fi";
 import Navbar from "~/components/common/Navbar";
 import Footer from "~/components/common/Footer";
@@ -16,6 +18,18 @@ import ScrollProgressBar from "~/components/common/ScrollProgressBar";
 import "./app.css";
 
 import GsapProvider from "~/components/common/GsapProvider";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  }, [pathname]);
+
+  return null;
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
 
@@ -41,6 +55,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="bg-[#ffffff] text-[#353535] font-sans antialiased min-h-screen flex flex-col justify-between selection:bg-[#41a0c8] selection:text-white">
+        <ScrollToTop />
         <GsapProvider>
           {/* Top Scroll Indicator */}
           <ScrollProgressBar />
