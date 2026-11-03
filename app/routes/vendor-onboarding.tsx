@@ -13,6 +13,7 @@ import {
   FiLayers,
 } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
+import ProcessFlow from "../components/ProcessFlow";
 
 export default function VendorOnboardingPage() {
   const [activeStep, setActiveStep] = useState(0);
@@ -20,27 +21,27 @@ export default function VendorOnboardingPage() {
   const steps = [
     {
       step: "01",
-      title: "Supplier Self-Service Registration",
-      desc: "Suppliers receive a secure digital invitation link and upload company details, banking information, and statutory certificates directly via mobile or desktop portal.",
-      badge: "Zero Manual Paperwork",
+      title: "Capture and Organize Documents",
+      desc: "Email Ingestion and TAG-based storage in Auggit eDMS.",
+      badge: "Email Ingestion",
     },
     {
       step: "02",
-      title: "Real-Time Govt API Validations",
-      desc: "Instant automated validation of GSTIN status, PAN-Aadhaar linking, MSME registration category, and bank account active status via automated penny-drop verification.",
-      badge: "Instant API Verification",
+      title: "Portal-Based Verification and Approval",
+      desc: "GST, PAN, AADHAR and other applicable checks.",
+      badge: "Verification",
     },
     {
       step: "03",
-      title: "Automated Multi-Tier Approvals",
-      desc: "Digital approval matrix routes profiles through procurement, finance, and legal teams with conditional SLA escalations and immutable audit trails.",
-      badge: "Custom Routing",
+      title: "Capture Verified Details",
+      desc: "AI-enabled data capture extracts the required vendor details for review and approval.",
+      badge: "AI Data Capture",
     },
     {
       step: "04",
-      title: "Auto-Creation of SAP Vendor Master (BP)",
-      desc: "Approved vendor data automatically syncs into SAP ECC or SAP S/4HANA (XK01 / Business Partner) with zero manual re-keying or typing errors.",
-      badge: "Live SAP Integration",
+      title: "Vendor Master Creation in SAP",
+      desc: "Approved vendor details are created as the vendor master in SAP, completing onboarding.",
+      badge: "SAP Integration",
     },
   ];
 
@@ -108,7 +109,7 @@ export default function VendorOnboardingPage() {
               Automated 4-Step Lifecycle
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#062039] mt-1">
-              From Invitation to Active SAP Business Partner in Hours
+              From Document Capture to Vendor Master Creation in SAP
             </h2>
           </div>
 
@@ -153,6 +154,23 @@ export default function VendorOnboardingPage() {
             ))}
           </div>
         </div>
+
+        {/* VENDOR ONBOARDING REQUIREMENTS (per Vendor Onboarding workflow) */}
+        <ProcessFlow
+          eyebrow="Documents Required"
+          heading="Vendor Onboarding Requirements"
+          tracks={[]}
+          inputs={{
+            heading: "Documents collected from the vendor",
+            groups: [
+              { title: "Tax and Statutory", items: "PAN, GST, Udyam/MSME, CIN, AADHAR" },
+              { title: "Banking Documents", items: "Account details, IFSC, cancelled cheque / bank proof" },
+              { title: "Certifications / Licenses", items: "Licenses, certifications, declarations, industry-specific documents" },
+              { title: "Incorporation Documents", items: "Incorporation certificate, partnership deed or constitution proof" },
+            ],
+          }}
+          outcome="Vendor successfully onboarded"
+        />
 
         {/* 3. KEY OPERATIONAL BENEFITS */}
         <div>

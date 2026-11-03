@@ -11,6 +11,7 @@ import {
   FiLayers,
 } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
+import ProcessFlow from "../components/ProcessFlow";
 
 export default function WeighbridgePage() {
   const [simulationActive, setSimulationActive] = useState(false);
@@ -81,6 +82,26 @@ export default function WeighbridgePage() {
             </a>
           </div>
         </div>
+
+        {/* PROCESS FLOW (per Weighbridge Management workflow) */}
+        <ProcessFlow
+          heading="Weighbridge Management Workflow"
+          tracks={[
+            {
+              label: "Vehicle Arrival to Exit",
+              steps: [
+                { title: "Vehicle arrives at weighbridge" },
+                { title: "Loaded vehicle weighed", detail: "Gross weight captured." },
+                { title: "Material unloaded" },
+                { title: "Net material weight calculated and recorded", detail: "Against PO / delivery quantity." },
+                { title: "Received quantity confirmed" },
+                { title: "Goods receipt posted in SAP and GRN created" },
+                { title: "Weighment record and GRN tagged and stored in Auggit eDMS", detail: "Linked to the respective PO for traceability." },
+              ],
+            },
+          ]}
+          outcome="Vehicle exit cleared"
+        />
 
         {/* 2. LIVE INTERACTIVE WEIGHBRIDGE CAPTURE SIMULATOR */}
         <div className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl">
