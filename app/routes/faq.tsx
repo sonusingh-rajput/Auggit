@@ -268,7 +268,360 @@ const edmsFaqData = [
 ];
 
 // ========== AUTOMATION SUITE FAQ DATA ==========
-const automationSuiteFaqs = [
+
+const vendorOnboardingFaqs = [
+  {
+    id: "01",
+    question: "What is Auggit Vendor Onboarding?",
+    answer: "Auggit Vendor Onboarding automates the collection, verification, and processing of vendor registration information and supporting documents. It helps procurement and finance teams manage onboarding through a structured workflow instead of relying entirely on emails, spreadsheets, and manual checks, and it supports more consistent vendor master data."
+  },
+  {
+    id: "02",
+    question: "Which vendor documents can Auggit Vendor Onboarding validate?",
+    answer: "Auggit Vendor Onboarding can validate PAN, GST registration, TAN, MSME/Udyam documentation, bank details, and other required compliance documents. The documents validated depend on the vendor category and the business rules configured for your organization, so validation requirements can be set differently for each vendor category."
+  },
+  {
+    id: "03",
+    question: "How does Auggit simplify vendor registration?",
+    answer: "Auggit simplifies vendor registration through a structured onboarding process. Vendors submit their required information and documents in one flow, and Auggit supports document extraction, completeness checks, validation, exception handling, and routing for internal approvals, so procurement teams no longer collect and verify these details manually through emails and spreadsheets."
+  },
+  {
+    id: "04",
+    question: "Can Auggit identify duplicate vendor records?",
+    answer: "Yes, Auggit identifies duplicate vendor records by comparing PAN, GSTIN, bank details, vendor names, and other configured identifiers. Fuzzy matching also flags records that look similar but are not exact matches, which helps teams catch possible duplicates before they enter the vendor master data."
+  },
+  {
+    id: "05",
+    question: "Can Auggit integrate vendor onboarding with SAP?",
+    answer: "Yes, Auggit integrates vendor onboarding workflows with SAP, including scenarios that involve SAP Business Partner master-data creation. The integration method and the extent of automation depend on the customer's SAP environment and the implementation design, which are agreed with the Auggit team during implementation planning."
+  },
+  {
+    id: "06",
+    question: "Can Auggit automate vendor approvals?",
+    answer: "Yes, Auggit can automate vendor approvals. Vendor records are routed through defined approval workflows based on business rules, vendor category, document completeness, or internal authorization requirements. Manual review can be retained for exceptions and sensitive decisions, so automation speeds up routine approvals without removing human control."
+  },
+  {
+    id: "07",
+    question: "How does Auggit reduce vendor onboarding errors?",
+    answer: "Auggit reduces vendor onboarding errors through automated data capture, mandatory-field checks, document validation, duplicate detection, and standardized approval workflows. Together these controls remove avoidable manual entry mistakes and improve the consistency of vendor master data, because every vendor record passes the same checks before it is approved."
+  },
+  {
+    id: "08",
+    question: "Can Auggit manage vendor document updates and renewals?",
+    answer: "Yes, Auggit can organize vendor documentation and support follow-up workflows for documents that need renewal or periodic review. This works once the relevant expiry dates, business rules, and notification requirements are configured, so teams are prompted to request updated documents from vendors when a renewal is due."
+  }
+];
+
+const apAutomationFaqs = [
+  {
+    id: "01",
+    question: "What is Auggit AP Process Automation?",
+    answer: "Auggit AP Process Automation streamlines supplier invoice processing through AI-enabled data extraction, three-way matching of purchase order, goods receipt note, and invoice, discrepancy identification, and automated approval workflows. It reduces manual effort, improves accuracy and compliance, and supports invoice posting to SAP or other ERP systems based on the configured integration."
+  },
+  {
+    id: "02",
+    question: "Can AUGGIT automatically extract data from supplier invoices?",
+    answer: "Yes. AUGGIT can use OCR and intelligent document extraction techniques to capture relevant invoice information, such as supplier details, invoice number, invoice date, tax information, purchase order reference, and invoice amount. Extraction quality depends on document structure, readability, and the configured processing method."
+  },
+  {
+    id: "03",
+    question: "Can Auggit match invoices with purchase orders and goods receipts?",
+    answer: "Yes, Auggit matches supplier invoices against purchase orders, goods receipt notes, and other supporting documents. This identifies discrepancies in quantities, amounts, references, or missing documentation before the invoice moves further through the configured workflow, so errors are caught early and the finance team spends its time on exceptions."
+  },
+  {
+    id: "04",
+    question: "What is three-way matching in invoice automation?",
+    answer: "Three-way matching in invoice automation compares three key records: the purchase order, the goods receipt, and the supplier invoice. Auggit automates this comparison and flags discrepancies, such as differing quantities or amounts, for review before the invoice is processed further, so only invoices that agree across all three records proceed."
+  },
+  {
+    id: "05",
+    question: "Can AUGGIT process invoices in SAP?",
+    answer: "AUGGIT can support invoice-processing workflows integrated with SAP. Depending on the implementation, these may involve relevant procurement and invoice verification processes, including MIGO-related goods movement records and MIRO-related invoice verification. The exact posting and validation scope depends on the integration design and authorization rules."
+  },
+  {
+    id: "06",
+    question: "Can Auggit identify missing supporting documents for an invoice?",
+    answer: "Yes, Auggit checks whether the required supporting documents are available and linked to an invoice or transaction. Depending on the configured rules, it flags missing purchase orders, goods receipt records, quality certificates, or other required documents, so the team can follow up before the invoice moves forward."
+  },
+  {
+    id: "07",
+    question: "Can Auggit automate invoice approvals and payment workflows?",
+    answer: "Auggit automates invoice approval routing based on configured business rules, approval hierarchies, and exception conditions, and it supports integration with downstream finance processes. Actual payment execution remains subject to the organization's own controls, approvals, and connected financial systems, so payment authority stays with the organization."
+  },
+  {
+    id: "08",
+    question: "What happens when a supplier invoice has incorrect or missing information in Auggit?",
+    answer: "When a supplier invoice has incorrect or missing information, Auggit flags the discrepancy, incomplete data, or failed document match as an exception for the relevant team to review. This prevents the record from progressing automatically when it does not meet the configured validation criteria."
+  },
+  {
+    id: "09",
+    question: "Can Auggit support debit notes and quality certificates?",
+    answer: "Yes, Auggit supports debit notes and quality certificates within its transaction-linking and verification workflows. Where applicable, they are tagged against the supplier, purchase order, invoice, or goods receipt record, which improves traceability and lets teams see every document connected to a procurement transaction."
+  }
+];
+
+const gatePassFaqs = [
+  {
+    id: "01",
+    question: "What is Auggit Gate Pass Management?",
+    answer: "Auggit Gate Pass Management digitizes and streamlines the recording, approval, and tracking of materials entering or leaving an organization's premises. It gives security, stores, and operations teams better visibility over material movements and reduces the organization's dependence on paper-based processes for gate passes."
+  },
+  {
+    id: "02",
+    question: "Does Auggit Gate Pass Management support returnable and non-returnable gate passes?",
+    answer: "Yes, Auggit Gate Pass Management supports both returnable and non-returnable gate passes. Returnable passes track materials that are expected to come back, while non-returnable passes record material movements where no return is expected, so each type of outward movement follows the workflow that suits it."
+  },
+  {
+    id: "03",
+    question: "Can Auggit track materials sent outside the factory?",
+    answer: "Yes, Auggit records material details, movement references, approvals, and expected return information as applicable. This helps organizations track materials sent outside the factory for repairs, testing, subcontracting, samples, or other authorized external activities, with a clear record of what left, who approved it, and when it is expected back."
+  },
+  {
+    id: "04",
+    question: "Can Auggit Gate Pass Management integrate with SAP?",
+    answer: "Yes, Auggit Gate Pass Management already integrates with SAP to exchange relevant gate pass and material movement information, including suitable Materials Management and inventory-related workflows. The precise integration scope depends on the configured process and the customer's SAP environment, and it is defined with the Auggit team during implementation."
+  },
+  {
+    id: "05",
+    question: "Can Auggit automate gate pass approvals?",
+    answer: "Yes, Auggit can automate gate pass approvals. Approval workflows are configured by material type, movement purpose, department, authorization level, or other business rules. This standardizes how approvals are handled, so each gate pass follows the same approval path, and it reduces dependence on paper-based processes."
+  },
+  {
+    id: "06",
+    question: "Can Auggit track overdue returnable materials?",
+    answer: "Yes, Auggit tracks returnable materials against expected return dates and configured statuses. Notifications or follow-up workflows can be implemented so teams can identify overdue items quickly and chase their return, giving stores and operations teams a clear view of which materials that were sent out have not yet come back."
+  },
+  {
+    id: "07",
+    question: "Can Auggit manage samples and materials sent for testing or repairs?",
+    answer: "Yes, Auggit manages samples and materials sent for testing or repairs through gate pass workflows. It records the material description, quantity, destination, purpose, responsible person, and expected return information as required, so each outward movement is documented and can be followed up until the material returns."
+  }
+];
+
+const adeFaqs = [
+  {
+    id: "01",
+    question: "What is Auggit ADE?",
+    answer: "Auggit ADE, short for Automatic Data Entry, automates the transfer of relevant business information from documents into Tally. It reduces repetitive manual entry and helps accounting teams process supported transactions more efficiently, with the extent of automation depending on the transaction types and workflow configured during implementation."
+  },
+  {
+    id: "02",
+    question: "Can Auggit ADE automate accounting entries from documents?",
+    answer: "Yes, Auggit ADE automates accounting entries from supported documents. Depending on the configured workflow, it extracts information from the document, validates the relevant fields, and transfers the data into Tally. The transaction types covered and the level of automation depend on the implementation."
+  },
+  {
+    id: "03",
+    question: "Which documents can Auggit ADE use for automated Tally entry?",
+    answer: "Auggit ADE can use supplier invoices, bills, and other accounting-related records as source documents for automated Tally entry, depending on the supported workflow. Document formats, field mappings, and the required Tally transaction types are defined during implementation, so the setup matches how each organization records its transactions."
+  },
+  {
+    id: "04",
+    question: "Does Auggit ADE eliminate all manual accounting work?",
+    answer: "No, Auggit ADE reduces repetitive data-entry work but does not eliminate every manual accounting activity. Exceptions, missing information, accounting decisions, and transactions that need additional authorization may still require human review, so accountants shift their time from typing entries to reviewing exceptions."
+  },
+  {
+    id: "05",
+    question: "How does Auggit ADE improve data accuracy?",
+    answer: "Auggit ADE improves data accuracy through automated extraction, field mapping, validation, and configured checks, which reduce common typing and transcription errors. Appropriate verification and exception handling remain important for maintaining reliable accounting records, so Auggit ADE supports, rather than replaces, the accounting team's review."
+  }
+];
+
+const dscFaqs = [
+  {
+    id: "01",
+    question: "What are Auggit Digital Signature Services?",
+    answer: "Auggit Digital Signature Services help organizations incorporate digital signing into suitable document workflows. They reduce the need for physical signatures and paper-based document circulation, so documents that require authorization can be signed and moved through approval without being printed, signed by hand, and passed between people."
+  },
+  {
+    id: "02",
+    question: "Can Auggit incorporate digital signatures into business document workflows?",
+    answer: "Yes, Auggit incorporates digital signing into supported workflows for documents that require authorization or signing. The exact process depends on the document type, signer requirements, and the selected signature mechanism, which are agreed when the workflow is designed so that signing fits the way each organization approves its documents."
+  },
+  {
+    id: "03",
+    question: "Can digital signatures in Auggit reduce paper-based approvals?",
+    answer: "Yes, digital signatures in Auggit reduce paper-based approvals where the relevant signing method is accepted. They cut down printing, physical circulation, and manual document handling, so approvals that previously moved on paper can be completed digitally within the document workflow instead of being passed from desk to desk."
+  },
+  {
+    id: "04",
+    question: "Are all digital signatures legally valid?",
+    answer: "No, digital signatures are not automatically legally valid. Legal validity depends on the applicable jurisdiction, signature type, certificate or trust requirements, and document category. Organizations using Auggit Digital Signature Services should confirm that the selected signing method meets their legal and regulatory requirements before relying on it."
+  }
+];
+
+const weighmentFaqs = [
+  {
+    id: "01",
+    question: "What is Auggit Weighment Integration?",
+    answer: "Auggit Weighment Integration connects compatible weighing-scale systems with relevant business applications to capture weight information electronically. It makes the captured weight data available for supported operational workflows, such as inward and outward material movements, without relying on manual entry into registers or business applications."
+  },
+  {
+    id: "02",
+    question: "Can Auggit integrate weighing scales with ERP systems?",
+    answer: "Yes, Auggit integrates weighing scales with ERP or other business systems. Whether a specific scale can be integrated depends on equipment compatibility, connectivity, interface requirements, and the intended workflow, which are assessed during implementation so that weight readings reach the business application accurately."
+  },
+  {
+    id: "03",
+    question: "Can Auggit link weighing data to inward and outward material movements?",
+    answer: "Yes, where configured, Auggit links weight information to the relevant material movement, vehicle, supplier, delivery, or transaction references. This ties each weighment to the movement it belongs to, which improves traceability across inward and outward material flows and makes it easier to reconcile what was received or dispatched."
+  },
+  {
+    id: "04",
+    question: "How does Auggit Weighment Integration reduce manual errors?",
+    answer: "Auggit Weighment Integration reduces manual errors by capturing compatible scale readings electronically, so weight values no longer need to be re-entered into registers or business applications. Validation and exception handling can further improve data consistency, since exceptions can be flagged for review instead of being passed on unchecked."
+  }
+];
+
+const ocrAndMatchingFaqs = [
+  {
+    id: "01",
+    question: "What is OCR in business process automation?",
+    answer: "OCR, or Optical Character Recognition, in business process automation converts text from scanned documents and images into machine-readable text. It automates information capture from invoices, purchase orders, vendor forms, compliance records, and other business documents, so teams no longer retype document details into business systems."
+  },
+  {
+    id: "02",
+    question: "What is intelligent document extraction, and how is it different from OCR?",
+    answer: "OCR recognizes text in a document, while intelligent document extraction identifies and organizes relevant information into business fields. For example, OCR may recognize text on an invoice, while extraction identifies the invoice number, supplier name, tax amount, and total value."
+  },
+  {
+    id: "03",
+    question: "Can Auggit extract information from different document formats?",
+    answer: "Yes, Auggit can process suitable document formats, including scanned images and PDFs, to extract information. Other formats can be supported depending on the specific workflow and integration requirements, which are confirmed during the discovery stage, so organizations should share their common document types early in the project."
+  },
+  {
+    id: "04",
+    question: "What is question mapping in document automation?",
+    answer: "Question mapping associates defined business questions or data requirements with the relevant information in a document. For example, a workflow may need to identify a vendor's GST number, invoice date, purchase order number, or bank account details. Mapping helps structure the extracted answers for validation and subsequent processing."
+  },
+  {
+    id: "05",
+    question: "Can Auggit identify specific information from complex documents?",
+    answer: "Yes, Auggit can identify selected fields and information from complex business documents, depending on the document type and the configured extraction capabilities. Validation rules and human review are used when information is missing, unclear, or inconsistent, so uncertain extractions are checked instead of being passed on as correct."
+  },
+  {
+    id: "06",
+    question: "How does document matching work in AUGGIT?",
+    answer: "Document matching compares extracted document information with expected values or records from connected business systems. For example, an invoice's purchase order number and amount can be compared with the corresponding internal transaction. Matching rules help identify related records and flag discrepancies."
+  },
+  {
+    id: "07",
+    question: "Can Auggit automatically tag and categorize documents?",
+    answer: "Yes, Auggit automatically classifies and tags documents using extracted information, document types, predefined rules, and relevant transaction references. This improves document search, retrieval, traceability, and workflow routing, because every tagged document is linked to its document type and the transaction it belongs to."
+  },
+  {
+    id: "08",
+    question: "What happens if Auggit cannot match a document automatically?",
+    answer: "If Auggit cannot match a document automatically because required information is missing, inconsistent, or below the configured matching threshold, the document is routed for manual verification or exception handling. This avoids treating uncertain matches as confirmed and keeps unverified documents from moving forward in the workflow."
+  },
+  {
+    id: "09",
+    question: "Can Auggit match documents received through email with internal records?",
+    answer: "Yes, where email ingestion is configured, Auggit processes documents received through email and matches the extracted information against internal business records. The precise workflow depends on the email source, document format, and integration setup, which are defined during implementation to suit each organization's mailbox and document types."
+  },
+  {
+    id: "10",
+    question: "Can Auggit process scanned documents and PDFs?",
+    answer: "Yes, Auggit processes suitable scanned documents and PDF files through its digitization and extraction workflows. The quality of the source documents influences the results, so clear, legible scans and well-structured PDFs produce more reliable extraction than faded or low-resolution copies, which may need manual verification."
+  },
+  {
+    id: "11",
+    question: "Can Auggit link digitized documents to eDMS?",
+    answer: "Yes, digitized documents can be organized and linked to relevant records through Auggit eDMS document management workflows, depending on the implemented solution. This makes digitized documents easier to retrieve and manage, because each scanned or extracted document is stored with the transaction or record it supports."
+  },
+  {
+    id: "12",
+    question: "Can Auggit digitize large volumes of business documents?",
+    answer: "Auggit can support document digitization projects that involve large volumes of business records, such as invoices, vendor documents, procurement files, and other operational records. Processing capacity, delivery timelines, and indexing requirements should be agreed upon for each project, so organizations can plan the scale of digitization before work begins."
+  }
+];
+
+const erpIntegrationFaqs = [
+  {
+    id: "01",
+    question: "Which enterprise systems can Auggit integrate with?",
+    answer: "Auggit integrates with enterprise systems including SAP, Oracle, Zoho, and Tally. Other applications can be considered based on their interfaces, APIs, data formats, and business requirements, so organizations using a different ERP or business application can ask Auggit to assess integration feasibility during an initial discovery discussion."
+  },
+  {
+    id: "02",
+    question: "Does Auggit require changes to our existing ERP?",
+    answer: "Auggit is designed to work alongside existing enterprise systems, so it does not replace your ERP. The extent of configuration or technical changes needed depends on the required integration, the available interfaces, the business process, and security requirements, and it is confirmed during the technical assessment before implementation begins."
+  },
+  {
+    id: "03",
+    question: "Can Auggit automate workflows across multiple systems?",
+    answer: "Yes, Auggit can automate workflows across multiple systems where the necessary integrations are available. For example, a document can be captured, validated, linked to a transaction, routed for approval, and passed to a connected ERP workflow, which connects document processing and business workflows across different systems without manual hand-offs."
+  },
+  {
+    id: "04",
+    question: "How long does Auggit implementation take?",
+    answer: "The standard Auggit implementation timeline is 4-6 weeks. The exact timeline depends on the product selected, document volumes, process complexity, ERP integration requirements, validation rules, and approval workflows, and a defined schedule is established after the initial discovery and technical assessment."
+  },
+  {
+    id: "05",
+    question: "Can Auggit be customized for our organization's workflows?",
+    answer: "Yes, Auggit can be configured for suitable business rules, document categories, field mappings, validations, approval hierarchies, and integration requirements. Any additional customization beyond configuration depends on the agreed implementation scope, which is defined with the organization before work starts so expectations on effort and timeline are clear."
+  },
+  {
+    id: "06",
+    question: "How does Auggit handle errors and exceptions?",
+    answer: "Auggit workflows include validation checks, exception identification, and human review for cases that cannot be processed automatically. Records that fail the configured validation criteria do not progress automatically but are routed to the relevant team, which helps organizations maintain control over critical business transactions."
+  },
+  {
+    id: "07",
+    question: "Is Auggit suitable for organizations with multiple plants or locations?",
+    answer: "Auggit can be evaluated for multi-location environments where processes, document requirements, and ERP workflows need to be coordinated across plants. The deployment design depends on the organization's structure, system landscape, and access requirements, and it is assessed during the initial discovery discussion before an implementation approach is proposed."
+  },
+  {
+    id: "08",
+    question: "How can we evaluate whether Auggit is suitable for our business?",
+    answer: "The recommended way to evaluate whether Auggit suits your business is to identify a process with high manual effort, recurring errors, document-matching challenges, or limited visibility. An initial discovery discussion then establishes the scope, integration feasibility, expected benefits, and the suitable Auggit product for that process."
+  }
+];
+
+const businessBenefitsFaqs = [
+  {
+    id: "01",
+    question: "What are the main benefits of implementing Auggit?",
+    answer: "Implementing Auggit helps organizations reduce repetitive manual work, improve document traceability, standardize business processes, strengthen data validation, and improve visibility into operational workflows. By improving efficiency and reducing process-related costs, Auggit can deliver a measurable return on investment, though actual benefits depend on the process selected and the implementation."
+  },
+  {
+    id: "02",
+    question: "How does Auggit help reduce operational costs?",
+    answer: "Auggit reduces operational costs by automating repetitive activities such as data entry, document checks, transaction matching, and follow-ups, which cuts manual effort and rework. The financial impact can be assessed using an organization's existing processing volumes, employee effort, error rates, and cycle times before implementation begins."
+  },
+  {
+    id: "03",
+    question: "Can Auggit improve audit readiness?",
+    answer: "Yes, Auggit improves audit readiness by maintaining organized documents, transaction references, and workflow records. The extent of audit support depends on the configured logging, access controls, retention rules, and the organization's compliance requirements, so audit needs should be defined during implementation to ensure the right records are captured."
+  },
+  {
+    id: "04",
+    question: "How does Auggit handle sensitive business documents?",
+    answer: "Auggit handles sensitive business documents through access controls, permissions, data handling procedures, and retention requirements established according to the organization's policies and the selected deployment configuration. Specific security certifications and compliance commitments should be confirmed with Auggit before implementation, so organizations can verify that their security requirements are met."
+  },
+  {
+    id: "05",
+    question: "Is Auggit suitable for small and large enterprises?",
+    answer: "Yes, organizations of different sizes can evaluate Auggit based on their transaction volumes, process complexity, system landscape, and automation needs. Product selection and implementation scope are aligned with each organization's requirements, so a smaller business can start with one process while a larger enterprise can plan a broader rollout."
+  },
+  {
+    id: "06",
+    question: "How is Auggit Automation Suite priced?",
+    answer: "Auggit Automation Suite pricing depends on the product selected, business process scope, document or transaction volumes, integration requirements, customization, and implementation effort. Organizations can request a tailored proposal after an initial requirements discussion. The commercials have two parts: a one-time implementation cost and a monthly subscription cost."
+  },
+  {
+    id: "07",
+    question: "Does Auggit provide implementation and integration services?",
+    answer: "Yes, Auggit provides implementation and integration services alongside its solutions. Depending on the agreed scope, these cover process assessment, configuration, document workflow design, integration planning, implementation, and deployment support, so organizations receive help with both choosing the right automation and putting it into everyday use."
+  },
+  {
+    id: "08",
+    question: "How can we get a demo of Auggit?",
+    answer: "To get a demo of Auggit, contact the Auggit team at sales@auggit.com. The team discusses your current business processes, identifies suitable automation opportunities, and arranges a demonstration focused on your requirements, so the demo shows how Auggit would work for your own documents and workflows."
+  }
+];
+// ========== AUTOMATION SUITE FAQ DATA ==========
+export const automationSuiteFaqs = [
   {
     id: "01",
     question: "What is the AUGGIT Automation Suite?",
@@ -405,8 +758,32 @@ const FaqItem = ({ item, isOpen, toggle, product }: FaqItemProps) => {
 };
 
 // ========== MAIN FAQ ALL COMPONENT ==========
+type AutomationSubTab =
+  | "vendor-onboarding"
+  | "ap-invoice"
+  | "gate-pass"
+  | "data-entry"
+  | "digital-signature"
+  | "weighment"
+  | "ocr-matching"
+  | "erp-integration"
+  | "business-benefits";
+
+const automationTabsList = [
+  { id: "vendor-onboarding", label: "Vendor Onboarding" },
+  { id: "ap-invoice", label: "Accounts Payable (AP) and Supplier Invoice" },
+  { id: "gate-pass", label: "Gate Pass Management" },
+  { id: "data-entry", label: "Automatic Data Entry" },
+  { id: "digital-signature", label: "Digital Signature Services" },
+  { id: "weighment", label: "Weighment Integration" },
+  { id: "ocr-matching", label: "OCR, Intelligent Document Matching and Question Mapping" },
+  { id: "erp-integration", label: "ERP Integration and Implementation" },
+  { id: "business-benefits", label: "Business Benefits, Security and Commercials" },
+] as const;
+
 export default function FaqAll() {
   const [activeTab, setActiveTab] = useState<"automation" | "edms" | "slaice">("automation");
+  const [automationSubTab, setAutomationSubTab] = useState<AutomationSubTab>("vendor-onboarding");
   const [slaiceSubTab, setSlaiceSubTab] = useState<"mandate" | "migration">("mandate");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -416,7 +793,23 @@ export default function FaqAll() {
 
   const currentData =
     activeTab === "automation"
-      ? automationSuiteFaqs
+      ? automationSubTab === "vendor-onboarding"
+        ? vendorOnboardingFaqs
+        : automationSubTab === "ap-invoice"
+          ? apAutomationFaqs
+          : automationSubTab === "gate-pass"
+            ? gatePassFaqs
+            : automationSubTab === "data-entry"
+              ? adeFaqs
+              : automationSubTab === "digital-signature"
+                ? dscFaqs
+                : automationSubTab === "weighment"
+                  ? weighmentFaqs
+                  : automationSubTab === "ocr-matching"
+                    ? ocrAndMatchingFaqs
+                    : automationSubTab === "erp-integration"
+                      ? erpIntegrationFaqs
+                      : businessBenefitsFaqs
       : activeTab === "edms"
         ? edmsFaqData
         : slaiceSubTab === "mandate"
@@ -425,7 +818,7 @@ export default function FaqAll() {
 
   const productLabel =
     activeTab === "automation"
-      ? "Automation Suite"
+      ? automationTabsList.find((t) => t.id === automationSubTab)?.label ?? "Automation Suite"
       : activeTab === "edms"
         ? "eDMS"
         : slaiceSubTab === "mandate"
@@ -536,6 +929,36 @@ export default function FaqAll() {
           </div>
         </div>
 
+        {/* Secondary Sub-Buttons for Automation Suite */}
+        {activeTab === "automation" && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.25 }}
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 mb-10 max-w-4xl mx-auto"
+          >
+            {automationTabsList.map((tab) => {
+              const isSelected = automationSubTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => {
+                    setAutomationSubTab(tab.id as AutomationSubTab);
+                    setOpenIndex(null);
+                  }}
+                  className={`px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer border ${
+                    isSelected
+                      ? "bg-[#1267a7] text-white border-[#1267a7] shadow-md shadow-[#1267a7]/25"
+                      : "bg-white text-[#062039] border-[#e3e3e3] hover:border-[#1267a7] hover:bg-[#f1f2f2]/60"
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              );
+            })}
+          </motion.div>
+        )}
+
         {/* Secondary Sub-Buttons for SLaiCE (Company Mandate vs SAP HANA Migration) */}
         {activeTab === "slaice" && (
           <motion.div
@@ -571,25 +994,11 @@ export default function FaqAll() {
           </motion.div>
         )}
 
-        {/* Sub-Header Context for SLaiCE view */}
-        {/* {activeTab === "slaice" && (
-          <div className="mb-6 px-1 flex items-center justify-between">
-            <h2 className="text-lg sm:text-xl font-bold text-[#062039]">
-              {slaiceSubTab === "mandate"
-                ? "SLaiCE Q&A - Company Mandate & Daily Backup Compliance"
-                : "SLaiCE Q&A - SAP S/4HANA Migration"}
-            </h2>
-            <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-[#9eddf7]/40 text-[#1267a7]">
-              {currentData.length} Questions
-            </span>
-          </div>
-        )} */}
-
         {/* FAQ Accordion */}
         <div className="space-y-4">
           {currentData.map((item, index) => (
             <FaqItem
-              key={`${activeTab}-${slaiceSubTab}-${item.id}`}
+              key={`${activeTab}-${activeTab === "automation" ? automationSubTab : slaiceSubTab}-${item.id}`}
               item={item}
               isOpen={openIndex === index}
               toggle={() => toggleItem(index)}

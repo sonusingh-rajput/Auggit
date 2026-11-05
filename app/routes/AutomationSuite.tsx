@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import type { ReactNode } from "react";
 import { Link } from "react-router";
 import {
@@ -21,7 +22,60 @@ import {
   FiCheckCircle,
   FiCpu,
   FiZap,
+  FiChevronDown,
+  FiHelpCircle,
 } from "react-icons/fi";
+
+const automationFaqs = [
+  {
+    id: "01",
+    question: "What is the AUGGIT Automation Suite?",
+    answer:
+      "AUGGIT Automation Suite is a collection of business process automation solutions designed to reduce manual work, digitize documents, automate data entry, and streamline operational workflows. It helps organizations connect documents, business processes, and enterprise systems to improve efficiency, accuracy, and visibility.",
+  },
+  {
+    id: "02",
+    question: "What business processes can AUGGIT automate?",
+    answer:
+      "AUGGIT can help automate document management, vendor onboarding, accounts payable (AP) Automation, supplier invoice processing, Goods Receipt Note ( MIRO/ MIGO), Material Movement, gate pass management, data entry automation into Tally, document digitization, digital signatures, and weighing-scale integration. The specific scope depends on the products and workflows implemented.",
+  },
+  {
+    id: "03",
+    question: "Which industries can benefit from Auggit Automation Suite?",
+    answer:
+      "Auggit Automation Suite benefits manufacturing, engineering, automotive, pharmaceuticals, FMCG, chemicals, and other document-intensive industries. Organizations that handle large volumes of invoices, purchase orders, compliance documents, vendor records, and material movements gain the most, because Auggit automates the manual document handling and checking those processes depend on.",
+  },
+  {
+    id: "04",
+    question: "Does Auggit replace our existing ERP system?",
+    answer:
+      "No, Auggit does not replace your existing ERP system. It complements the ERP by automating the processes around it, such as digitizing documents, validating information, and managing approvals. Auggit then transfers the relevant data to supported systems, including SAP, Oracle, Zoho, and Tally.",
+  },
+  {
+    id: "05",
+    question: "Can Auggit integrate with SAP, Oracle, Zoho, and Tally?",
+    answer:
+      "Yes, Auggit integrates with SAP, Oracle, Zoho, and Tally, and with many other ERP systems. Depending on the use case, the integration enables data exchange, automated data entry, document linking, and workflow automation. The exact scope depends on the ERP environment and the process being automated.",
+  },
+  {
+    id: "06",
+    question: "How does AUGGIT reduce manual work?",
+    answer:
+      "AUGGIT reduces repetitive activities such as entering invoice data, checking vendor documents, searching for missing records, matching documents, preparing gate passes, and transferring information between systems. Automation rules and approval of workflows help teams focus on exceptions and decisions rather than repetitive tasks.",
+  },
+  {
+    id: "07",
+    question: "Can Auggit automate our existing business processes?",
+    answer:
+      "Yes, Auggit can automate existing business processes. It is configured around your current workflows, document types, validation rules, and approval requirements, so teams keep familiar steps. The implementation scope is set by the current process, the integration requirements, and the automation objectives agreed at the start of the project.",
+  },
+  {
+    id: "08",
+    question: "Can organizations implement individual Auggit products or the complete suite?",
+    answer:
+      "Yes, organizations can implement individual Auggit products or the complete suite. A business can start with one solution for a specific requirement, or combine several products into a broader automation initiative. This lets teams address their highest-priority processes first and expand the automation over time.",
+  },
+];
 
 const challenges = [
   { icon: FiUserCheck, text: "Lengthy vendor onboarding and document validation" },
@@ -157,6 +211,21 @@ const SectionHeader = ({
 );
 
 export default function AutomationSuite() {
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: automationFaqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   return (
     <div className="min-h-screen bg-[#f1f2f2]/40 text-[#353535] overflow-x-hidden">
       {/* ========== HERO SECTION ========== */}
@@ -497,6 +566,111 @@ export default function AutomationSuite() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ========== AUTOMATION SUITE FAQS ========== */}
+      <section id="faq" className="px-6 py-16 sm:py-24 max-w-5xl mx-auto">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-3xl mx-auto mb-12 sm:mb-16"
+        >
+          <span className="inline-flex items-center gap-2 px-4 py-1.5 text-xs font-semibold tracking-[0.25em] uppercase text-[#1267a7] bg-[#9eddf7]/30 rounded-full border border-[#41a0c8]/30">
+            <FiHelpCircle className="w-3.5 h-3.5 text-[#f7c037]" />
+            Knowledge Base
+          </span>
+          <h2 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#062039] tracking-tight">
+            Automation Suite{" "}
+            <span className="bg-gradient-to-r from-[#41a0c8] to-[#1267a7] bg-clip-text text-transparent">
+              FAQs
+            </span>
+          </h2>
+          <div className="w-16 h-1 bg-[#f7c037] rounded-full mx-auto mt-3" />
+          <p className="mt-4 text-[#353535] text-sm sm:text-base max-w-2xl mx-auto leading-relaxed">
+            Common questions about deploying, integrating, and scaling the AUGGIT Automation Suite across your business processes.
+          </p>
+        </motion.div>
+
+        <div className="space-y-4">
+          {automationFaqs.map((faq, index) => {
+            const isOpen = openFaq === index;
+            return (
+              <motion.div
+                key={faq.id}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, delay: index * 0.04 }}
+                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                  isOpen
+                    ? "bg-white border-[#41a0c8] shadow-lg shadow-[#41a0c8]/10"
+                    : "bg-white/90 hover:bg-white border-[#e3e3e3] hover:border-[#9eddf7] shadow-sm"
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setOpenFaq(isOpen ? null : index)}
+                  className="flex items-center justify-between w-full py-5 px-5 sm:px-6 text-left cursor-pointer transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-center gap-4 sm:gap-5 pr-4">
+                    <span
+                      className={`text-xs font-extrabold px-2.5 py-1 rounded-lg border shrink-0 transition-colors ${
+                        isOpen
+                          ? "bg-[#1267a7] text-white border-[#1267a7]"
+                          : "bg-[#f1f2f2] text-[#1267a7] border-[#e3e3e3]"
+                      }`}
+                    >
+                      {faq.id}
+                    </span>
+                    <h3
+                      className={`text-base sm:text-lg font-bold transition-colors ${
+                        isOpen ? "text-[#1267a7]" : "text-[#062039]"
+                      }`}
+                    >
+                      {faq.question}
+                    </h3>
+                  </div>
+
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ duration: 0.25 }}
+                    className={`p-2 rounded-full shrink-0 transition-colors ${
+                      isOpen
+                        ? "bg-[#1267a7] text-white"
+                        : "bg-[#f1f2f2] text-[#353535] hover:text-[#41a0c8]"
+                    }`}
+                  >
+                    <FiChevronDown className="w-4 h-4" />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pb-6 px-5 sm:px-6 pt-2 border-t border-[#f1f2f2] text-sm sm:text-base text-[#353535] leading-relaxed">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            );
+          })}
         </div>
       </section>
 
