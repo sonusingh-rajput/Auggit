@@ -12,6 +12,11 @@ import {
   FiUsers,
 } from "react-icons/fi";
 
+const ourPartners = [
+  { name: "Novaklick Global", tag: "Zoho", logo: "/partner/novaklick-logo.png", href: "https://novaklickglobal.com/" },
+  { name: "Jilaba Software", tag: "Jewellery", logo: "/partner/jilaba-logo.png", href: "https://jilaba.com/" },
+];
+
 const tracks = [
   {
     title: "Reseller Partner",
@@ -45,21 +50,6 @@ const benefits = [
     title: "Security and Compliance",
     icon: FiLock,
     desc: "Deploy a robust architecture that meets rigorous global security standards, giving your clients total peace of mind.",
-  },
-];
-
-const customerLogos = ["/client-1.png", "/client-2.png", "/client-3.png", "/client-4.png", "/client-5.png"];
-
-const customerQuotes = [
-  {
-    quote:
-      "By choosing auggit, we've dramatically slashed our record room expenses. This strategic decision not only brings cost savings but also elevates efficiency, underscoring the effectiveness of auggit’s solutions.",
-    author: "CFO, RATHNA PHARMACEUTICALS",
-  },
-  {
-    quote:
-      "auggit played a crucial role in recovering digital copies of our documents when the originals suffered damage, showcasing its effectiveness in safeguarding and preserving vital information.",
-    author: "Founder & CEO, SHREE SATI PIPE FITTINGS",
   },
 ];
 
@@ -117,39 +107,30 @@ export default function PartnerWithUsPage() {
         </div>
       </section>
 
-      {/* Our Customers */}
-      <section className="bg-[#062039] text-white py-16 sm:py-20 overflow-hidden">
+      {/* Our Partners */}
+      <section className="bg-[#062039] text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-10">
-          <h2 className="text-3xl sm:text-4xl font-bold">Our Customers</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold">Our Partners</h2>
         </div>
-
-        <div className="relative w-full overflow-hidden py-2">
-          <div className="absolute left-0 inset-y-0 w-16 sm:w-40 bg-gradient-to-r from-[#062039] to-transparent z-20 pointer-events-none" />
-          <div className="absolute right-0 inset-y-0 w-16 sm:w-40 bg-gradient-to-l from-[#062039] to-transparent z-20 pointer-events-none" />
-          <div className="animate-marquee-left flex items-center gap-6 whitespace-nowrap px-4">
-            {[...customerLogos, ...customerLogos, ...customerLogos, ...customerLogos].map((src, i) => (
-              <div
-                key={i}
-                className="w-[180px] h-[90px] sm:w-[220px] sm:h-[100px] flex-shrink-0 rounded-2xl bg-white flex items-center justify-center p-4"
-              >
-                <img
-                  src={src}
-                  alt="Customer logo"
-                  loading="lazy"
-                  decoding="async"
-                  className="max-h-12 max-w-[140px] object-contain"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-          {customerQuotes.map((q) => (
-            <figure key={q.author} className="p-6 rounded-2xl bg-white/5 border border-white/10">
-              <blockquote className="text-sm sm:text-base leading-relaxed text-[#f1f2f2]/90">“{q.quote}”</blockquote>
-              <figcaption className="mt-4 text-sm font-bold text-[#f7c037]">- {q.author}</figcaption>
-            </figure>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap justify-center gap-6">
+          {ourPartners.map((p) => (
+            <a
+              key={p.name}
+              href={p.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`${p.name} – ${p.tag}`}
+              className="w-[240px] h-[110px] rounded-2xl bg-white flex flex-col items-center justify-center p-4 text-center hover:scale-105 transition-transform"
+            >
+              {p.logo ? (
+                <img src={p.logo} alt={p.name} className="max-h-16 max-w-[180px] object-contain" />
+              ) : (
+                <>
+                  <span className="text-lg font-extrabold text-[#062039]">{p.name}</span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#41a0c8]">{p.tag}</span>
+                </>
+              )}
+            </a>
           ))}
         </div>
       </section>
