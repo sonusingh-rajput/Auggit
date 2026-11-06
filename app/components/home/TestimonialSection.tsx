@@ -5,11 +5,14 @@ import { Link } from "react-router";
 
 export default function TestimonialSection() {
   const caseStudiesShared = [
-    { name: "Steel Manufacturer", metric: "Zero Weight Leakage", slug: "apex-manufacturing-data-sovereignty" },
-    { name: "Airport Client", metric: "100% Airside Pass Compliance", slug: "airport-ground-handling-logistics" },
-    { name: "German Luxury Car Manufacturer", metric: "8 Months Faster Cutover", slug: "german-luxury-carmaker-carveout" },
-    { name: "MRF Tyres Ecosystem", metric: "Automated AP Matching", slug: "fmcg-supplier-invoice-automation" },
-    { name: "Garment Export Company", metric: "100% BOM Traceability", slug: "garment-version-control-traceability" },
+    { name: "Vendor management", metric: "Instant approval, ontime payments", slug: "apex-manufacturing-data-sovereignty" },
+    { name: "Procurement", metric: "Real-time visibility, no missed bills", slug: "airport-ground-handling-logistics" },
+    { name: "Document Access", metric: "License-free document viewing", slug: "german-luxury-carmaker-carveout" },
+    { name: "Audit Readiness", metric: "Tag-based real-time digital access", slug: "fmcg-supplier-invoice-automation" },
+    { name: "Documents Tracking", metric: "Zero document loss", slug: "garment-version-control-traceability" },
+    { name: "Lean Production", metric: "Quick migration and 0 functionality break", slug: "garment-version-control-traceability" },
+    { name: "On-demand testing", metric: "Reduction in test data footprint", slug: "garment-version-control-traceability" },
+    { name: "High Volume doc management ", metric: "Centralized repository powered by OCR, ML, and LLM data extraction", slug: "garment-version-control-traceability" },
   ];
 
   const primaryQuotes = [
@@ -88,16 +91,16 @@ export default function TestimonialSection() {
               <span className="text-xs font-bold text-slate-600">
                 Validated Industry Benchmarks & Case Highlights:
               </span>
-              <Link
+              {/* <Link
                 to="/casestudy"
                 className="text-xs font-bold text-[#41a0c8] hover:text-[#1267a7] flex items-center gap-1.5 transition-colors"
               >
                 <span>View All Case Studies</span>
                 <FiArrowRight className="w-3.5 h-3.5" />
-              </Link>
+              </Link> */}
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
               {caseStudiesShared.map((cs, i) => (
                 <Link
                   key={i}

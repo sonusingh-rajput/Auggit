@@ -6,6 +6,7 @@ import AutomationProductSection from "~/components/home/AutomationProductSection
 import HomeProductsGrid from "~/components/home/HomeProductsGrid";
 import IntegrationsSection from "~/components/home/IntegrationsSection";
 import TestimonialSection from "~/components/home/TestimonialSection";
+import HomeAwardsEvents from "~/components/home/HomeAwardsEvents";
 
 export default function Index() {
   return (
@@ -28,9 +29,8 @@ export default function Index() {
       {/* 6. Auggit Products Grid (Vendor Onboarding | AP | GatePass | Weighbridge | ADE | Digital Signatures | OCR) */}
       <HomeProductsGrid />
 
-      {/* 7. Integrations Section (SAP, Tally, Zoho) */}
-      {/* <IntegrationsSection /> */}
-
+      {/* <AwardsEvents /> */}
+      <HomeAwardsEvents />
       {/* 8. Customer Testimonials (Case Studies, Real CFO Quotes, LinkedIn Video Testimonial) */}
       <TestimonialSection />
     </div>
