@@ -79,11 +79,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`w-full flex items-center justify-between px-4 md:px-10 py-1.5 sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`w-full flex items-center justify-between px-4 md:px-10 py-1.5 sticky top-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-white/95 backdrop-blur-xl border-b border-[#e3e3e3] shadow-[0_4px_24px_rgba(6,32,57,0.06)]"
           : "bg-white/85 backdrop-blur-md border-b border-transparent shadow-[0_2px_12px_rgba(6,32,57,0.03)]"
-      }`}
+        }`}
     >
       {/* Brand Logo */}
       <div className="flex items-center gap-3">
@@ -105,9 +104,8 @@ export default function Navbar() {
           {/* 1. HOME */}
           <Link
             to="/"
-            className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
-              activeTab === "Home" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
-            }`}
+            className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${activeTab === "Home" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+              }`}
           >
             {activeTab === "Home" && (
               <motion.div
@@ -128,9 +126,8 @@ export default function Navbar() {
           >
             <button
               onClick={() => setActiveDropdown(activeDropdown === "Products" ? null : "Products")}
-              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 cursor-pointer ${
-                activeTab === "Products" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
-              }`}
+              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 cursor-pointer ${activeTab === "Products" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+                }`}
             >
               {activeTab === "Products" && (
                 <motion.div
@@ -142,9 +139,8 @@ export default function Navbar() {
               <HiCube className={`w-4 h-4 ${activeTab === "Products" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
               <span>Products</span>
               <HiChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === "Products" ? "rotate-180 text-[#41a0c8]" : "text-[#979797]"
-                }`}
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "Products" ? "rotate-180 text-[#41a0c8]" : "text-[#979797]"
+                  }`}
               />
             </button>
 
@@ -395,9 +391,8 @@ export default function Navbar() {
           {/* 4. INDUSTRIES */}
           <Link
             to="/solutions"
-            className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
-              activeTab === "Industries" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
-            }`}
+            className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${activeTab === "Industries" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+              }`}
           >
             {activeTab === "Industries" && (
               <motion.div
@@ -418,9 +413,8 @@ export default function Navbar() {
           >
             <Link
               to="/about"
-              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
-                activeTab === "Company" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
-              }`}
+              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${activeTab === "Company" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+                }`}
             >
               {activeTab === "Company" && (
                 <motion.div
@@ -429,16 +423,17 @@ export default function Navbar() {
                   transition={{ type: "spring", stiffness: 450, damping: 35 }}
                 />
               )}
-              <HiUser className={`w-4 h-4 ${activeTab === "Company" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
-              <span>Company</span>
-              <HiChevronDown
+              {/* <HiUser className={`w-4 h-4 ${activeTab === "Company" ? "text-[#41a0c8]" : "text-[#979797]"}`} /> */}
+              <HiLightBulb className={`w-4 h-4 ${activeTab === "Industries" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
+              <span>About Us</span>
+              {/* <HiChevronDown
                 className={`w-3.5 h-3.5 transition-transform duration-200 ${
                   activeDropdown === "Company" ? "rotate-180 text-[#41a0c8]" : "text-[#979797]"
                 }`}
-              />
+              /> */}
             </Link>
 
-            <AnimatePresence>
+            {/* <AnimatePresence>
               {activeDropdown === "Company" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10, scale: 0.96 }}
@@ -456,15 +451,14 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               )}
-            </AnimatePresence>
+            </AnimatePresence> */}
           </div>
 
           {/* 5b. PARTNER WITH US */}
           <Link
             to="/partner-with-us"
-            className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
-              activeTab === "Partner" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
-            }`}
+            className={`relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${activeTab === "Partner" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+              }`}
           >
             {activeTab === "Partner" && (
               <motion.div
@@ -485,9 +479,8 @@ export default function Navbar() {
           >
             <Link
               to="/research"
-              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${
-                activeTab === "Resources" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
-              }`}
+              className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold transition-all duration-300 z-10 ${activeTab === "Resources" ? "text-[#062039]" : "text-[#353535] hover:text-[#41a0c8]"
+                }`}
             >
               {activeTab === "Resources" && (
                 <motion.div
@@ -499,9 +492,8 @@ export default function Navbar() {
               <HiDocumentText className={`w-4 h-4 ${activeTab === "Resources" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
               <span>Resources</span>
               <HiChevronDown
-                className={`w-3.5 h-3.5 transition-transform duration-200 ${
-                  activeDropdown === "Resources" ? "rotate-180 text-[#41a0c8]" : "text-[#979797]"
-                }`}
+                className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === "Resources" ? "rotate-180 text-[#41a0c8]" : "text-[#979797]"
+                  }`}
               />
             </Link>
 
@@ -514,7 +506,7 @@ export default function Navbar() {
                   transition={{ duration: 0.18 }}
                   className="absolute top-full right-0 mt-3 w-56 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-slate-200 p-2 z-50 space-y-1"
                 >
-                  
+
                   <Link
                     to="/blog"
                     onClick={() => setActiveDropdown(null)}
@@ -522,7 +514,7 @@ export default function Navbar() {
                   >
                     Blogs
                   </Link>
-                   <Link
+                  <Link
                     to="/faq"
                     onClick={() => setActiveDropdown(null)}
                     className="block px-3 py-2 text-xs font-semibold text-[#062039] hover:text-[#41a0c8] hover:bg-slate-50 rounded-xl"
@@ -550,7 +542,7 @@ export default function Navbar() {
                   >
                     Use Cases
                   </Link> */}
-                 
+
                 </motion.div>
               )}
             </AnimatePresence>
