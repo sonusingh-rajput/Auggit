@@ -1,95 +1,116 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { Link } from "react-router";
 import {
   FiBriefcase,
   FiArrowRight,
   FiCheckCircle,
-  FiTrendingUp,
-  FiShield,
-  FiLayers,
-  FiBox,
 } from "react-icons/fi";
-import { SiSap } from "react-icons/si";
 
 export default function SolutionsPage() {
   const industries = [
     {
-      id: "real-estate",
-      title: "Real Estate & Infrastructure",
-      badge: "Asset & Lease Governance",
-      desc: "Manage thousands of lease agreements, tenant billing records, joint development deeds, and contractor invoices with sub-second metadata retrieval and automated SAP/ERP reconciliation.",
+      id: "vendor-management",
+      title: "Manufacturing & Vendor AP",
+      badge: "Mobile One-Click Approvals",
+      desc: "Eliminate vendor payment bottlenecks and delivery delays with mobile one-click approvals, automated multi-stage routing, and real-time payment tracking.",
       features: [
-        "Digital Vault for Project Approvals, NOCs & Title Deeds",
-        "Automated Contractor Invoice 3-Way Matching",
-        "Tenant Billing & Section 128 Audit Trails",
+        "Instant mobile approval workflows",
+        "Tracked status changes across every voucher",
+        "Prompt vendor payouts protecting market trust",
       ],
-      caseStudySlug: "real-estate-document-vault",
-      metric: "75% Faster Lease Audits",
+      caseStudySlug: "manufacturing-vendor-payment-delays",
+      metric: "Instant Approvals",
     },
     {
-      id: "manufacturing",
-      title: "Heavy Manufacturing & Plants",
-      badge: "Inward-to-Outward Control",
-      desc: "From factory gatepass inwarding and digital weighbridge capture to raw material PO matching and automated SAP MIRO posting with zero human operator leakage.",
+      id: "procurement-finance",
+      title: "Procurement & Finance Document Control",
+      badge: "5-Document Verification",
+      desc: "Centralize and track all five purchase documents—PO, Invoice, GRN, Quality Certificate, and Delivery Challan—to uncover missing bills and unfulfilled advance payments.",
       features: [
-        "Automated Weighbridge & CCTV Plate Snapshot Sync",
-        "Digital Gate Passes for Trucks & Inward Consignments",
-        "Automated MIRO – MIGO 3-Way Reconciliation",
+        "Full purchase cycle document tracking",
+        "Detection of pending final invoices on advances",
+        "Centralized cross-department repository",
       ],
-      caseStudySlug: "apex-manufacturing-data-sovereignty",
-      metric: "Zero Weight Leakage",
+      caseStudySlug: "cfo-centralized-purchase-document-tracking",
+      metric: "Real-Time Visibility",
     },
     {
-      id: "retails",
-      title: "Retail & Multi-Store FMCG",
-      badge: "High-Volume AP & Billing",
-      desc: "Process multi-store vendor invoices, promotional debit notes, supplier price variance checks, and GST 2B reconciliation across hundreds of retail outlets seamlessly.",
+      id: "enterprise-license-free",
+      title: "Enterprise Cross-Department Access",
+      badge: "License-Free Archiving",
+      desc: "Empower non-ERP personnel across legal, HR, and stores with immediate, secure document search and viewing—without purchasing costly named ERP licenses.",
       features: [
-        "AI/LLM OCR Extraction for High-Volume Vendor Bills",
-        "Automated Dispute & Shortage Note Generation",
-        "Instant Point-of-Sale (POS) ERP Document Synchronization",
+        "Zero ERP named license fees for viewers",
+        "AI-powered OCR and metadata indexing",
+        "Tamper-proof digital document vault",
       ],
-      caseStudySlug: "fmcg-supplier-invoice-automation",
-      metric: "-80% Invoice Processing Cost",
+      caseStudySlug: "enterprise-license-free-document-access",
+      metric: "Zero License Costs",
     },
     {
-      id: "garments",
-      title: "Garments & Textiles (Version Control)",
-      badge: "Design Pack & BOM Revisions",
-      desc: "Maintain strict version control over garment tech packs, fabric lot lab reports, shrinkage test certificates, and export documentation across international buyers.",
+      id: "steel-manufacturing",
+      title: "Steel & Heavy Process Manufacturing",
+      badge: "Tag-Based Audit Access",
+      desc: "Replace endless physical store runs and lost files with tag-based digital filing. Pull every dispatch slip, test certificate, and excise record instantly during audits.",
       features: [
-        "Tech Pack & BOM Revision Control (Zero Confusion)",
-        "Dye Lot & Fabric Inspection Certificate Vault",
-        "Automated Export Packing List & E-Way Generation",
+        "Instant tag-based multi-criteria retrieval",
+        "Permanent digital preservation preventing lost files",
+        "Complete paperless audit readiness",
       ],
-      caseStudySlug: "garment-version-control-traceability",
-      metric: "100% BOM Traceability",
+      caseStudySlug: "steel-manufacturer-digital-documents",
+      metric: "Zero Paper Runs",
     },
     {
-      id: "airport",
-      title: "Airports & Aviation Hubs",
-      badge: "High-Security Logistics",
-      desc: "Manage ground handling concessions, vendor airside entry permits, fueling receipts, and retail tenant revenue documentation in high-security aviation environments.",
+      id: "food-processing",
+      title: "Food Manufacturing & Processing",
+      badge: "7-Step Process Control",
+      desc: "Track critical workflow records across all seven operational steps—from purchase order to gate inward, quality testing, and accounts payable—preventing batch loss.",
       features: [
-        "Airside Vendor Onboarding & Statutory Background Checks",
-        "Ground Handling Equipment Gate Movement Tracking",
-        "Aviation Fueling Slip & SAP MIRO Direct Verification",
+        "End-to-end 7-step process record tracking",
+        "Lab test & quality certificate binding",
+        "Complete physical & digital audit protection",
       ],
-      caseStudySlug: "airport-ground-handling-logistics",
-      metric: "100% Airside Pass Compliance",
+      caseStudySlug: "french-fries-manufacturer-workflow",
+      metric: "Zero Document Loss",
+    },
+    {
+      id: "airport-aviation",
+      title: "Airports & Aviation Infrastructure",
+      badge: "Lean SAP S/4HANA Migration",
+      desc: "Keep live airport production systems lean and unburdened during SAP S/4HANA transitions using SLaiCE to carve and migrate only active data slices.",
+      features: [
+        "Selective data carving with SLaiCE",
+        "Zero disruption to daily flight operations",
+        "Controlled historical data offloading",
+      ],
+      caseStudySlug: "global-airport-sap-s4hana-migration",
+      metric: "100% Core Focus",
     },
     {
       id: "auto-manufacturer",
-      title: "Auto Manufacturers & Tier-1 OEMs",
-      badge: "JIT Assembly & Carve-Out",
-      desc: "Power Just-In-Time (JIT) supplier parts delivery, 3-way PO-GRN verification, and selective data carving for legacy closed vehicle model systems without stopping production.",
+      title: "Automotive Engineering & QA",
+      badge: "On-Demand Test Provisioning",
+      desc: "Provision precise, targeted test datasets from massive enterprise SAP databases on demand—accelerating development cycles and cutting storage overhead.",
       features: [
-        "Automated S/4HANA Migration for 20+ Year Legacy Records",
-        "Zero-Downtime Just-In-Time Supplier Invoicing",
-        "Selective Legacy Data Carving (Thin Migration)",
+        "Exact business scenario data slicing",
+        "Elimination of full system test copies",
+        "Rapid QA provisioning with zero production risk",
       ],
-      caseStudySlug: "german-luxury-carmaker-carveout",
-      metric: "8 Months Faster S/4HANA Go-Live",
+      caseStudySlug: "automaker-ondemand-test-provisioning",
+      metric: "Targeted Data Slices",
+    },
+    {
+      id: "exim-compliance",
+      title: "EXIM & International Trade Compliance",
+      badge: "Customs & DGFT Governance",
+      desc: "Digitize and index 30,000+ cross-border trade documents—Bills of Entry, shipping bills, customs declarations, and bank realizations—for statutory compliance.",
+      features: [
+        "AI/OCR extraction for multi-format trade records",
+        "Centralized digital repository for DGFT/Customs audits",
+        "Instant retrieval under Indian EXIM regulations",
+      ],
+      caseStudySlug: "exim-customs-compliance-digitization",
+      metric: "100% Compliant",
     },
   ];
 
@@ -126,7 +147,7 @@ export default function SolutionsPage() {
           </p>
         </div>
 
-        {/* 6 Industry Solution Cards Grid */}
+        {/* 8 Industry Solution Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {industries.map((item, idx) => (
             <motion.div
@@ -134,7 +155,7 @@ export default function SolutionsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
+              transition={{ delay: idx * 0.08 }}
               className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden"
             >
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#41a0c8] to-[#1267a7] opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -168,19 +189,19 @@ export default function SolutionsPage() {
               </div>
 
               <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <a
-                  href="/casestudy"
-                  className="text-xs font-bold text-[#41a0c8] group-hover:text-[#1267a7] transition-colors flex items-center gap-1.5"
+                <Link
+                  to={`/casestudy/${item.caseStudySlug}`}
+                  className="text-xs font-bold text-[#41a0c8] group-hover:text-[#1267a7] transition-colors flex items-center gap-1.5 cursor-pointer"
                 >
                   <span>Explore Case Study</span>
                   <FiArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                </a>
-                <a
-                  href="/book-poc"
-                  className="text-xs font-bold text-slate-600 hover:text-[#062039]"
+                </Link>
+                <Link
+                  to="/book-poc"
+                  className="text-xs font-bold text-slate-600 hover:text-[#062039] cursor-pointer"
                 >
                   Request Demo
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}
@@ -195,18 +216,18 @@ export default function SolutionsPage() {
             </p>
           </div>
           <div className="flex gap-3">
-            <a
-              href="/contact"
-              className="px-6 py-3 rounded-full bg-[#f7c037] text-[#062039] font-bold text-xs hover:bg-[#e5b02a] transition-all whitespace-nowrap"
+            <Link
+              to="/contact"
+              className="px-6 py-3 rounded-full bg-[#f7c037] text-[#062039] font-bold text-xs hover:bg-[#e5b02a] transition-all whitespace-nowrap cursor-pointer"
             >
               Talk to Our Experts →
-            </a>
-            <a
-              href="/book-poc"
-              className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-all whitespace-nowrap"
+            </Link>
+            <Link
+              to="/book-poc"
+              className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs border border-white/20 transition-all whitespace-nowrap cursor-pointer"
             >
               Request Demo
-            </a>
+            </Link>
           </div>
         </div>
       </div>

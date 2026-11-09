@@ -81,14 +81,14 @@ export default function HeroSection() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        
+
         {/* Top Celebrating 10th Yr Floating Banner Badge (PDF Page 4) */}
         <div className="flex items-center justify-between mb-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-amber-400/20 to-amber-500/10 border border-[#f7c037]/50 text-[#062039] text-xs font-bold shadow-sm backdrop-blur-md">
             <FiAward className="w-4 h-4 text-[#f7c037]" />
-            <span className="font-extrabold text-[#062039]">Celebrating 10th Year</span>
-            <span className="text-[#f7c037] font-black">•</span>
-            <span className="text-slate-600 font-semibold">10 Years of Enterprise Excellence</span>
+            <span className="font-extrabold text-[#062039]">Celebrating 10 Years of Enterprise Excellence</span>
+            {/* <span className="text-[#f7c037] font-black">•</span> */}
+            {/* <span className="text-slate-600 font-semibold">10 Years of Enterprise Excellence</span> */}
           </div>
 
           {/* Slide Navigation Buttons */}
@@ -97,9 +97,8 @@ export default function HeroSection() {
               <button
                 key={s.id}
                 onClick={() => setCurrentSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200 hover:bg-slate-300"
-                }`}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200 hover:bg-slate-300"
+                  }`}
                 aria-label={`Go to slide ${idx + 1}`}
               />
             ))}
@@ -118,7 +117,7 @@ export default function HeroSection() {
           >
             {/* Left Column: Text Content & Actions */}
             <div className="lg:col-span-6 space-y-6 text-left">
-              
+
               {/* Product Badge */}
               <div className="inline-flex items-center gap-2 bg-[#f1f2f2] text-[#062039] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-[#9eddf7] shadow-sm">
                 <BadgeIcon className="w-3.5 h-3.5 text-[#41a0c8]" />
@@ -170,9 +169,8 @@ export default function HeroSection() {
                   <button
                     key={idx}
                     onClick={() => setCurrentSlide(idx)}
-                    className={`h-2 rounded-full transition-all cursor-pointer ${
-                      currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200"
-                    }`}
+                    className={`h-2 rounded-full transition-all cursor-pointer ${currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200"
+                      }`}
                   />
                 ))}
               </div>

@@ -5,14 +5,14 @@ import { Link } from "react-router";
 
 export default function TestimonialSection() {
   const caseStudiesShared = [
-    { name: "Vendor management", metric: "Instant approval, ontime payments", slug: "apex-manufacturing-data-sovereignty" },
-    { name: "Procurement", metric: "Real-time visibility, no missed bills", slug: "airport-ground-handling-logistics" },
-    { name: "Document Access", metric: "License-free document viewing", slug: "german-luxury-carmaker-carveout" },
-    { name: "Audit Readiness", metric: "Tag-based real-time digital access", slug: "fmcg-supplier-invoice-automation" },
-    { name: "Documents Tracking", metric: "Zero document loss", slug: "garment-version-control-traceability" },
-    { name: "Lean Production", metric: "Quick migration and 0 functionality break", slug: "garment-version-control-traceability" },
-    { name: "On-demand testing", metric: "Reduction in test data footprint", slug: "garment-version-control-traceability" },
-    { name: "High Volume doc management ", metric: "Centralized repository powered by OCR, ML, and LLM data extraction", slug: "garment-version-control-traceability" },
+    { name: "Vendor Management", metric: "Instant Approvals", slug: "manufacturing-vendor-payment-delays" },
+    { name: "Procurement & Finance", metric: "Real-Time Visibility", slug: "cfo-centralized-purchase-document-tracking" },
+    { name: "License-Free Document Access", metric: "Zero License Costs", slug: "enterprise-license-free-document-access" },
+    { name: "Tag-Based Digital Audit", metric: "Zero Paper Runs", slug: "steel-manufacturer-digital-documents" },
+    { name: "Workflow Traceability", metric: "Zero Document Loss", slug: "french-fries-manufacturer-workflow" },
+    { name: "Lean SAP S/4HANA Migration", metric: "100% Core Focus", slug: "global-airport-sap-s4hana-migration" },
+    { name: "On-Demand Test Provisioning", metric: "Targeted Data Slices", slug: "automaker-ondemand-test-provisioning" },
+    { name: "EXIM Customs Compliance", metric: "30,000+ Docs Digitized", slug: "exim-customs-compliance-digitization" },
   ];
 
   const primaryQuotes = [
@@ -104,7 +104,7 @@ export default function TestimonialSection() {
               {caseStudiesShared.map((cs, i) => (
                 <Link
                   key={i}
-                  to={`/casestudy`}
+                  to={`/casestudy/${cs.slug}`}
                   className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-[#41a0c8] shadow-sm hover:shadow-md transition-all group"
                 >
                   <div className="text-xs font-extrabold text-[#062039] group-hover:text-[#41a0c8] transition-colors leading-snug line-clamp-1">
