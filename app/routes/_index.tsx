@@ -5,6 +5,7 @@ import SlaiceProductSection from "~/components/home/SlaiceProductSection";
 import AutomationProductSection from "~/components/home/AutomationProductSection";
 import HomeProductsGrid from "~/components/home/HomeProductsGrid";
 import IntegrationsSection from "~/components/home/IntegrationsSection";
+import CaseStudyHomeSection from "~/components/home/CaseStudyHomeSection";
 import TestimonialSection from "~/components/home/TestimonialSection";
 import HomeAwardsEvents from "~/components/home/HomeAwardsEvents";
 
@@ -29,9 +30,13 @@ export default function Index() {
       {/* 6. Auggit Products Grid (Vendor Onboarding | AP | GatePass | Weighbridge | ADE | Digital Signatures | OCR) */}
       <HomeProductsGrid />
 
-      {/* <AwardsEvents /> */}
+      {/* 7. Awards & Events */}
       <HomeAwardsEvents />
-      {/* 8. Customer Testimonials (Case Studies, Real CFO Quotes, LinkedIn Video Testimonial) */}
+
+      {/* 8. Featured Enterprise Case Studies (Auto-scrolling cards with dome-arch photos linking to /casestudy/:slug) */}
+      <CaseStudyHomeSection />
+
+      {/* 9. Customer Testimonials (CFO Quotes, LinkedIn Video Testimonial) */}
       <TestimonialSection />
     </div>
   );
