@@ -5,12 +5,10 @@ import {
   HiHome,
   HiCube,
   HiDocumentText,
-  HiUser,
   HiChevronDown,
   HiMenu,
   HiX,
   HiBriefcase,
-  HiLightBulb,
   HiUserGroup,
 } from "react-icons/hi";
 import {
@@ -24,7 +22,9 @@ import {
   FiZap,
   FiCalendar,
   FiCheckCircle,
+  FiInfo,
 } from "react-icons/fi";
+import { FaIndustry } from "react-icons/fa";
 import { SiSap } from "react-icons/si";
 
 export default function Navbar() {
@@ -33,6 +33,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileSubSection, setMobileSubSection] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [automationHovered, setAutomationHovered] = useState(false);
 
   // Active path matcher
   const getActiveTab = () => {
@@ -122,7 +123,10 @@ export default function Navbar() {
           <div
             className="relative px-1"
             onMouseEnter={() => setActiveDropdown("Products")}
-            onMouseLeave={() => setActiveDropdown(null)}
+            onMouseLeave={() => {
+              setActiveDropdown(null);
+              setAutomationHovered(false);
+            }}
           >
             <button
               onClick={() => setActiveDropdown(activeDropdown === "Products" ? null : "Products")}
@@ -152,14 +156,13 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.98 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute top-full -left-20 mt-3 w-[720px] bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200 p-6 z-50 overflow-hidden"
+                  className="absolute top-full -left-20 mt-3 w-[360px] bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-slate-200 p-3 z-50"
                 >
-                  {/* Top Standalone Products: eDMS & SLaiCE */}
-                  <div className="grid grid-cols-2 gap-4 pb-5 border-b border-slate-100">
+                  <div className="space-y-2">
                     <Link
                       to="/product/edms"
                       onClick={() => setActiveDropdown(null)}
-                      className="p-3.5 rounded-2xl bg-slate-50 hover:bg-[#9eddf7]/15 border border-slate-200/80 hover:border-[#41a0c8] transition-all group flex items-start gap-3.5"
+                      className="p-3 rounded-2xl bg-slate-50 hover:bg-[#9eddf7]/15 border border-slate-200/80 hover:border-[#41a0c8] transition-all group flex items-start gap-3"
                     >
                       <div className="w-10 h-10 rounded-xl bg-[#062039] text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                         <FiFileText className="w-5 h-5 text-[#f7c037]" />
@@ -182,7 +185,7 @@ export default function Navbar() {
                     <Link
                       to="/product/slaice"
                       onClick={() => setActiveDropdown(null)}
-                      className="p-3.5 rounded-2xl bg-slate-50 hover:bg-[#9eddf7]/15 border border-slate-200/80 hover:border-[#41a0c8] transition-all group flex items-start gap-3.5"
+                      className="p-3 rounded-2xl bg-slate-50 hover:bg-[#9eddf7]/15 border border-slate-200/80 hover:border-[#41a0c8] transition-all group flex items-start gap-3"
                     >
                       <div className="w-10 h-10 rounded-xl bg-[#41a0c8] text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
                         <SiSap className="w-5 h-5 text-white" />
@@ -203,111 +206,75 @@ export default function Navbar() {
                     </Link>
                   </div>
 
-                  {/* Bottom: Automation Suite Menu with all 6 Sub-Modules + Free POC */}
-                  <div className="pt-4">
-                    <div className="flex items-center justify-between mb-3 px-1">
+                    <div
+                      className="relative mt-2"
+                      onMouseEnter={() => setAutomationHovered(true)}
+                      onMouseLeave={() => setAutomationHovered(false)}
+                    >
                       <Link
                         to="/product/automation-suite"
                         onClick={() => setActiveDropdown(null)}
-                        className="text-xs font-bold uppercase tracking-wider text-[#41a0c8] hover:underline flex items-center gap-1.5"
+                        className="p-3 rounded-2xl bg-slate-50 hover:bg-[#9eddf7]/15 border border-slate-200/80 hover:border-[#41a0c8] transition-all group flex items-start gap-3"
                       >
-                        <FiCpu className="w-3.5 h-3.5" />
-                        <span>Automation Suite (Explore Suite Overview)</span>
+                        <div className="w-10 h-10 rounded-xl bg-[#062039] text-white flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                          <FiCpu className="w-5 h-5 text-[#f7c037]" />
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="text-sm font-extrabold text-[#062039] group-hover:text-[#41a0c8] transition-colors">
+                            Automation Suite
+                          </h4>
+                          <p className="text-xs text-slate-500 mt-0.5">
+                            End-to-end supply chain and AP automation.
+                          </p>
+                        </div>
+                        <FiArrowRight className="w-4 h-4 mt-1 text-slate-400" />
                       </Link>
-                      <span className="text-[10px] font-semibold text-slate-400">
-                        Select a Specialized Module:
-                      </span>
+
+                      <AnimatePresence>
+                        {automationHovered && (
+                          <motion.div
+                            initial={{ opacity: 0, x: 8 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: 8 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute left-[calc(100%+12px)] top-0 w-[520px] bg-white rounded-3xl shadow-2xl border border-slate-200 p-4"
+                          >
+                            <div className="flex items-center justify-between mb-3 px-1">
+                              <span className="text-xs font-bold uppercase tracking-wider text-[#41a0c8]">
+                                Automation Suite Modules
+                              </span>
+                              <Link
+                                to="/product/automation-suite"
+                                onClick={() => setActiveDropdown(null)}
+                                className="text-[10px] font-bold text-[#062039] hover:text-[#41a0c8]"
+                              >
+                                View Overview
+                              </Link>
+                            </div>
+                            <div className="grid grid-cols-2 gap-2">
+                              {[
+                                ["/product/automation-suite/edms-demo", FiCalendar, "EDMS - Request a Demo"],
+                                ["/product/automation-suite/vendor-onboarding", FiUserCheck, "Vendor Onboarding Tool"],
+                                ["/product/automation-suite/ap-automation", FiCpu, "AP Automation (MIRO-MIGO)"],
+                                ["/product/automation-suite/gate-pass", FiTruck, "Gate Pass Management"],
+                                ["/product/automation-suite/weighbridge", FiSliders, "Weighbridge Integration"],
+                                ["/product/automation-suite/automatic-data-entry", FiZap, "Automatic Data Entry"],
+                              ].map(([href, Icon, label]) => (
+                                <Link
+                                  key={href as string}
+                                  to={href as string}
+                                  onClick={() => setActiveDropdown(null)}
+                                  className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all flex items-center gap-3"
+                                >
+                                  <Icon className="w-4 h-4 text-[#41a0c8] flex-shrink-0" />
+                                  <span className="text-xs font-bold text-[#062039]">{label as string}</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-
-                    <div className="grid grid-cols-2 gap-2.5">
-                      <Link
-                        to="/product/automation-suite/edms-demo"
-                        onClick={() => setActiveDropdown(null)}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all flex items-center gap-3"
-                      >
-                        <FiCalendar className="w-4 h-4 text-[#41a0c8] flex-shrink-0" />
-                        <div>
-                          <div className="text-xs font-bold text-[#062039]">EDMS - Request a Demo</div>
-                          <div className="text-[10px] text-slate-400">Interactive product tour</div>
-                        </div>
-                      </Link>
-
-                      <Link
-                        to="/product/automation-suite/vendor-onboarding"
-                        onClick={() => setActiveDropdown(null)}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all flex items-center gap-3"
-                      >
-                        <FiUserCheck className="w-4 h-4 text-[#1267a7] flex-shrink-0" />
-                        <div>
-                          <div className="text-xs font-bold text-[#062039]">Vendor Onboarding Tool</div>
-                          <div className="text-[10px] text-slate-400">GST/PAN API & SAP vendor auto-creation</div>
-                        </div>
-                      </Link>
-
-                      <Link
-                        to="/product/automation-suite/ap-automation"
-                        onClick={() => setActiveDropdown(null)}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all flex items-center gap-3"
-                      >
-                        <FiCpu className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                        <div>
-                          <div className="text-xs font-bold text-[#062039]">AP Automation (MIRO – MIGO)</div>
-                          <div className="text-[10px] text-slate-400">3-Way PO-GRN match & supplier form</div>
-                        </div>
-                      </Link>
-
-                      <Link
-                        to="/product/automation-suite/gate-pass"
-                        onClick={() => setActiveDropdown(null)}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all flex items-center gap-3"
-                      >
-                        <FiTruck className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                        <div>
-                          <div className="text-xs font-bold text-[#062039]">Gate Pass Management</div>
-                          <div className="text-[10px] text-slate-400">Inward, outward & QR boom barrier sync</div>
-                        </div>
-                      </Link>
-
-                      <Link
-                        to="/product/automation-suite/weighbridge"
-                        onClick={() => setActiveDropdown(null)}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all flex items-center gap-3"
-                      >
-                        <FiSliders className="w-4 h-4 text-indigo-600 flex-shrink-0" />
-                        <div>
-                          <div className="text-xs font-bold text-[#062039]">Weighbridge Integration</div>
-                          <div className="text-[10px] text-slate-400">Direct indicator polling & CCTV sync</div>
-                        </div>
-                      </Link>
-
-                      <Link
-                        to="/product/automation-suite/automatic-data-entry"
-                        onClick={() => setActiveDropdown(null)}
-                        className="p-2.5 rounded-xl hover:bg-slate-50 border border-transparent hover:border-slate-200 transition-all flex items-center gap-3"
-                      >
-                        <FiZap className="w-4 h-4 text-[#f7c037] flex-shrink-0" />
-                        <div>
-                          <div className="text-xs font-bold text-[#062039]">Automatic Data Entry (ADE)</div>
-                          <div className="text-[10px] text-slate-400">AI line extraction & SAP auto-entry</div>
-                        </div>
-                      </Link>
-                    </div>
-
-                    {/* Bottom Action Bar: Book Your Free POC */}
-                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between px-2 bg-gradient-to-r from-slate-50 to-[#9eddf7]/10 p-3 rounded-2xl">
-                      <span className="text-xs text-slate-600 font-medium">
-                        Need to validate on your live invoices or plant scale?
-                      </span>
-                      <Link
-                        to="/book-poc"
-                        onClick={() => setActiveDropdown(null)}
-                        className="px-4 py-2 rounded-xl bg-[#062039] hover:bg-[#1267a7] text-white text-xs font-bold shadow-md transition-all flex items-center gap-1.5"
-                      >
-                        <span>Request Demo</span>
-                        <FiArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
-                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -401,7 +368,7 @@ export default function Navbar() {
                 transition={{ type: "spring", stiffness: 450, damping: 35 }}
               />
             )}
-            <HiLightBulb className={`w-4 h-4 ${activeTab === "Industries" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
+            <FaIndustry className={`w-4 h-4 ${activeTab === "Industries" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
             <span>Industries</span>
           </Link>
 
@@ -423,8 +390,7 @@ export default function Navbar() {
                   transition={{ type: "spring", stiffness: 450, damping: 35 }}
                 />
               )}
-              {/* <HiUser className={`w-4 h-4 ${activeTab === "Company" ? "text-[#41a0c8]" : "text-[#979797]"}`} /> */}
-              <HiLightBulb className={`w-4 h-4 ${activeTab === "Industries" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
+              <FiInfo className={`w-4 h-4 ${activeTab === "Company" ? "text-[#41a0c8]" : "text-[#979797]"}`} />
               <span>About Us</span>
               {/* <HiChevronDown
                 className={`w-3.5 h-3.5 transition-transform duration-200 ${

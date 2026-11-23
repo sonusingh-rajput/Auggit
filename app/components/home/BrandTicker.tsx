@@ -7,9 +7,31 @@ const topRowClients = [
   { src: "/client-3.png" },
   { src: "/client-4.png" },
   { src: "/client-5.png" },
+  { src: "/client-6.png" },
+  { src: "/client-7.png" },
+  { src: "/client-8.png" },
+  { src: "/client-9.png" },
+  { src: "/client-10.png" },
+  { src: "/client-11.png" },
+  { src: "/client-12.png" },
+  { src: "/client-13.png" },
+  { src: "/client-14.png" },
+  { src: "/client-15.png" },
+
+
 ];
 
-const bottomRowClients = [
+const bottomRowClients = [  
+  { src: "/client-15.png" },
+  { src: "/client-14.png" },
+    { src: "/client-13.png" },
+  { src: "/client-12.png" },
+  { src: "/client-11.png" },
+   { src: "/client-10.png" },
+  { src: "/client-9.png" },
+  { src: "/client-8.png" },
+   { src: "/client-7.png" },
+  { src: "/client-6.png" },
   { src: "/client-5.png" },
   { src: "/client-4.png" },
   { src: "/client-3.png" },

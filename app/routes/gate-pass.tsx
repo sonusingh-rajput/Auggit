@@ -277,7 +277,7 @@ export default function GatePassPage() {
               icon: FiClock,
             },
             {
-              metric: "Zero Leakage",
+              metric: "Avoids Leakage",
               label: "100% Material Reconciled",
               desc: "No material exits the factory without an approved SAP invoice or returnable gate pass.",
               icon: FiShield,

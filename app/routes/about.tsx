@@ -20,19 +20,23 @@ export default function AboutPage() {
 
       <div className="max-w-7xl mx-auto relative z-10 space-y-12 sm:space-y-14">
         {/* 1. Hero */}
-        <AboutHero />
+     {/*  <AboutHero />  */}
 
         {/* 2. Story & Heritage */}
         <AboutStory />
 
-        {/* 3. Timeline */}
-        <AboutTimeline />
-
-        {/* 4. Vision & Mission Cards */}
+         {/* 4. Vision & Mission Cards */}
         <VisionMissionCards />
 
         {/* 5. Executive Leadership (CEO on Top, 5 Leaders in row below) */}
         <AboutLeadership />
+
+        {/* 3. Timeline */}
+        <AboutTimeline />
+
+       
+
+        
 
         {/* 6. Download the Brochure (Same Page) */}
         <AboutBrochureDownload />

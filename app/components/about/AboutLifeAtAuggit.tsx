@@ -1,32 +1,76 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FiExternalLink, FiHeart, FiCamera, FiSmile } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiSmile } from "react-icons/fi";
 
 interface CultureItem {
   title: string;
-  category: string;
   image: string;
-  caption: string;
-  link: string;
 }
 
 const cultureMoments: CultureItem[] = [
   {
     title: "Annual Team Retreat & Outing",
-    category: "Team Retreat",
-    image: "/images/culture/team_outing.webp",
-    caption: "Stepping away from screens to reconnect, brainstorm, and recharge amidst nature during our annual company getaway.",
-    link: "https://lnkd.in/p/gMg87G6A",
+    image: "/images/culture/team1.jpeg",
   },
   {
     title: "Product Launch & Milestone Celebrations",
-    category: "Office Celebrations",
-    image: "/images/culture/team_celebration.webp",
-    caption: "Celebrating breakthrough enterprise releases and customer wins with cake, applause, and shared gratitude across teams.",
-    link: "https://lnkd.in/p/g5PeYsBD",
+    image: "/images/culture/team2.jpeg",
+  },
+  {
+    title: "Team Collaboration",
+    image: "/images/culture/team3.jpeg",
+  },
+  {
+    title: "Milestone Moments",
+    image: "/images/culture/team4.jpeg",
+  },
+  {
+    title: "Learning Together",
+    image: "/images/culture/team5.jpeg",
+  },
+  {
+    title: "Celebrating Success",
+    image: "/images/culture/team6.jpeg",
+  },
+   {
+    title: "Celebrating Success",
+    image: "/images/culture/team7.jpeg",
+  },
+   {
+    title: "Celebrating Success",
+    image: "/images/culture/team8.jpeg",
+  },
+   {
+    title: "Celebrating Success",
+    image: "/images/culture/team9.jpeg",
   },
 ];
 
 export default function AboutLifeAtAuggit() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveIndex((current) => (current + 1) % cultureMoments.length);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  const showPrevious = () => {
+    setActiveIndex((current) =>
+      current === 0 ? cultureMoments.length - 1 : current - 1
+    );
+  };
+
+  const showNext = () => {
+    setActiveIndex((current) => (current + 1) % cultureMoments.length);
+  };
+
+  const visibleMoments = [0, 1, 2].map(
+    (offset) => cultureMoments[(activeIndex + offset) % cultureMoments.length]
+  );
+
   return (
     <section className="relative py-12 sm:py-16 bg-[#f8fafc] border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-sm overflow-hidden">
       <div className="max-w-7xl mx-auto space-y-10">
@@ -46,72 +90,73 @@ export default function AboutLifeAtAuggit() {
             </p>
           </div>
 
-          <a
-            href="https://www.linkedin.com/company/auggit/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 text-xs font-bold text-[#41a0c8] hover:text-[#1267a7] transition-colors"
-          >
-            <span>Follow our journey on LinkedIn</span>
-            <FiExternalLink className="w-3.5 h-3.5" />
-          </a>
         </div>
 
-        {/* Culture Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {cultureMoments.map((moment, index) => (
+        {/* Culture Carousel */}
+        <div className="relative" aria-roledescription="carousel" aria-label="Life at Auggit moments">
+          <div className="overflow-hidden">
             <motion.div
-              key={moment.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.45, delay: index * 0.1, ease: "easeOut" }}
-              className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+              key={activeIndex}
+              initial={{ opacity: 0.7, x: 35 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-5"
             >
-              <div>
-                <div className="relative aspect-video overflow-hidden bg-slate-100">
-                  <img
-                    src={moment.image}
-                    alt={moment.title}
-                    width={800}
-                    height={450}
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3 bg-[#062039]/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider flex items-center gap-1.5">
-                    <FiCamera className="w-3 h-3 text-[#f7c037]" />
-                    <span>{moment.category}</span>
-                  </div>
-                </div>
-
-                <div className="p-6 space-y-2">
-                  <h4 className="text-lg font-bold text-[#062039] group-hover:text-[#41a0c8] transition-colors">
-                    {moment.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {moment.caption}
-                  </p>
-                </div>
-              </div>
-
-              <div className="px-6 pb-6 pt-2 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-xs text-slate-400 flex items-center gap-1">
-                  <FiHeart className="w-3.5 h-3.5 text-rose-500 fill-current" />
-                  <span>Team Camaraderie</span>
-                </span>
-                <a
-                  href={moment.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0a66c2] hover:text-[#004182] transition-colors"
+              {visibleMoments.map((moment) => (
+                <article
+                  key={moment.title}
+                  className="group bg-white border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow"
                 >
-                  <span>View Post on LinkedIn</span>
-                  <FiExternalLink className="w-3.5 h-3.5" />
-                </a>
-              </div>
+                  <div className="relative h-72 sm:h-80 lg:h-96 overflow-hidden bg-slate-100">
+                    <img
+                      src={moment.image}
+                      alt={moment.title}
+                      width={800}
+                      height={500}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                </article>
+              ))}
             </motion.div>
-          ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={showPrevious}
+            aria-label="Previous culture image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/95 border border-slate-200 text-[#062039] shadow-md hover:bg-[#062039] hover:text-white transition-colors"
+          >
+            <FiChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            onClick={showNext}
+            aria-label="Next culture image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/95 border border-slate-200 text-[#062039] shadow-md hover:bg-[#062039] hover:text-white transition-colors"
+          >
+            <FiChevronRight className="w-5 h-5" />
+          </button>
+
+          <div className="flex justify-center gap-2 mt-5">
+            {cultureMoments.map((moment, index) => (
+              <button
+                key={moment.title}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                aria-label={`Show ${moment.title}`}
+                aria-current={index === activeIndex ? "true" : undefined}
+                className={`h-2 rounded-full transition-all ${
+                  index === activeIndex
+                    ? "w-8 bg-[#41a0c8]"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
       </div>

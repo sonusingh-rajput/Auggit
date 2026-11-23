@@ -2,115 +2,57 @@ import { motion } from "framer-motion";
 import { Link } from "react-router";
 import {
   FiBriefcase,
-  FiArrowRight,
-  FiCheckCircle,
+  FiTruck,
+  FiDollarSign,
+  FiFileText,
+  FiGlobe,
+  FiUsers,
+  FiSettings,
+  FiPackage,
+  FiCpu,
 } from "react-icons/fi";
 
 export default function SolutionsPage() {
   const industries = [
     {
-      id: "vendor-management",
+      id: "manufacturing-vendor-ap",
       title: "Manufacturing & Vendor AP",
-      badge: "Mobile One-Click Approvals",
-      desc: "Eliminate vendor payment bottlenecks and delivery delays with mobile one-click approvals, automated multi-stage routing, and real-time payment tracking.",
-      features: [
-        "Instant mobile approval workflows",
-        "Tracked status changes across every voucher",
-        "Prompt vendor payouts protecting market trust",
-      ],
-      caseStudySlug: "manufacturing-vendor-payment-delays",
-      metric: "Instant Approvals",
+      icon: FiTruck,
     },
     {
-      id: "procurement-finance",
+      id: "finance-procurement",
       title: "Procurement & Finance Document Control",
-      badge: "5-Document Verification",
-      desc: "Centralize and track all five purchase documents—PO, Invoice, GRN, Quality Certificate, and Delivery Challan—to uncover missing bills and unfulfilled advance payments.",
-      features: [
-        "Full purchase cycle document tracking",
-        "Detection of pending final invoices on advances",
-        "Centralized cross-department repository",
-      ],
-      caseStudySlug: "cfo-centralized-purchase-document-tracking",
-      metric: "Real-Time Visibility",
+      icon: FiDollarSign,
     },
     {
-      id: "enterprise-license-free",
+      id: "cross-department-access",
       title: "Enterprise Cross-Department Access",
-      badge: "License-Free Archiving",
-      desc: "Empower non-ERP personnel across legal, HR, and stores with immediate, secure document search and viewing—without purchasing costly named ERP licenses.",
-      features: [
-        "Zero ERP named license fees for viewers",
-        "AI-powered OCR and metadata indexing",
-        "Tamper-proof digital document vault",
-      ],
-      caseStudySlug: "enterprise-license-free-document-access",
-      metric: "Zero License Costs",
+      icon: FiUsers,
     },
     {
       id: "steel-manufacturing",
       title: "Steel & Heavy Process Manufacturing",
-      badge: "Tag-Based Audit Access",
-      desc: "Replace endless physical store runs and lost files with tag-based digital filing. Pull every dispatch slip, test certificate, and excise record instantly during audits.",
-      features: [
-        "Instant tag-based multi-criteria retrieval",
-        "Permanent digital preservation preventing lost files",
-        "Complete paperless audit readiness",
-      ],
-      caseStudySlug: "steel-manufacturer-digital-documents",
-      metric: "Zero Paper Runs",
+      icon: FiSettings,
     },
     {
       id: "food-processing",
       title: "Food Manufacturing & Processing",
-      badge: "7-Step Process Control",
-      desc: "Track critical workflow records across all seven operational steps—from purchase order to gate inward, quality testing, and accounts payable—preventing batch loss.",
-      features: [
-        "End-to-end 7-step process record tracking",
-        "Lab test & quality certificate binding",
-        "Complete physical & digital audit protection",
-      ],
-      caseStudySlug: "french-fries-manufacturer-workflow",
-      metric: "Zero Document Loss",
+      icon: FiPackage,
     },
     {
-      id: "airport-aviation",
+      id: "aviation",
       title: "Airports & Aviation Infrastructure",
-      badge: "Lean SAP S/4HANA Migration",
-      desc: "Keep live airport production systems lean and unburdened during SAP S/4HANA transitions using SLaiCE to carve and migrate only active data slices.",
-      features: [
-        "Selective data carving with SLaiCE",
-        "Zero disruption to daily flight operations",
-        "Controlled historical data offloading",
-      ],
-      caseStudySlug: "global-airport-sap-s4hana-migration",
-      metric: "100% Core Focus",
+      icon: FiGlobe,
     },
     {
-      id: "auto-manufacturer",
+      id: "automotive",
       title: "Automotive Engineering & QA",
-      badge: "On-Demand Test Provisioning",
-      desc: "Provision precise, targeted test datasets from massive enterprise SAP databases on demand—accelerating development cycles and cutting storage overhead.",
-      features: [
-        "Exact business scenario data slicing",
-        "Elimination of full system test copies",
-        "Rapid QA provisioning with zero production risk",
-      ],
-      caseStudySlug: "automaker-ondemand-test-provisioning",
-      metric: "Targeted Data Slices",
+      icon: FiCpu,
     },
     {
-      id: "exim-compliance",
+      id: "exim-trade",
       title: "EXIM & International Trade Compliance",
-      badge: "Customs & DGFT Governance",
-      desc: "Digitize and index 30,000+ cross-border trade documents—Bills of Entry, shipping bills, customs declarations, and bank realizations—for statutory compliance.",
-      features: [
-        "AI/OCR extraction for multi-format trade records",
-        "Centralized digital repository for DGFT/Customs audits",
-        "Instant retrieval under Indian EXIM regulations",
-      ],
-      caseStudySlug: "exim-customs-compliance-digitization",
-      metric: "100% Compliant",
+      icon: FiFileText,
     },
   ];
 
@@ -147,8 +89,8 @@ export default function SolutionsPage() {
           </p>
         </div>
 
-        {/* 8 Industry Solution Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Industry categories */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {industries.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -156,53 +98,15 @@ export default function SolutionsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.08 }}
-              className="p-8 rounded-3xl bg-white border border-slate-200 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden"
+              className="min-h-36 rounded-2xl bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all flex items-center gap-4 p-6 group hover:-translate-y-1 relative overflow-hidden"
             >
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#41a0c8] to-[#1267a7] opacity-0 group-hover:opacity-100 transition-opacity" />
-
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-[#41a0c8]/10 text-[#41a0c8]">
-                    {item.badge}
-                  </span>
-                  <span className="text-xs font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md">
-                    {item.metric}
-                  </span>
-                </div>
-
-                <h3 className="text-xl font-extrabold text-[#062039] group-hover:text-[#41a0c8] transition-colors mb-2">
-                  {item.title}
-                </h3>
-
-                <p className="text-xs text-slate-500 leading-relaxed mb-6">
-                  {item.desc}
-                </p>
-
-                <div className="space-y-2 mb-6">
-                  {item.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-700">
-                      <FiCheckCircle className="w-3.5 h-3.5 text-[#41a0c8] flex-shrink-0 mt-0.5" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-                <Link
-                  to={`/casestudy/${item.caseStudySlug}`}
-                  className="text-xs font-bold text-[#41a0c8] group-hover:text-[#1267a7] transition-colors flex items-center gap-1.5 cursor-pointer"
-                >
-                  <span>Explore Case Study</span>
-                  <FiArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-                </Link>
-                <Link
-                  to="/book-poc"
-                  className="text-xs font-bold text-slate-600 hover:text-[#062039] cursor-pointer"
-                >
-                  Request Demo
-                </Link>
-              </div>
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#41a0c8]/10 text-[#1267a7] group-hover:bg-[#41a0c8] group-hover:text-white transition-colors">
+                <item.icon className="h-6 w-6" />
+              </span>
+              <h3 className="text-base font-extrabold leading-snug text-[#062039] group-hover:text-[#41a0c8] transition-colors">
+                {item.title}
+              </h3>
             </motion.div>
           ))}
         </div>

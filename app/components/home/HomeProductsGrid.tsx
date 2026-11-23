@@ -89,9 +89,17 @@ export default function HomeProductsGrid() {
         </div>
 
         {/* 7 Products Grid */}
-        <div className="gsap-stagger-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="gsap-stagger-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6">
           {products.map((item, idx) => {
             const Icon = item.icon;
+            const secondRowPosition =
+              idx === 4
+                ? "lg:col-start-2"
+                : idx === 5
+                  ? "lg:col-start-5"
+                  : idx === 6
+                    ? "lg:col-start-8"
+                    : "";
             return (
               <motion.div
                 key={idx}
@@ -99,6 +107,7 @@ export default function HomeProductsGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
+                className={`lg:col-span-3 ${secondRowPosition}`}
               >
                 <Link
                   to={item.href}

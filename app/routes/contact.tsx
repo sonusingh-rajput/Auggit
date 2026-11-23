@@ -91,7 +91,7 @@ export default function ContactPage() {
                 Get in touch
               </h2>
               <p className="text-[#353535] text-sm leading-relaxed">
-                Connect with our team to explore how SLaiCE and a-eDMS can streamline your enterprise workflows.
+                Connect with our team to explore how SLaiCE and eDMS can streamline your enterprise workflows.
               </p>
 
               {/* Contact Details List */}

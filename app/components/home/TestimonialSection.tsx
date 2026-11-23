@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { HiStar } from "react-icons/hi";
-import { FiArrowRight, FiPlayCircle, FiCheckCircle } from "react-icons/fi";
+import { FiChevronLeft, FiChevronRight, FiPlayCircle, FiCheckCircle } from "react-icons/fi";
 import { Link } from "react-router";
 
 export default function TestimonialSection() {
@@ -60,6 +61,24 @@ export default function TestimonialSection() {
     },
   ];
 
+  const [caseStudyIndex, setCaseStudyIndex] = useState(0);
+  const [testimonialIndex, setTestimonialIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setCaseStudyIndex((current) => (current + 1) % caseStudiesShared.length);
+      setTestimonialIndex((current) => (current + 1) % primaryQuotes.length);
+    }, 6000);
+    return () => window.clearInterval(interval);
+  }, [caseStudiesShared.length, primaryQuotes.length]);
+
+  const visibleCaseStudies = [0, 1, 2, 3].map(
+    (offset) => caseStudiesShared[(caseStudyIndex + offset) % caseStudiesShared.length]
+  );
+  const visibleTestimonials = [0, 1, 2].map(
+    (offset) => primaryQuotes[(testimonialIndex + offset) % primaryQuotes.length]
+  );
+
   return (
     <section className="relative overflow-hidden bg-white text-[#353535] py-20 sm:py-24 px-6 lg:px-16 border-b border-[#e3e3e3]">
 
@@ -100,22 +119,46 @@ export default function TestimonialSection() {
               </Link> */}
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-              {caseStudiesShared.map((cs, i) => (
-                <Link
-                  key={i}
-                  to={`/casestudy/${cs.slug}`}
-                  className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-[#41a0c8] shadow-sm hover:shadow-md transition-all group"
-                >
-                  <div className="text-xs font-extrabold text-[#062039] group-hover:text-[#41a0c8] transition-colors leading-snug line-clamp-1">
-                    {cs.name}
-                  </div>
-                  <div className="text-[10px] text-emerald-600 font-bold mt-1 flex items-center gap-1">
-                    <FiCheckCircle className="w-3 h-3 flex-shrink-0" />
-                    <span>{cs.metric}</span>
-                  </div>
-                </Link>
-              ))}
+            <div className="relative">
+              <motion.div
+                key={caseStudyIndex}
+                initial={{ opacity: 0.7, x: 24 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.45, ease: "easeOut" }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3"
+              >
+                {visibleCaseStudies.map((cs) => (
+                  <Link
+                    key={cs.slug}
+                    to={`/casestudy/${cs.slug}`}
+                    className="p-3.5 rounded-2xl bg-white border border-slate-200 hover:border-[#41a0c8] shadow-sm hover:shadow-md transition-all group"
+                  >
+                    <div className="text-xs font-extrabold text-[#062039] group-hover:text-[#41a0c8] transition-colors leading-snug">
+                      {cs.name}
+                    </div>
+                    <div className="text-[10px] text-emerald-600 font-bold mt-1 flex items-center gap-1">
+                      <FiCheckCircle className="w-3 h-3 flex-shrink-0" />
+                      <span>{cs.metric}</span>
+                    </div>
+                  </Link>
+                ))}
+              </motion.div>
+              <button
+                type="button"
+                onClick={() => setCaseStudyIndex((current) => (current - 1 + caseStudiesShared.length) % caseStudiesShared.length)}
+                aria-label="Previous case studies"
+                className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-[#062039]"
+              >
+                <FiChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={() => setCaseStudyIndex((current) => (current + 1) % caseStudiesShared.length)}
+                aria-label="Next case studies"
+                className="absolute -right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-[#062039]"
+              >
+                <FiChevronRight className="w-4 h-4" />
+              </button>
             </div>
           </div>
         </div>
@@ -152,16 +195,19 @@ export default function TestimonialSection() {
         </div>
 
         {/* 3. Real Verified Testimonial Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {primaryQuotes.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.06 }}
-              className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#41a0c8] transition-all flex flex-col justify-between space-y-5 group"
-            >
+        <div className="relative">
+          <motion.div
+            key={testimonialIndex}
+            initial={{ opacity: 0.7, x: 24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.45, ease: "easeOut" }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          >
+            {visibleTestimonials.map((item) => (
+              <motion.div
+                key={item.author}
+                className="bg-white rounded-3xl p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#41a0c8] transition-all flex flex-col justify-between space-y-5 group"
+              >
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="px-2.5 py-0.5 bg-slate-100 text-[#062039] text-[10px] font-bold uppercase tracking-wider rounded-full border border-slate-200">
@@ -188,8 +234,25 @@ export default function TestimonialSection() {
                   {item.company}
                 </span>
               </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </motion.div>
+          <button
+            type="button"
+            onClick={() => setTestimonialIndex((current) => (current - 1 + primaryQuotes.length) % primaryQuotes.length)}
+            aria-label="Previous testimonials"
+            className="absolute -left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-[#062039]"
+          >
+            <FiChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => setTestimonialIndex((current) => (current + 1) % primaryQuotes.length)}
+            aria-label="Next testimonials"
+            className="absolute -right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white border border-slate-200 shadow-md flex items-center justify-center text-[#062039]"
+          >
+            <FiChevronRight className="w-5 h-5" />
+          </button>
         </div>
 
       </div>

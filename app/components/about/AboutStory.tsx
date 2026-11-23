@@ -109,7 +109,7 @@ export default function AboutStory() {
                         {/* Stats row */}
                         <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#e3e3e3]">
                             <Counter from={0} to={10} label="Years of Innovation" suffix="+" />
-                            <Counter from={0} to={500} label="Enterprise Clients" suffix="+" />
+                            <Counter from={0} to={65} label="Enterprise Clients" suffix="+" />
                             <Counter from={0} to={99.9} label="Uptime" suffix="%" />
                         </div>
 
