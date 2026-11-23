@@ -43,7 +43,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" type="image/png" href="/favicon.png" />
 
         {/* Preload Critical LCP Hero Image */}
-        <link rel="preload" as="image" href="/hero_image1.webp" type="image/webp" fetchPriority="high" />
+        <link rel="preload" as="image" href="/hero_image/slaice.png" type="image/png" fetchPriority="high" />
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
