@@ -90,7 +90,7 @@ export default function AboutCareers() {
         </div>
 
         {/* Job Listings Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+   { /*    <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {jobOpenings.map((job, index) => (
             <motion.div
               key={job.title}
@@ -137,7 +137,7 @@ export default function AboutCareers() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </div>*/}
 
       </div>
 

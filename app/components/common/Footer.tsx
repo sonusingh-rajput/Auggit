@@ -79,7 +79,7 @@ export default function Footer() {
                 />
               </div>
 
-              <div
+              {/* <div
                 className="h-11 px-3 py-1.5 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-transform group cursor-pointer"
                 title="Zoho Enterprise Cloud Integration"
               >
@@ -89,7 +89,7 @@ export default function Footer() {
                   className="h-5 w-auto object-contain filter group-hover:brightness-105"
                   loading="lazy"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -265,7 +265,7 @@ export default function Footer() {
               Supported ERP Platforms
             </span>
             <span className="text-xs text-[#9eddf7]/70">
-              Native bi-directional connectors & enterprise compliance for SAP, Tally Prime, and Zoho ecosystems.
+              Native bi-directional connectors & enterprise compliance for SAP and Tally Prime.
             </span>
           </div>
 
@@ -296,7 +296,7 @@ export default function Footer() {
               />
             </div>
 
-            {/* Zoho Logo */}
+            {/* Zoho Logo
             <div
               className="h-10 px-3.5 py-1 rounded-xl bg-white border border-slate-200 shadow-md flex items-center justify-center hover:scale-105 transition-all"
               title="Zoho Enterprise Cloud"
@@ -307,7 +307,7 @@ export default function Footer() {
                 className="h-5 w-auto object-contain"
                 loading="lazy"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -318,7 +318,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Auggit Enterprise Solutions. All rights reserved. Built for SAP Landscapes.
         </div>
         {/* <div className="flex items-center gap-6">
-          <span>Section 128(1) Compliant</span>
+          <span>Section 128 of Companies Act</span>
           <span>Section 62 IT Act Ready</span>
           <span>Listed on SAP Store</span>
         </div> */}

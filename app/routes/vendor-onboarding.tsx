@@ -194,11 +194,11 @@ export default function VendorOnboardingPage() {
               {
                 metric: "100% Validated",
                 label: "GSTIN & PAN Accuracy",
-                desc: "Eliminate vendor master typos and 2B tax reconciliation mismatches at source.",
+                desc: "Eliminate reconciliation mismatches at source.",
                 icon: FiShield,
               },
               {
-                metric: "Zero Fraud",
+                metric: "Minimize Fraud",
                 label: "Bank Account Penny Drop",
                 desc: "Instant automated confirmation of vendor bank account holder name matching invoice records.",
                 icon: FiDollarSign,

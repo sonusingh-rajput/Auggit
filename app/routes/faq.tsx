@@ -884,22 +884,9 @@ export default function FaqAll() {
           </p>
         </div>
 
-        {/* Primary Tabs (Automation Suite vs eDMS vs SLaiCE) */}
+        {/* Primary Tabs (eDMS, SLaiCE, Automation Suite) */}
         <div className="flex justify-center mb-6">
           <div className="inline-flex flex-wrap justify-center p-1.5 bg-white/80 backdrop-blur-sm rounded-2xl border border-[#e3e3e3] shadow-lg shadow-slate-200/50 gap-1">
-            <button
-              onClick={() => {
-                setActiveTab("automation");
-                setOpenIndex(null);
-              }}
-              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "automation"
-                ? "bg-[#1267a7] text-white shadow-md shadow-[#1267a7]/30"
-                : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
-                }`}
-            >
-              <FiCpu className="w-4 h-4" />
-              Automation Suite
-            </button>
             <button
               onClick={() => {
                 setActiveTab("edms");
@@ -925,6 +912,19 @@ export default function FaqAll() {
             >
               <SiSap className="w-4 h-4" />
               SLaiCE
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab("automation");
+                setOpenIndex(null);
+              }}
+              className={`flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 cursor-pointer ${activeTab === "automation"
+                ? "bg-[#1267a7] text-white shadow-md shadow-[#1267a7]/30"
+                : "text-[#353535] hover:text-[#062039] hover:bg-slate-100"
+                }`}
+            >
+              <FiCpu className="w-4 h-4" />
+              Automation Suite
             </button>
           </div>
         </div>

@@ -11,7 +11,7 @@ const slaiceFeatures = [
   },
   {
     icon: FiShield,
-    text: "100% Compliance with Companies Act (Sec 128(1))",
+    text: "100% Compliance with Companies Act (Sec 128 of Companies Act)",
   },
   {
     icon: FiCpu,

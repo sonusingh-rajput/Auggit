@@ -471,7 +471,7 @@ export default function ServicesPage() {
                         <option value="Migration Evaluation: Brownfield vs Greenfield vs Bluefield">Migration Evaluation: Brownfield vs Greenfield vs Bluefield</option>
                         <option value="SAP ECC to SAP S/4HANA Selective Data Transition">SAP ECC to SAP S/4HANA Selective Data Transition</option>
                         <option value="Custom SAP Integrations (BAPI / RFC)">Custom SAP Integrations (BAPI / RFC)</option>
-                        <option value="Section 128(1) Daily Backup Compliance">Section 128(1) Daily Backup Compliance</option>
+                        <option value="Section 128  Daily Backup Compliance">Section 128 of Companies Act Daily Backup Compliance</option>
                       </select>
                     </div>
 

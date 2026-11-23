@@ -175,7 +175,7 @@ const editions = [
 const impactStats = [
   { value: "40%", label: "Return on Investment" },
   { value: "45%", label: "Process Efficiency" },
-  { value: "30%", label: "Finance Cost" },
+  { value: " ", label: "Cut down the Cost" },
   { value: "70%", label: "Auditing Time" },
   { value: "40%", label: "Resource Optimization" },
 ];

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FiLinkedin, FiMail, FiArrowDown } from "react-icons/fi";
+import { FiLinkedin, FiArrowDown } from "react-icons/fi";
 import { FaQuoteLeft } from "react-icons/fa";
 
 interface Leader {
@@ -35,26 +35,28 @@ const leadersList: Leader[] = [
   },
   {
     name: "Aditya Vikram Sonee",
-    role: "Director & Strategic Growth",
-    bio: "Corporate leader driving strategic enterprise partnerships, corporate governance, and multi-market scale for Auggit's compliance ecosystem.",
+    role: "Vice President",    bio: "Corporate leader driving strategic enterprise partnerships, corporate governance, and multi-market scale for Auggit's compliance ecosystem.",
     image: "/images/leaders/aditya_sonee.webp?v=2",
     linkedin: "https://www.linkedin.com/in/aditya-vikram-sonee-ba866011/",
   },
   {
     name: "Divesh Sharma",
-    role: "Director & Finance Transformation",
+    role: "Chief Operating Officer (COO)",
     bio: "Enterprise finance specialist pioneering autonomous 3-way invoice matching (MIRO-MIGO), audit-readiness, and frictionless ERP integration.",
     image: "/images/leaders/divesh_sharma.webp?v=2",
     linkedin: "https://www.linkedin.com/in/diveshgsharma/",
   },
   {
     name: "Vivek Katheriya",
-    role: "Director & Enterprise Enablement",
+    role: "Head of Sales",
     bio: "Enterprise document strategist and systems consultant empowering large organizations to eliminate paper and automate complex supply chains.",
     image: "/images/leaders/vivek_katheriya.webp?v=2",
     linkedin: "https://www.linkedin.com/in/vivekkatheriya/",
   },
 ];
+
+const executiveLeaders = leadersList.slice(0, 2);
+const directorLeaders = leadersList.slice(2);
 
 export default function AboutLeadership() {
   const scrollToTeam = () => {
@@ -162,31 +164,30 @@ export default function AboutLeadership() {
         </div>
 
         {/* ========================================================================= */}
-        {/* BOTTOM ROW: Key Leaders in a Line (CTO, Som, AV, Divesh, Vivek) */}
+        {/* SECOND LAYER: Executive leaders */}
         {/* ========================================================================= */}
         <div id="leadership-team-grid" className="pt-6 border-t border-slate-100">
-          <div className="mb-8">
+          <div className="mb-6">
             <h3 className="text-xl font-bold text-[#062039]">
-              Senior Leadership & Directors
+              Executive Leadership
             </h3>
             <p className="text-xs text-slate-500 mt-1">
-              Driving technology architecture, corporate strategy, solutions, and enterprise growth.
+              Leading technology, solutions, and enterprise transformation.
             </p>
           </div>
 
-          <div className="gsap-stagger-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
-            {leadersList.map((leader, index) => (
+          <div className="gsap-stagger-container grid grid-cols-1 lg:grid-cols-2 gap-5">
+            {executiveLeaders.map((leader, index) => (
               <motion.div
                 key={leader.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
-                className="group bg-[#f8fafc] border border-slate-200 rounded-2xl p-4 flex flex-col justify-between hover:border-[#41a0c8] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+                className="group bg-[#f8fafc] border border-slate-200 rounded-2xl p-5 sm:p-6 hover:border-[#41a0c8] hover:shadow-lg transition-all duration-300"
               >
-                <div>
-                  {/* Portrait */}
-                  <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white mb-4 border border-slate-100 shadow-inner">
+                <div className="grid grid-cols-1 sm:grid-cols-[160px_1fr] gap-5 items-center">
+                  <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white border border-slate-100 shadow-inner">
                     <img
                       src={leader.image}
                       alt={leader.name}
@@ -198,7 +199,6 @@ export default function AboutLeadership() {
                     />
                   </div>
 
-                  {/* Title & Name */}
                   <div className="space-y-1">
                     <h4 className="text-base font-bold text-[#062039] group-hover:text-[#41a0c8] transition-colors leading-snug">
                       {leader.name}
@@ -209,11 +209,72 @@ export default function AboutLeadership() {
                     <p className="text-xs text-slate-500 leading-relaxed pt-2 line-clamp-3">
                       {leader.bio}
                     </p>
+                    <a
+                      href={leader.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 pt-3 text-xs font-semibold text-[#0a66c2] hover:text-[#004182] transition-colors"
+                    >
+                      <FiLinkedin className="w-3.5 h-3.5" />
+                      <span>View Profile</span>
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ========================================================================= */}
+        {/* THIRD LAYER: Directors */}
+        {/* ========================================================================= */}
+        <div className="pt-6 border-t border-slate-100">
+          <div className="mb-6">
+            <h3 className="text-xl font-bold text-[#062039]">
+              Directors
+            </h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Driving strategic growth, finance transformation, and enterprise enablement.
+            </p>
+          </div>
+
+          <div className="gsap-stagger-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
+            {directorLeaders.map((leader, index) => (
+              <motion.div
+                key={leader.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.4, delay: index * 0.08, ease: "easeOut" }}
+                className="group bg-[#f8fafc] border border-slate-200 rounded-2xl p-3 flex flex-col justify-between hover:border-[#41a0c8] hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div>
+                  <div className="relative w-full aspect-[4/3] max-h-48 mx-auto rounded-xl overflow-hidden bg-white mb-3 border border-slate-100 shadow-inner">
+                    <img
+                      src={leader.image}
+                      alt={leader.name}
+                      width={300}
+                      height={300}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+
+                  <div className="space-y-1">
+                    <h4 className="text-base font-bold text-[#062039] group-hover:text-[#41a0c8] transition-colors leading-snug">
+                      {leader.name}
+                    </h4>
+                    <p className="text-[11px] font-bold text-[#1267a7] uppercase tracking-wider">
+                      {leader.role}
+                    </p>
+                    <p className="text-xs text-slate-500 leading-relaxed pt-2 line-clamp-3">
+                      {leader.bio}
+                    </p>
                   </div>
                 </div>
 
-                {/* Footer LinkedIn */}
-                <div className="pt-4 mt-3 border-t border-slate-200/60 flex items-center justify-between">
+                <div className="pt-4 mt-3 border-t border-slate-200/60">
                   <a
                     href={leader.linkedin}
                     target="_blank"

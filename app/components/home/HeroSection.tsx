@@ -23,7 +23,7 @@ export default function HeroSection() {
       badge: "SLaiCE • Built on SAP",
       badgeIcon: SiSap,
       title: "From Unstructured Records to Flawless SAP Compliance in Real Time.",
-      desc: "Eliminate the need for full system replication while ensuring data integrity, statutory compliance under Section 128(1), and reduced infrastructure cost.",
+      desc: "Eliminate the need for full system replication while ensuring data integrity, statutory compliance under Section 128 of Companies Act, and reduced infrastructure cost.",
       checks: ["Data Residency Ready", "SAP Native", "SAP approved"],
       primaryCta: { text: "Explore SLaiCE", href: "/product/slaice" },
       secondaryCta: { text: "Request Demo", href: "/book-poc" },
@@ -55,7 +55,7 @@ export default function HeroSection() {
       secondaryCta: { text: "Request Demo", href: "/book-poc" },
       image: "/Automation_Suite_image/Automation_Suite_Vendor_Management.webp",
       floatingStat1: { title: "-70% Cost", subtitle: "Per Invoice Processing" },
-      floatingStat2: { title: "Zero Leakage", subtitle: "Weighbridge & Gate Sync" },
+      floatingStat2: { title: "Avoids Leakage", subtitle: "Weighbridge & Gate Sync" },
     },
   ];
 
@@ -84,12 +84,12 @@ export default function HeroSection() {
 
         {/* Top Celebrating 10th Yr Floating Banner Badge (PDF Page 4) */}
         <div className="flex items-center justify-between mb-6">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-amber-400/20 to-amber-500/10 border border-[#f7c037]/50 text-[#062039] text-xs font-bold shadow-sm backdrop-blur-md">
+        {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-amber-400/20 to-amber-500/10 border border-[#f7c037]/50 text-[#062039] text-xs font-bold shadow-sm backdrop-blur-md">
             <FiAward className="w-4 h-4 text-[#f7c037]" />
             <span className="font-extrabold text-[#062039]">Celebrating 10 Years of Enterprise Excellence</span>
-            {/* <span className="text-[#f7c037] font-black">•</span> */}
-            {/* <span className="text-slate-600 font-semibold">10 Years of Enterprise Excellence</span> */}
-          </div>
+             <span className="text-[#f7c037] font-black">•</span> */}
+            {/* <span className="text-slate-600 font-semibold">10 Years of Enterprise Excellence</span> 
+          </div> */}
 
           {/* Slide Navigation Buttons */}
           <div className="hidden sm:flex items-center gap-2">
