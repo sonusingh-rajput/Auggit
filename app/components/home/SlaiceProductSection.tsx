@@ -95,7 +95,7 @@ export default function SlaiceProductSection() {
                   className="relative w-full h-full rounded-2xl overflow-hidden cursor-pointer group/video"
                 >
                   <img
-                    src="/slaice-video-thumbnail.webp"
+                    src="/slaiceThumbnail.jpeg"
                     alt="SLaiCE SAP Data Slicing Interface Video"
                     width={800}
                     height={450}

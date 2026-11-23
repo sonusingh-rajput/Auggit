@@ -151,7 +151,7 @@ export default function AutomationProductSection() {
                   className="relative w-full h-full rounded-2xl overflow-hidden cursor-pointer group/video"
                 >
                   <img
-                    src="/automation-video-thumbnail.webp"
+                    src="/automationThumbnail.jpeg"
                     alt="Auggit Automation Suite Interface Video"
                     width={800}
                     height={450}

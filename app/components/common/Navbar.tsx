@@ -86,8 +86,11 @@ export default function Navbar() {
         }`}
     >
       {/* Brand Logo */}
-      <div className="flex items-center gap-3">
-        <Link to="/" className="flex items-center transition-transform hover:scale-[1.02]">
+      <div className="flex items-center">
+        <Link
+          to="/"
+          className="flex flex-col items-center transition-transform hover:scale-[1.02]"
+        >
           <img
             src="/Auggit-logo-2.png"
             alt="Auggit Logo"
@@ -96,6 +99,13 @@ export default function Navbar() {
             fetchPriority="high"
             className="h-14 md:h-16 w-auto object-contain"
           />
+          <span className="-mt-1 h-7 w-[180px] overflow-hidden sm:h-8">
+            <img
+              src="/ribbon.png"
+              alt="10 Years of Excellence"
+              className="h-full w-full object-cover object-[center_70%]"
+            />
+          </span>
         </Link>
       </div>
 
@@ -584,7 +594,7 @@ export default function Navbar() {
                         - Vendor Onboarding Tool
                       </Link>
                       <Link to="/product/automation-suite/ap-automation" onClick={() => setMobileMenuOpen(false)} className="block">
-                        - AP Automation (MIRO – MIGO)
+                        - AP Automation (MIRO – MIGO) 3way matching PO-GRN-Invoice
                       </Link>
                       <Link to="/product/automation-suite/gate-pass" onClick={() => setMobileMenuOpen(false)} className="block">
                         - Gate Pass Management

@@ -224,7 +224,7 @@ export default function BookPocPage() {
                         onChange={(e) => setFormData({ ...formData, module: e.target.value })}
                         className="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-sm focus:border-[#41a0c8] focus:ring-2 focus:ring-[#41a0c8]/20 outline-none"
                       >
-                        <option value="AP Automation (MIRO - MIGO)">AP Automation (MIRO - MIGO)</option>
+                        <option value="AP Automation (MIRO - MIGO)">AP Automation (MIRO - MIGO) </option>
                         <option value="Automatic Data Entry (ADE)">Automatic Data Entry (ADE)</option>
                         <option value="Vendor Onboarding Tool">Vendor Onboarding Tool</option>
                         <option value="Gate Pass Management">Gate Pass Management</option>

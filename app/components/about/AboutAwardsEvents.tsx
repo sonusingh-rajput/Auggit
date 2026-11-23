@@ -18,7 +18,7 @@ const awards = [
     badge: "Industry Winner",
     description:
       "Recognized for AI-driven 3-way invoice matching and hardware-integrated gate pass traceability.",
-    image: "/Automation_Suite_image/Automation_Suite_Why_Automation_Suite.webp",
+    image: "/images/awards/award1.jpeg",
   },
   {
     title: "Excellence in Financial Digital Transformation",
@@ -27,7 +27,7 @@ const awards = [
     badge: "Pioneer Award",
     description:
       "Awarded for enabling paperless compliance, automated audit trails, and Indian data residency readiness.",
-    image: "/images/why_auggit_exec.webp",
+    image: "/images/awards/award2.jpeg",
   },
   {
     title: "Enterprise Document Governance Recognition",
@@ -36,8 +36,17 @@ const awards = [
     badge: "Governance Leader",
     description:
       "Honored for indexed search, secure cloud document vaults, and enterprise ERP document linking.",
-    image: "/images/integrationAuggit.webp",
+    image: "/images/awards/award3.jpeg",
   },
+  {
+    title: "Enterprise Document Governance Recognition",
+    forum: "ICAI National Conclave",
+    location: "New Delhi",
+    badge: "Governance Leader",
+    description:
+      "Honored for indexed search, secure cloud document vaults, and enterprise ERP document linking.",
+    image: "/images/awards/award4.jpeg",
+  }
 ];
 
 const events = [
@@ -48,7 +57,7 @@ const events = [
     location: "Mumbai, India",
     booth: "To be announced",
     highlight: "Keynote on Autonomous ERP Workflows",
-    image: "/images/culture/team1.jpeg",
+    image: "/images/events/event1.jpeg",
   },
   {
     title: "National CA & CFO Conclave",
@@ -57,7 +66,7 @@ const events = [
     location: "Bangalore, India",
     booth: "To be announced",
     highlight: "Session on Audit Trails & MCA Compliance",
-    image: "/images/culture/team2.jpeg",
+    image: "/images/events/event2.jpeg",
   },
   {
     title: "ICAI Digital Governance Summit",
@@ -66,7 +75,25 @@ const events = [
     location: "New Delhi, India",
     booth: "To be announced",
     highlight: "Demonstrating SLaiCE real-time SAP data slicing",
-    image: "/images/culture/team3.jpeg",
+    image: "/images/events/event3.jpeg",
+  },
+   {
+    title: "ICAI Digital Governance Summit",
+    edition: "Enterprise Technology Showcase",
+    date: "Date to be announced",
+    location: "New Delhi, India",
+    booth: "To be announced",
+    highlight: "Demonstrating SLaiCE real-time SAP data slicing",
+    image: "/images/events/event4.jpeg",
+  },
+   {
+    title: "ICAI Digital Governance Summit",
+    edition: "Enterprise Technology Showcase",
+    date: "Date to be announced",
+    location: "New Delhi, India",
+    booth: "To be announced",
+    highlight: "Demonstrating SLaiCE real-time SAP data slicing",
+    image: "/images/events/event5.jpeg",
   },
 ];
 

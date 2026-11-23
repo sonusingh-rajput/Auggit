@@ -11,7 +11,7 @@ export default function HomeAwardsEvents() {
       location: "Mumbai",
       badge: "Industry Winner",
       desc: "Recognized for AI-driven 3-way invoice matching (MIRO-MIGO) and hardware-integrated gate pass traceability.",
-      image: "/Automation_Suite_image/Automation_Suite_Why_Automation_Suite.webp",
+      image: "/images/awards/award1.jpeg",
     },
     {
       title: "Excellence in Financial Digital Transformation",
@@ -19,7 +19,7 @@ export default function HomeAwardsEvents() {
       location: "Bangalore",
       badge: "Pioneer Award",
       desc: "Awarded for enabling paperless compliance, automated audit trails, and Section 128 Indian data residency readiness.",
-      image: "/images/why_auggit_exec.webp",
+      image: "/images/awards/award2.jpeg",
     },
     {
       title: "Enterprise Document Governance Recognition",
@@ -27,7 +27,31 @@ export default function HomeAwardsEvents() {
       location: "New Delhi",
       badge: "Governance Leader",
       desc: "Honored for sub-second indexed search, AES-256 cloud vaults, and enterprise ERP document linking.",
-      image: "/images/integrationAuggit.webp",
+      image: "/images/awards/award3.jpeg",
+    },
+     {
+      title: "Innovation in Enterprise SCM Automation",
+      forum: "14th CFO & Finance Transformation Summit – Mumbai",
+      location: "Mumbai",
+      badge: "Industry Winner",
+      desc: "Recognized for AI-driven 3-way invoice matching (MIRO-MIGO) and hardware-integrated gate pass traceability.",
+      image: "/images/awards/award4.jpeg",
+    },
+    {
+      title: "Excellence in Financial Digital Transformation",
+      forum: "Chartered Accountants Conference – Bangalore",
+      location: "Bangalore",
+      badge: "Pioneer Award",
+      desc: "Awarded for enabling paperless compliance, automated audit trails, and Section 128 Indian data residency readiness.",
+      image: "/images/awards/award5.jpeg",
+    },
+    {
+      title: "Enterprise Document Governance Recognition",
+      forum: "ICAI National Conclave – New Delhi",
+      location: "New Delhi",
+      badge: "Governance Leader",
+      desc: "Honored for sub-second indexed search, AES-256 cloud vaults, and enterprise ERP document linking.",
+      image: "/images/awards/award6.jpeg",
     },
   ];
 
@@ -39,21 +63,28 @@ export default function HomeAwardsEvents() {
       link: "https://financetransformationindia.com/Home.aspx",
       linkText: "Summit Portal",
       highlight: "Keynote on Autonomous ERP Workflows",
-      image: "/images/culture/team1.jpeg",
+      image: "/images/events/event1.jpeg",
     },
     {
       title: "National CA & CFO Conclave – Bangalore",
       edition: "Executive Panel & Masterclass",
       date: "Bangalore, India",
       highlight: "Session on Audit Trails & MCA Compliance",
-      image: "/images/culture/team2.jpeg",
+      image: "/images/events/event2.jpeg",
     },
     {
       title: "ICAI Digital Governance Summit – New Delhi",
       edition: "Enterprise Technology Showcase",
       date: "New Delhi, India",
       highlight: "Demonstrating SLaiCE Real-time SAP Slicing",
-      image: "/images/culture/team3.jpeg",
+      image: "/images/events/event3.jpeg",
+    },
+     {
+      title: "ICAI Digital Governance Summit – New Delhi",
+      edition: "Enterprise Technology Showcase",
+      date: "New Delhi, India",
+      highlight: "Demonstrating SLaiCE Real-time SAP Slicing",
+      image: "/images/events/event4.jpeg",
     },
   ];
 
