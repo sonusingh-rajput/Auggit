@@ -36,55 +36,39 @@ export default function HomeAwardsEvents() {
       badge: "Industry Winner",
       desc: "Recognized for AI-driven 3-way invoice matching (MIRO-MIGO) and hardware-integrated gate pass traceability.",
       image: "/images/awards/award4.jpeg",
-    },
-    {
-      title: "Excellence in Financial Digital Transformation",
-      forum: "Chartered Accountants Conference – Bangalore",
-      location: "Bangalore",
-      badge: "Pioneer Award",
-      desc: "Awarded for enabling paperless compliance, automated audit trails, and Section 128 Indian data residency readiness.",
-      image: "/images/awards/award5.jpeg",
-    },
-    {
-      title: "Enterprise Document Governance Recognition",
-      forum: "ICAI National Conclave – New Delhi",
-      location: "New Delhi",
-      badge: "Governance Leader",
-      desc: "Honored for sub-second indexed search, AES-256 cloud vaults, and enterprise ERP document linking.",
-      image: "/images/awards/award6.jpeg",
-    },
+    }
   ];
 
   const events = [
     {
       title: "14th Annual Finance Transformation Summit",
       edition: "Flagship Keynote & Exhibition",
-      date: "Mumbai, India",
-      link: "https://financetransformationindia.com/Home.aspx",
+      date: "Bangalore, India",
+      //link: "https://financetransformationindia.com/Home.aspx",
       linkText: "Summit Portal",
       highlight: "Keynote on Autonomous ERP Workflows",
       image: "/images/events/event1.jpeg",
     },
     {
-      title: "National CA & CFO Conclave – Bangalore",
+      title: "27 National Conference of Chartered Accountants",
       edition: "Executive Panel & Masterclass",
       date: "Bangalore, India",
       highlight: "Session on Audit Trails & MCA Compliance",
-      image: "/images/events/event2.jpeg",
+      image: "/images/events/event5.jpeg",
     },
     {
-      title: "ICAI Digital Governance Summit – New Delhi",
+      title: "AIS",
+      edition: "Enterprise Technology Showcase",
+      date: "New Delhi, India",
+      highlight: "Explaining the importance of complainces and audit trails",
+      image: "/images/events/event32.jpeg",
+    },
+     {
+      title: "Samvada",
       edition: "Enterprise Technology Showcase",
       date: "New Delhi, India",
       highlight: "Demonstrating SLaiCE Real-time SAP Slicing",
       image: "/images/events/event3.jpeg",
-    },
-     {
-      title: "ICAI Digital Governance Summit – New Delhi",
-      edition: "Enterprise Technology Showcase",
-      date: "New Delhi, India",
-      highlight: "Demonstrating SLaiCE Real-time SAP Slicing",
-      image: "/images/events/event4.jpeg",
     },
   ];
 
@@ -114,8 +98,8 @@ export default function HomeAwardsEvents() {
   };
 
   return (
-    <section className="relative py-16 sm:py-20 bg-white border-b border-slate-200 text-[#353535] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+    <section className="relative py-10 sm:py-14 bg-white border-b border-slate-200 text-[#353535] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         
         {/* Seamless Enterprise Ecosystem Banner */}
         <div className="relative group">

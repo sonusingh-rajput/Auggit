@@ -29,8 +29,8 @@ export default function WhyAuggitSection() {
     {
       icon: FiDollarSign,
       title: "Cut Down Cost",
-      value: "35",
-      suffix: "%",
+      value: " ",
+      suffix: " ",
       trend: "down",
     },
     {
@@ -50,8 +50,8 @@ export default function WhyAuggitSection() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white text-[#353535] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <section className="py-10 sm:py-14 bg-white text-[#353535] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
 
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto space-y-2">
@@ -105,7 +105,7 @@ export default function WhyAuggitSection() {
           {/* Right Column: Executive Corporate Visual */}
           <div className="lg:col-span-5 relative min-h-[380px] lg:min-h-full overflow-hidden">
             <img
-              src="/images/why_auggit_exec.webp"
+              src="/images/why_auggit_executive.png"
               alt="Why businesses prefer Auggit Executive"
               width={640}
               height={480}

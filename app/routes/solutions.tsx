@@ -2,57 +2,111 @@ import { motion } from "framer-motion";
 import { Link } from "react-router";
 import {
   FiBriefcase,
-  FiTruck,
-  FiDollarSign,
-  FiFileText,
-  FiGlobe,
-  FiUsers,
-  FiSettings,
-  FiPackage,
-  FiCpu,
 } from "react-icons/fi";
+import {
+  FaBalanceScale,
+  FaBuilding,
+  FaCapsules,
+  FaCar,
+  FaCircle,
+  FaFlask,
+  FaGem,
+  FaGraduationCap,
+  FaIndustry,
+  FaLandmark,
+  FaPlane,
+  FaTshirt,
+  FaTruck,
+  FaUtensils,
+} from "react-icons/fa";
 
 export default function SolutionsPage() {
   const industries = [
     {
       id: "manufacturing-vendor-ap",
-      title: "Manufacturing & Vendor AP",
-      icon: FiTruck,
+      title: "Manufacturing",
+      icon: FaIndustry,
+      caseStudySlug: "manufacturing-vendor-payment-delays",
     },
     {
       id: "finance-procurement",
-      title: "Procurement & Finance Document Control",
-      icon: FiDollarSign,
+      title: "Gems and Jwellery",
+      icon: FaGem,
+      caseStudySlug: "cfo-centralized-purchase-document-tracking",
     },
     {
       id: "cross-department-access",
-      title: "Enterprise Cross-Department Access",
-      icon: FiUsers,
+      title: "Airport and Aviation",
+      icon: FaPlane,
+      caseStudySlug: "global-airport-sap-s4hana-migration",
     },
     {
       id: "steel-manufacturing",
-      title: "Steel & Heavy Process Manufacturing",
-      icon: FiSettings,
+      title: "Steel Industry",
+      icon: FaIndustry,
+      caseStudySlug: "steel-manufacturer-digital-documents",
     },
     {
       id: "food-processing",
-      title: "Food Manufacturing & Processing",
-      icon: FiPackage,
+      title: "Food Industry",
+      icon: FaUtensils,
+      caseStudySlug: "french-fries-manufacturer-workflow",
     },
     {
       id: "aviation",
-      title: "Airports & Aviation Infrastructure",
-      icon: FiGlobe,
+      title: "Automotive Industry",
+      icon: FaCar,
+      caseStudySlug: "automaker-ondemand-test-provisioning",
     },
     {
       id: "automotive",
-      title: "Automotive Engineering & QA",
-      icon: FiCpu,
+      title: "CA's and CS's",
+      icon: FaBalanceScale,
+      caseStudySlug: "cfo-centralized-purchase-document-tracking",
     },
     {
       id: "exim-trade",
-      title: "EXIM & International Trade Compliance",
-      icon: FiFileText,
+      title: "Real Estate",
+      icon: FaBuilding,
+      caseStudySlug: "enterprise-license-free-document-access",
+    },
+     {
+      id: "garments",
+      title: "Garments",
+      icon: FaTshirt,
+      caseStudySlug: "french-fries-manufacturer-workflow",
+    },
+    {
+      id: "chemicals",
+      title: "Chemicals",
+      icon: FaFlask,
+      caseStudySlug: "steel-manufacturer-digital-documents",
+    },
+    {
+      id: "pharma",
+      title: "Pharma",
+      icon: FaCapsules,
+      caseStudySlug: "enterprise-license-free-document-access",
+    },{
+      id: "tyres",
+      title: "Tyres",
+      icon: FaCircle,
+      caseStudySlug: "steel-manufacturer-digital-documents",
+    },{
+      id: "logistics",
+      title: "Logistics",
+      icon: FaTruck,
+      caseStudySlug: "exim-customs-compliance-digitization",
+    },{
+      id: "education",
+      title: "Education",
+      icon: FaGraduationCap,
+      caseStudySlug: "enterprise-license-free-document-access",
+    },{
+      id: "financial-services",
+      title: "Financial Services",
+      icon: FaLandmark,
+      caseStudySlug: "cfo-centralized-purchase-document-tracking",
     },
   ];
 
@@ -92,22 +146,28 @@ export default function SolutionsPage() {
         {/* Industry categories */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {industries.map((item, idx) => (
-            <motion.div
+            <Link
               key={item.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.08 }}
-              className="min-h-36 rounded-2xl bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all flex items-center gap-4 p-6 group hover:-translate-y-1 relative overflow-hidden"
+              to={`/casestudy/${item.caseStudySlug}`}
+              className="block h-full"
+              aria-label={`Read blog related to ${item.title}`}
             >
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#41a0c8] to-[#1267a7] opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#41a0c8]/10 text-[#1267a7] group-hover:bg-[#41a0c8] group-hover:text-white transition-colors">
-                <item.icon className="h-6 w-6" />
-              </span>
-              <h3 className="text-base font-extrabold leading-snug text-[#062039] group-hover:text-[#41a0c8] transition-colors">
-                {item.title}
-              </h3>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.08 }}
+                className="min-h-20 h-full rounded-2xl bg-white border border-slate-200 shadow-md hover:shadow-xl transition-all flex items-center gap-3 p-3 group hover:-translate-y-1 relative overflow-hidden"
+              >
+                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#41a0c8] to-[#1267a7] opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#41a0c8]/10 text-[#1267a7] group-hover:bg-[#41a0c8] group-hover:text-white transition-colors">
+                  <item.icon className="h-4 w-4" />
+                </span>
+                <h3 className="text-sm font-extrabold leading-snug text-[#062039] group-hover:text-[#41a0c8] transition-colors">
+                  {item.title}
+                </h3>
+              </motion.div>
+            </Link>
           ))}
         </div>
 

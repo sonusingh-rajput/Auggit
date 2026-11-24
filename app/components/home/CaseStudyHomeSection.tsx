@@ -38,14 +38,14 @@ export default function CaseStudyHomeSection() {
   };
 
   return (
-    <section className="relative py-16 sm:py-20 bg-white border-b border-slate-200 text-[#353535] overflow-hidden">
+    <section className="relative py-10 sm:py-14 bg-white border-b border-slate-200 text-[#353535] overflow-hidden">
       {/* Background Accent Gradients */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/3 -left-32 w-80 h-80 bg-[#9eddf7]/15 rounded-full blur-xl" />
         <div className="absolute bottom-1/4 -right-32 w-80 h-80 bg-[#ffeda0]/15 rounded-full blur-xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-14 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10 relative z-10">
         {/* Centered Section Header matching design flow */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#f1f2f2] border border-[#e3e3e3] text-[#41a0c8] text-xs font-bold uppercase tracking-wider shadow-2xs">
