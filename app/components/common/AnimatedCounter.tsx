@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import { useInView } from "framer-motion";
 
 interface AnimatedCounterProps {
   value: number;
@@ -16,33 +15,68 @@ export default function AnimatedCounter({
 }: AnimatedCounterProps) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-30px" });
+  const [hasStarted, setHasStarted] = useState(false);
 
   useEffect(() => {
-    if (!isInView) return;
+    const el = ref.current;
+    if (!el) return;
 
-    let start = 0;
-    const end = value;
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setHasStarted(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setHasStarted(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "60px" }
+    );
+
+    observer.observe(el);
+
+    // Fallback: guarantees animation runs even if observer fails or element is already in view
+    const fallbackTimer = setTimeout(() => {
+      setHasStarted(true);
+    }, 400);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(fallbackTimer);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!hasStarted) return;
+
+    let animationFrameId: number;
+    const targetVal = Number(value) || 0;
     const startTime = performance.now();
     const durationMs = duration * 1000;
 
     function step(currentTime: number) {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / durationMs, 1);
-      // easeOutExpo
+      // Smooth ease-out expo
       const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
-      const current = Math.floor(easeProgress * end);
+      const current = Math.round(easeProgress * targetVal);
       setCount(current);
 
       if (progress < 1) {
-        requestAnimationFrame(step);
+        animationFrameId = requestAnimationFrame(step);
       } else {
-        setCount(end);
+        setCount(targetVal);
       }
     }
 
-    requestAnimationFrame(step);
-  }, [isInView, value, duration]);
+    animationFrameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(animationFrameId);
+  }, [hasStarted, value, duration]);
 
   return (
     <span ref={ref} className="inline-block tabular-nums">
