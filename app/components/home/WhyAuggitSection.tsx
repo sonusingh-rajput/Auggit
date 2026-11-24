@@ -29,8 +29,8 @@ export default function WhyAuggitSection() {
     {
       icon: FiDollarSign,
       title: "Cut Down Cost",
-      value: "",
-      suffix: " ",
+      value: "35",
+      suffix: "%",
       trend: "down",
     },
     {

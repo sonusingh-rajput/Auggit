@@ -6,7 +6,6 @@ import {
   FiShield,
   FiZap,
   FiCheckCircle,
-  FiAward,
   FiFileText,
   FiCpu,
   FiChevronLeft,
@@ -16,6 +15,7 @@ import { SiSap } from "react-icons/si";
 
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   const slides = [
     {
@@ -27,7 +27,7 @@ export default function HeroSection() {
       checks: ["Data Residency Ready", "SAP Native", "SAP approved"],
       primaryCta: { text: "Explore SLaiCE", href: "/product/slaice" },
       secondaryCta: { text: "Request Demo", href: "/book-poc" },
-      image: "/Automation_Suite_image/slaice.png",
+      image: "/hero_image/slaice.png",
       floatingStat1: { title: "100% Compliant", subtitle: "Data Residency Ready" },
       floatingStat2: { title: "SAP Native", subtitle: "Zero Full-DB Clones" },
     },
@@ -40,7 +40,7 @@ export default function HeroSection() {
       checks: ["Instant ERP Linking", "AWS India Cloud Storage", "Role-Based Vaults"],
       primaryCta: { text: "Explore eDMS", href: "/product/edms" },
       secondaryCta: { text: "Request a Live Demo", href: "/product/automation-suite/edms-demo" },
-      image: "/Automation_Suite_image/edms.png",
+      image: "/hero_image/edms.png",
       floatingStat1: { title: "2M+ Saved", subtitle: "Paperless Enterprise" },
       floatingStat2: { title: "AES-256", subtitle: "Encrypted at Rest & Transit" },
     },
@@ -53,25 +53,46 @@ export default function HeroSection() {
       checks: ["AI/LLM Powered OCR", "3-Way Matching (MIRO-MIGO)", "Hardware Interlocks"],
       primaryCta: { text: "Explore Automation Suite", href: "/product/automation-suite" },
       secondaryCta: { text: "Request Demo", href: "/book-poc" },
-      image: "/Automation_Suite_image/automation.png",
+      image: "/hero_image/automation.png",
       floatingStat1: { title: "-70% Cost", subtitle: "Per Invoice Processing" },
       floatingStat2: { title: "Avoids Leakage", subtitle: "Weighbridge & Gate Sync" },
     },
   ];
 
-  // Auto-advance slides every 7 seconds
+  // Preload all slide images into browser cache on mount
   useEffect(() => {
+    slides.forEach((s) => {
+      const img = new Image();
+      img.src = s.image;
+    });
+  }, []);
+
+  // Auto-advance slides every 7 seconds (paused on hover)
+  useEffect(() => {
+    if (isHovered) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 7000);
     return () => clearInterval(timer);
-  }, [slides.length]);
+  }, [slides.length, isHovered]);
+
+  const handlePrev = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const handleNext = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
 
   const slide = slides[currentSlide];
   const BadgeIcon = slide.badgeIcon;
 
   return (
-    <section className="relative overflow-hidden bg-white text-[#353535] pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 min-h-[85vh] flex items-center border-b border-[#e3e3e3]">
+    <section
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="relative overflow-hidden bg-white text-[#353535] pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 min-h-[85vh] flex items-center border-b border-[#e3e3e3]"
+    >
       {/* Subtle Ambient Background Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#9eddf7]/30 rounded-full blur-xl pointer-events-none" />
@@ -81,27 +102,48 @@ export default function HeroSection() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-
-        {/* Top Celebrating 10th Yr Floating Banner Badge (PDF Page 4) */}
+        {/* Top Slide Navigation Bar */}
         <div className="flex items-center justify-between mb-6">
-        {/* <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/10 via-amber-400/20 to-amber-500/10 border border-[#f7c037]/50 text-[#062039] text-xs font-bold shadow-sm backdrop-blur-md">
-            <FiAward className="w-4 h-4 text-[#f7c037]" />
-            <span className="font-extrabold text-[#062039]">Celebrating 10 Years of Enterprise Excellence</span>
-             <span className="text-[#f7c037] font-black">•</span> */}
-            {/* <span className="text-slate-600 font-semibold">10 Years of Enterprise Excellence</span> 
-          </div> */}
+          <div className="flex items-center gap-2">
+            {/* <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
+              Slide {currentSlide + 1} of {slides.length}
+            </span> */}
+          </div>
 
-          {/* Slide Navigation Buttons */}
-          <div className="hidden sm:flex items-center gap-2">
-            {slides.map((s, idx) => (
+          {/* Slide Navigation Controls */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              {slides.map((s, idx) => (
+                <button
+                  key={s.id}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === idx
+                    ? "w-8 bg-[#41a0c8]"
+                    : "w-2 bg-slate-200 hover:bg-slate-300"
+                    }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            <div className="hidden sm:flex items-center gap-1">
               <button
-                key={s.id}
-                onClick={() => setCurrentSlide(idx)}
-                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200 hover:bg-slate-300"
-                  }`}
-                aria-label={`Go to slide ${idx + 1}`}
-              />
-            ))}
+                type="button"
+                onClick={handlePrev}
+                aria-label="Previous slide"
+                className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:border-[#41a0c8] text-slate-600 hover:text-[#062039] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+              >
+                <FiChevronLeft className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={handleNext}
+                aria-label="Next slide"
+                className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:border-[#41a0c8] text-slate-600 hover:text-[#062039] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
+              >
+                <FiChevronRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -112,12 +154,11 @@ export default function HeroSection() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.45 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center"
+            transition={{ duration: 0.35 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
           >
             {/* Left Column: Text Content & Actions */}
             <div className="lg:col-span-6 space-y-6 text-left">
-
               {/* Product Badge */}
               <div className="inline-flex items-center gap-2 bg-[#f1f2f2] text-[#062039] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-[#9eddf7] shadow-sm">
                 <BadgeIcon className="w-3.5 h-3.5 text-[#41a0c8]" />
@@ -134,7 +175,7 @@ export default function HeroSection() {
                 {slide.desc}
               </p>
 
-              {/* Statutory Checks (PDF Page 1: Data Residency Ready, SAP Native, SAP approved) */}
+              {/* Statutory Checks */}
               <div className="flex flex-wrap items-center gap-4 sm:gap-6 py-1 text-xs sm:text-sm font-bold text-[#062039]">
                 {slide.checks.map((check, i) => (
                   <div key={i} className="flex items-center gap-2">
@@ -163,35 +204,56 @@ export default function HeroSection() {
                 </Link>
               </div>
 
-              {/* Slide Selector Indicator on Mobile */}
-              <div className="flex sm:hidden items-center gap-2 pt-2">
-                {slides.map((_, idx) => (
+              {/* Mobile Prev / Next Controls */}
+              <div className="flex sm:hidden items-center justify-between pt-2">
+                <div className="flex items-center gap-2">
+                  {slides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentSlide(idx)}
+                      className={`h-2 rounded-full transition-all cursor-pointer ${currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200"
+                        }`}
+                    />
+                  ))}
+                </div>
+                <div className="flex items-center gap-2">
                   <button
-                    key={idx}
-                    onClick={() => setCurrentSlide(idx)}
-                    className={`h-2 rounded-full transition-all cursor-pointer ${currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200"
-                      }`}
-                  />
-                ))}
+                    type="button"
+                    onClick={handlePrev}
+                    aria-label="Previous slide"
+                    className="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-700 flex items-center justify-center"
+                  >
+                    <FiChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    aria-label="Next slide"
+                    className="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-700 flex items-center justify-center"
+                  >
+                    <FiChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Right Column: Visual Dashboard Showcase & Floating Badges */}
-            <div className="lg:col-span-6 relative flex justify-center items-center">
+            <div className="lg:col-span-6 relative flex justify-center items-center w-full">
               <div className="relative w-full max-w-lg lg:max-w-none group">
-                {/* Glow */}
+                {/* Glow Accent */}
                 <div className="absolute inset-0 bg-[#41a0c8]/15 rounded-3xl blur-xl pointer-events-none" />
 
-                <div className="p-3 sm:p-5 rounded-3xl bg-white/70 backdrop-blur-md border border-slate-200 shadow-xl overflow-hidden flex items-center justify-center min-h-[300px]">
+                {/* Main Slide Image Card */}
+                <div className="p-2 sm:p-4 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200/90 shadow-xl overflow-hidden flex items-center justify-center w-full">
                   <img
                     src={slide.image}
                     alt={slide.title}
-                    width={640}
-                    height={380}
-                    fetchPriority={currentSlide === 0 ? "high" : "auto"}
-                    loading={currentSlide === 0 ? "eager" : "lazy"}
+                    width={720}
+                    height={544}
+                    loading="eager"
+                    fetchPriority="high"
                     decoding="async"
-                    className="w-full max-h-[380px] object-contain rounded-2xl filter drop-shadow-md group-hover:scale-[1.01] transition-transform duration-500"
+                    className="w-full h-auto max-h-[360px] sm:max-h-[420px] lg:max-h-[480px] object-contain rounded-2xl filter drop-shadow-md group-hover:scale-[1.01] transition-transform duration-500"
                   />
                 </div>
 
@@ -199,7 +261,7 @@ export default function HeroSection() {
                 <motion.div
                   animate={{ y: [0, -6, 0] }}
                   transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                  className="absolute -top-3 -right-2 sm:right-2 bg-white/95 backdrop-blur-md border border-[#9eddf7] shadow-lg px-4 py-2 rounded-2xl flex items-center gap-3 z-20 pointer-events-none transform-gpu"
+                  className="hidden sm:flex absolute -top-3 right-2 bg-white/95 backdrop-blur-md border border-[#9eddf7] shadow-lg px-4 py-2 rounded-2xl items-center gap-3 z-20 pointer-events-none transform-gpu"
                 >
                   <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
                     <FiShield className="w-4 h-4" />
@@ -216,7 +278,7 @@ export default function HeroSection() {
                 <motion.div
                   animate={{ y: [0, 6, 0] }}
                   transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut", delay: 1 }}
-                  className="absolute -bottom-4 -left-2 sm:left-2 bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg px-4 py-2 rounded-2xl flex items-center gap-3 z-20 pointer-events-none transform-gpu"
+                  className="hidden sm:flex absolute -bottom-4 left-2 bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg px-4 py-2 rounded-2xl items-center gap-3 z-20 pointer-events-none transform-gpu"
                 >
                   <div className="w-8 h-8 rounded-xl bg-[#f7c037]/20 flex items-center justify-center text-[#062039]">
                     <FiZap className="w-4 h-4 text-[#f7c037]" />
@@ -232,7 +294,6 @@ export default function HeroSection() {
             </div>
           </motion.div>
         </AnimatePresence>
-
       </div>
     </section>
   );

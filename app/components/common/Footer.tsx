@@ -233,6 +233,11 @@ export default function Footer() {
                 <span className="text-[#41a0c8]">›</span> Contact & Office Locations
               </a>
             </li>
+            <li>
+              <a href="/sitemap" className="hover:text-white transition-colors flex items-center gap-1 group font-semibold text-[#f7c037]">
+                <span className="text-[#f7c037]">›</span> Complete Website Sitemap
+              </a>
+            </li>
           </ul>
 
           <div className="pt-2">
@@ -317,11 +322,20 @@ export default function Footer() {
         <div>
           © {new Date().getFullYear()} Auggit Enterprise Solutions. All rights reserved. Built for SAP Landscapes.
         </div>
-        {/* <div className="flex items-center gap-6">
-          <span>Section 128 of Companies Act</span>
-          <span>Section 62 IT Act Ready</span>
-          <span>Listed on SAP Store</span>
-        </div> */}
+        <div className="flex items-center gap-4 text-[11px]">
+          <a href="/sitemap" className="hover:text-white transition-colors">
+            HTML Sitemap
+          </a>
+          <span className="text-[#1267a7]">•</span>
+          <a
+            href="/sitemap.xml"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            XML Sitemap
+          </a>
+        </div>
       </div>
     </footer>
   );
