@@ -31,7 +31,7 @@ export default function AutomationProductSection() {
     <section
       id="featured-automation"
       ref={sectionRef}
-      className={`relative overflow-hidden py-16 sm:py-24 px-6 lg:px-16 border-b transition-colors duration-700 ease-in-out ${
+      className={`relative overflow-hidden py-10 sm:py-14 px-6 lg:px-16 border-b transition-colors duration-700 ease-in-out ${
         isInView
           ? "bg-[#eaf1f8] border-[#c0d6ea]"
           : "bg-[#f8fafc] border-[#e3e3e3]"

@@ -69,14 +69,14 @@ export default function TestimonialSection() {
   );
 
   return (
-    <section className="relative overflow-hidden bg-white text-[#353535] py-20 sm:py-24 px-6 lg:px-16 border-b border-[#e3e3e3]">
+    <section className="relative overflow-hidden bg-white text-[#353535] py-10 sm:py-14 px-6 lg:px-16 border-b border-[#e3e3e3]">
       {/* Background Accent Gradients */}
       <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
         <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#9eddf7]/20 rounded-full blur-xl" />
         <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#ffeda0]/15 rounded-full blur-xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 space-y-12">
+      <div className="max-w-7xl mx-auto relative z-10 space-y-8">
         {/* Testimonial Header & Video Link */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-100 pb-8">
           <div className="space-y-2">

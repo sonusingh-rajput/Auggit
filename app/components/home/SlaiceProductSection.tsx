@@ -32,7 +32,7 @@ export default function SlaiceProductSection() {
     <section
       id="featured-slaice"
       ref={sectionRef}
-      className={`relative overflow-hidden py-16 sm:py-24 px-6 lg:px-16 border-b transition-colors duration-700 ease-in-out ${
+      className={`relative overflow-hidden py-10 sm:py-14 px-6 lg:px-16 border-b transition-colors duration-700 ease-in-out ${
         isInView
           ? "bg-[#eaf4fc] border-[#c2e2f5]"
           : "bg-white border-[#e3e3e3]"
@@ -145,9 +145,9 @@ export default function SlaiceProductSection() {
 
           {/* Heading with 'and' instead of '&' per PDF Page 1 */}
           <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#062039] leading-[1.18]">
-            Simplify Reporting and Meet <br />
+            Simplify Reporting and Meet &nbsp;
             <span className="bg-gradient-to-r from-[#41a0c8] via-[#1267a7] to-[#062039] bg-clip-text text-transparent">
-              Indian Data Residency Mandates
+                Complainces
             </span>
           </h2>
 

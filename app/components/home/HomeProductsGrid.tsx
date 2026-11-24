@@ -72,8 +72,8 @@ export default function HomeProductsGrid() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-slate-50 text-[#353535] border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section className="py-10 sm:py-14 bg-slate-50 text-[#353535] border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Header (OpenText Products Style per PDF Page 7) */}
         <div className="text-center max-w-2xl mx-auto space-y-2">

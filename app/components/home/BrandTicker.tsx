@@ -44,7 +44,7 @@ export default function BrandTicker() {
   const infiniteBottom = [...bottomRowClients, ...bottomRowClients, ...bottomRowClients, ...bottomRowClients];
 
   return (
-    <div className="w-full bg-gradient-to-b from-[#f1f2f2] via-white to-[#f1f2f2] py-16 overflow-hidden relative border-y border-[#e3e3e3]">
+    <div className="w-full bg-gradient-to-b from-[#f1f2f2] via-white to-[#f1f2f2] py-10 overflow-hidden relative border-y border-[#e3e3e3]">
 
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
