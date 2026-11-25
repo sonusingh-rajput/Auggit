@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FiAward, FiCalendar, FiMapPin, FiExternalLink, FiCheckCircle, FiChevronLeft, FiChevronRight } from "react-icons/fi";
+import {
+  FiAward,
+  FiCalendar,
+  FiMapPin,
+  FiExternalLink,
+  FiChevronLeft,
+  FiChevronRight,
+} from "react-icons/fi";
 import { FaTrophy } from "react-icons/fa";
 
 export default function HomeAwardsEvents() {
@@ -104,46 +111,29 @@ export default function HomeAwardsEvents() {
         {/* Seamless Enterprise Ecosystem Banner */}
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#41a0c8]/20 via-[#1267a7]/10 to-[#9eddf7]/20 rounded-2xl sm:rounded-3xl blur-md opacity-60 group-hover:opacity-100 transition duration-500 pointer-events-none" />
-          <div className="relative bg-gradient-to-b from-[#f8fafc] via-white to-[#f0f7fd] border border-slate-200/80 rounded-2xl sm:rounded-3xl p-3 sm:p-6 shadow-sm overflow-hidden flex flex-col items-center justify-center">
-            <div className="text-center space-y-2 mb-4 sm:mb-6">
-              <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#062039]">
-                Seamlessly Connected Enterprise Systems
-              </h2>
-             
-            </div>
+          <div className="relative bg-gradient-to-b from-[#f8fafc] via-white to-[#f0f7fd] border border-slate-200/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-sm overflow-hidden flex flex-col items-center justify-center">
+            
+            {/* Heading */}
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#062039] text-center mb-6 sm:mb-8">
+              Seamlessly Connected Enterprise Systems
+            </h2>
 
-            {/* Tag badge */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 mb-3 sm:mb-4 rounded-full bg-white/90 backdrop-blur-sm border border-slate-200/80 text-[11px] sm:text-xs font-bold text-[#1267a7] uppercase tracking-wider shadow-2xs">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Native Ecosystem Integration </span>
-            </div>
-
-            {/* Responsive Picture for Mobile & Desktop */}
-            <picture className="w-full flex justify-center">
-              <source
-                media="(max-width: 640px)"
-                srcSet="/images/integrationAuggit-mobile.webp"
-                type="image/webp"
-              />
-              <source
-                media="(max-width: 640px)"
-                srcSet="/images/integrationAuggit-mobile.png"
-                type="image/png"
-              />
-              <source
-                srcSet="/images/integrationAuggit.webp"
-                type="image/webp"
+            {/* Logos Only (Separated, no text, no extra design) */}
+            <div className="flex flex-wrap items-center justify-center gap-12 sm:gap-20 py-2 sm:py-4">
+              <img
+                src="/images/sap-logo-clean.png"
+                alt="SAP"
+                className="h-14 sm:h-20 w-auto object-contain"
+                loading="lazy"
               />
               <img
-                src="/images/integrationAuggit.png"
-                alt="Auggit Tally SAP Seamless Enterprise Integration"
-                width={1672}
-                height={480}
+                src="/images/tally-logo-clean.png"
+                alt="Tally"
+                className="h-12 sm:h-18 w-auto object-contain"
                 loading="lazy"
-                decoding="async"
-                className="w-full max-w-4xl h-auto object-contain rounded-xl sm:rounded-2xl transition-transform duration-300 hover:scale-[1.01]"
               />
-            </picture>
+            </div>
+
           </div>
         </div>
 
