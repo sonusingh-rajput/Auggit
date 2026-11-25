@@ -3,84 +3,94 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router";
 import {
   FiArrowRight,
-  FiShield,
-  FiZap,
-  FiCheckCircle,
-  FiFileText,
-  FiCpu,
   FiChevronLeft,
   FiChevronRight,
+  FiFileText,
+  FiActivity,
 } from "react-icons/fi";
 import { SiSap } from "react-icons/si";
 
+/* =========================================================================
+   MAIN HERO SECTION COMPONENT (With Updated Product Images)
+   ========================================================================= */
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [direction, setDirection] = useState(1);
 
   const slides = [
     {
       id: "slaice",
       badge: "SLaiCE • Built on SAP",
       badgeIcon: SiSap,
-      title: "From Unstructured Records to Flawless SAP Compliance in Real Time.",
-      desc: "Eliminate the need for full system replication while ensuring data integrity, statutory compliance under Section 128 of Companies Act, and reduced infrastructure cost.",
-      checks: ["Data Residency Ready", "SAP Native", "SAP approved"],
-      primaryCta: { text: "Explore SLaiCE", href: "/product/slaice" },
-      secondaryCta: { text: "Request Demo", href: "/book-poc" },
-      image: "/hero_image/slaice.png",
-      floatingStat1: { title: "100% Compliant", subtitle: "Data Residency Ready" },
-      floatingStat2: { title: "SAP Native", subtitle: "Zero Full-DB Clones" },
+      headline: "The Simplest Way to Automate SAP Workflows Across Every Module",
+      subtitle:
+        "Streamline your enterprise compliance and automate SAP ECC & S/4HANA with zero database clones in just a few clicks.",
+      primaryCta: {
+        text: "Explore SLaiCE",
+        href: "/product/slaice",
+      },
+      secondaryCta: {
+        text: "Request Live Demo",
+        href: "/book-poc",
+      },
+      imageSrc: "/hero_image/splice.png",
+      imageAlt: "Auggit SLaiCE - SAP Real-Time Performance & ROI Analytics",
     },
     {
       id: "edms",
-      badge: "Auggit eDMS • Document Intelligence",
+      badge: "Auggit eDMS • Universal Repository",
       badgeIcon: FiFileText,
-      title: "Connecting Internal and External Documents Seamlessly Across ERPs.",
-      desc: "Connect your enterprise departments, suppliers, and auditors on one unified platform. Sub-second indexed search, automated ERP transaction linking, and audit-ready governance.",
-      checks: ["Instant ERP Linking", "AWS India Cloud Storage", "Role-Based Vaults"],
-      primaryCta: { text: "Explore eDMS", href: "/product/edms" },
-      secondaryCta: { text: "Request a Live Demo", href: "/product/automation-suite/edms-demo" },
-      image: "/hero_image/edms.png",
-      floatingStat1: { title: "2M+ Saved", subtitle: "Paperless Enterprise" },
-      floatingStat2: { title: "AES-256", subtitle: "Encrypted at Rest & Transit" },
+      headline: "The Simplest Way to Index & Unify Enterprise Documents Across Every ERP",
+      subtitle:
+        "Connect teams, suppliers, and auditors on one unified repository that indexes millions of invoices with sub-second search.",
+      primaryCta: {
+        text: "Explore eDMS",
+        href: "/product/edms",
+      },
+      secondaryCta: {
+        text: "Request Live Demo",
+        href: "/product/automation-suite/edms-demo",
+      },
+      imageSrc: "/hero_image/edms.png",
+      imageAlt: "Auggit eDMS - Upload, Tag, and Track Architecture",
     },
     {
       id: "automation",
       badge: "Automation Suite • End-to-End SCM",
-      badgeIcon: FiCpu,
-      title: "Streamline SCM Workflows: Vendor to AP to GatePass to Weighbridge.",
-      desc: "Eliminate manual data entry and plant leakage. Self-service vendor onboarding, AI 3-way matching (MIRO – MIGO), QR gate passes, and tamper-proof weighbridge capture.",
-      checks: ["AI/LLM Powered OCR", "3-Way Matching (MIRO-MIGO)", "Hardware Interlocks"],
-      primaryCta: { text: "Explore Automation Suite", href: "/product/automation-suite" },
-      secondaryCta: { text: "Request Demo", href: "/book-poc" },
-      image: "/hero_image/automation.png",
-      floatingStat1: { title: "-70% Cost", subtitle: "Per Invoice Processing" },
-      floatingStat2: { title: "Avoids Leakage", subtitle: "Weighbridge & Gate Sync" },
+      badgeIcon: FiActivity,
+      headline: "The Simplest Way to Streamline SCM & Gate Pass Across Every Plant",
+      subtitle:
+        "Eliminate plant leakage and manual errors from vendor onboarding to AI 3-way invoice matching and digital weighbridge capture.",
+      primaryCta: {
+        text: "Explore Automation",
+        href: "/product/automation-suite",
+      },
+      secondaryCta: {
+        text: "Request Live Demo",
+        href: "/book-poc",
+      },
+      imageSrc: "/hero_image/autamation.png",
+      imageAlt: "Auggit Automation Suite - Connected Procurement & Gate Pass Pipeline",
     },
   ];
 
-  // Preload all slide images into browser cache on mount
+  // Auto-advance timer (Cycles every 7 seconds)
   useEffect(() => {
-    slides.forEach((s) => {
-      const img = new Image();
-      img.src = s.image;
-    });
-  }, []);
-
-  // Auto-advance slides every 7 seconds (paused on hover)
-  useEffect(() => {
-    if (isHovered) return;
     const timer = setInterval(() => {
+      setDirection(1);
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 7000);
+
     return () => clearInterval(timer);
-  }, [slides.length, isHovered]);
+  }, [slides.length]);
 
   const handlePrev = () => {
+    setDirection(-1);
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
   const handleNext = () => {
+    setDirection(1);
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
@@ -88,212 +98,119 @@ export default function HeroSection() {
   const BadgeIcon = slide.badgeIcon;
 
   return (
-    <section
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className="relative overflow-hidden bg-white text-[#353535] pt-6 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-12 min-h-[85vh] flex items-center border-b border-[#e3e3e3]"
-    >
-      {/* Subtle Ambient Background Gradients */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#9eddf7]/30 rounded-full blur-xl pointer-events-none" />
-        <div className="absolute top-1/3 -right-20 w-96 h-96 bg-[#ffeda0]/20 rounded-full blur-xl pointer-events-none" />
-        <div className="absolute -bottom-20 left-1/3 w-80 h-80 bg-[#41a0c8]/15 rounded-full blur-xl pointer-events-none" />
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-[#f1f2f2]/60 pointer-events-none" />
-      </div>
-
+    <section className="relative overflow-hidden bg-white text-[#353535] pt-6 sm:pt-8 pb-14 sm:pb-20 px-4 sm:px-6 lg:px-12 min-h-[82vh] flex items-center border-b border-slate-100">
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        {/* Top Slide Navigation Bar */}
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-2">
-            {/* <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">
-              Slide {currentSlide + 1} of {slides.length}
-            </span> */}
+        {/* Top Minimal Navigation Controls */}
+        <div className="flex items-center justify-end gap-3 mb-6 sm:mb-8">
+          <div className="flex items-center gap-1.5 bg-slate-100/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-slate-200/60">
+            {slides.map((s, idx) => (
+              <button
+                key={s.id}
+                onClick={() => setCurrentSlide(idx)}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  currentSlide === idx
+                    ? "w-7 bg-[#41a0c8]"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
           </div>
 
-          {/* Slide Navigation Controls */}
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1.5">
-              {slides.map((s, idx) => (
-                <button
-                  key={s.id}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${currentSlide === idx
-                    ? "w-8 bg-[#41a0c8]"
-                    : "w-2 bg-slate-200 hover:bg-slate-300"
-                    }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
-
-            <div className="hidden sm:flex items-center gap-1">
-              <button
-                type="button"
-                onClick={handlePrev}
-                aria-label="Previous slide"
-                className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:border-[#41a0c8] text-slate-600 hover:text-[#062039] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
-              >
-                <FiChevronLeft className="w-4 h-4" />
-              </button>
-              <button
-                type="button"
-                onClick={handleNext}
-                aria-label="Next slide"
-                className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:border-[#41a0c8] text-slate-600 hover:text-[#062039] flex items-center justify-center transition-all cursor-pointer shadow-2xs"
-              >
-                <FiChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+          <div className="flex items-center gap-1">
+            <button
+              type="button"
+              onClick={handlePrev}
+              aria-label="Previous slide"
+              className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:border-[#41a0c8] text-slate-600 hover:text-[#062039] flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95"
+            >
+              <FiChevronLeft className="w-3.5 h-3.5" />
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              aria-label="Next slide"
+              className="w-7 h-7 rounded-full bg-white border border-slate-200 hover:border-[#41a0c8] text-slate-600 hover:text-[#062039] flex items-center justify-center transition-all cursor-pointer shadow-xs active:scale-95"
+            >
+              <FiChevronRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
 
-        {/* Carousel Slide Content */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={slide.id}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
-            transition={{ duration: 0.35 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center"
-          >
-            {/* Left Column: Text Content & Actions */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              {/* Product Badge */}
-              <div className="inline-flex items-center gap-2 bg-[#f1f2f2] text-[#062039] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-[#9eddf7] shadow-sm">
-                <BadgeIcon className="w-3.5 h-3.5 text-[#41a0c8]" />
-                <span>{slide.badge}</span>
-              </div>
-
-              {/* Slide Main Heading */}
-              <h1 className="text-3xl sm:text-5xl lg:text-[2.85rem] font-black tracking-tight text-[#062039] leading-[1.14]">
-                {slide.title}
-              </h1>
-
-              {/* Description */}
-              <p className="text-sm sm:text-base text-slate-600 max-w-xl leading-relaxed">
-                {slide.desc}
-              </p>
-
-              {/* Statutory Checks */}
-              <div className="flex flex-wrap items-center gap-4 sm:gap-6 py-1 text-xs sm:text-sm font-bold text-[#062039]">
-                {slide.checks.map((check, i) => (
-                  <div key={i} className="flex items-center gap-2">
-                    <FiCheckCircle className="w-4 h-4 text-emerald-600 flex-shrink-0" />
-                    <span>{check}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <Link
-                  to={slide.primaryCta.href}
-                  className="inline-flex items-center gap-2 bg-[#41a0c8] hover:bg-[#1267a7] text-white px-7 py-3.5 rounded-xl font-bold text-sm transition-all shadow-lg shadow-[#41a0c8]/25 group active:scale-95 cursor-pointer"
-                >
-                  <span>{slide.primaryCta.text}</span>
-                  <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                </Link>
-
-                <Link
-                  to={slide.secondaryCta.href}
-                  className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#062039] px-7 py-3.5 rounded-xl font-bold text-sm transition-all shadow-sm border border-slate-200 hover:border-slate-300 group cursor-pointer"
-                >
-                  <span>{slide.secondaryCta.text}</span>
-                  <FiArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1 text-slate-400" />
-                </Link>
-              </div>
-
-              {/* Mobile Prev / Next Controls */}
-              <div className="flex sm:hidden items-center justify-between pt-2">
-                <div className="flex items-center gap-2">
-                  {slides.map((_, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => setCurrentSlide(idx)}
-                      className={`h-2 rounded-full transition-all cursor-pointer ${currentSlide === idx ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-200"
-                        }`}
-                    />
-                  ))}
+        {/* Main Hero Split Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          {/* Left Column: Bold Typography & Action Controls */}
+          <div className="lg:col-span-5 space-y-6 text-left">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={slide.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                className="space-y-5 sm:space-y-6"
+              >
+                {/* Category Pill Badge */}
+                <div className="inline-flex items-center gap-2 bg-[#e8f4fc] text-[#062039] px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider border border-[#bce3f7] shadow-xs">
+                  <BadgeIcon className="w-3.5 h-3.5 text-[#1267a7]" />
+                  <span>{slide.badge}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    aria-label="Previous slide"
-                    className="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-700 flex items-center justify-center"
+
+                {/* Big Bold Headline */}
+                <h1 className="text-3xl sm:text-5xl lg:text-[3.25rem] font-black tracking-tight text-[#062039] leading-[1.12]">
+                  {slide.headline}
+                </h1>
+
+                {/* Concise Subtitle with highlighted benefits */}
+                <p className="text-base sm:text-lg text-slate-500 font-normal leading-relaxed max-w-xl">
+                  {slide.subtitle}
+                </p>
+
+                {/* Action Buttons: Clean "Explore [Product]" + "Request Live Demo" */}
+                <div className="flex flex-wrap items-center gap-3.5 pt-2">
+                  <Link
+                    to={slide.primaryCta.href}
+                    className="inline-flex items-center gap-3 bg-[#062039] hover:bg-[#1267a7] text-white px-8 sm:px-9 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base shadow-[0_10px_25px_rgba(6,32,57,0.22)] hover:shadow-[0_14px_30px_rgba(65,160,200,0.3)] transition-all duration-300 group active:scale-95 cursor-pointer"
                   >
-                    <FiChevronLeft className="w-4 h-4" />
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    aria-label="Next slide"
-                    className="w-8 h-8 rounded-full bg-white border border-slate-200 text-slate-700 flex items-center justify-center"
+                    <span>{slide.primaryCta.text}</span>
+                    <FiArrowRight className="w-4 h-4 text-[#41a0c8] transition-transform group-hover:translate-x-1" />
+                  </Link>
+
+                  <Link
+                    to={slide.secondaryCta.href}
+                    className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-[#062039] hover:text-[#1267a7] px-6 sm:px-7 py-3.5 sm:py-4 rounded-full font-bold text-sm sm:text-base transition-all border border-slate-200 hover:border-[#41a0c8] shadow-xs active:scale-95 cursor-pointer"
                   >
-                    <FiChevronRight className="w-4 h-4" />
-                  </button>
+                    <span>{slide.secondaryCta.text}</span>
+                    <FiArrowRight className="w-4 h-4 text-slate-400 group-hover:text-[#1267a7] transition-transform group-hover:translate-x-1" />
+                  </Link>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
 
-            {/* Right Column: Visual Dashboard Showcase & Floating Badges */}
-            <div className="lg:col-span-6 relative flex justify-center items-center w-full">
-              <div className="relative w-full max-w-lg lg:max-w-none group">
-                {/* Glow Accent */}
-                <div className="absolute inset-0 bg-[#41a0c8]/15 rounded-3xl blur-xl pointer-events-none" />
-
-                {/* Main Slide Image Card */}
-                <div className="p-2 sm:p-4 rounded-3xl bg-white/80 backdrop-blur-md border border-slate-200/90 shadow-xl overflow-hidden flex items-center justify-center w-full">
+          {/* Right Column: High-Fidelity Product Image with Smooth Slide Animation (No background) */}
+          <div className="lg:col-span-7 relative flex justify-center items-center w-full min-h-[400px] sm:min-h-[500px] lg:min-h-[560px] overflow-hidden">
+            <div className="relative z-10 w-full flex items-center justify-center">
+              <AnimatePresence mode="wait" initial={false}>
+                <motion.div
+                  key={slide.id}
+                  initial={{ opacity: 0, x: direction * 45 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: direction * -45 }}
+                  transition={{ duration: 0.35, ease: [0.25, 1, 0.5, 1] }}
+                  className="w-full flex items-center justify-center"
+                >
                   <img
-                    src={slide.image}
-                    alt={slide.title}
-                    width={720}
-                    height={544}
+                    src={slide.imageSrc}
+                    alt={slide.imageAlt}
+                    className="w-full h-auto max-h-[580px] sm:max-h-[660px] object-contain select-none"
                     loading="eager"
-                    fetchPriority="high"
-                    decoding="async"
-                    className="w-full h-auto max-h-[360px] sm:max-h-[420px] lg:max-h-[480px] object-contain rounded-2xl filter drop-shadow-md group-hover:scale-[1.01] transition-transform duration-500"
                   />
-                </div>
-
-                {/* Floating Metric 1 */}
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                  className="hidden sm:flex absolute -top-3 right-2 bg-white/95 backdrop-blur-md border border-[#9eddf7] shadow-lg px-4 py-2 rounded-2xl items-center gap-3 z-20 pointer-events-none transform-gpu"
-                >
-                  <div className="w-8 h-8 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600">
-                    <FiShield className="w-4 h-4" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-[11px] font-bold text-[#062039] uppercase tracking-wider">
-                      {slide.floatingStat1.title}
-                    </div>
-                    <div className="text-[10px] text-slate-500">{slide.floatingStat1.subtitle}</div>
-                  </div>
                 </motion.div>
-
-                {/* Floating Metric 2 */}
-                <motion.div
-                  animate={{ y: [0, 6, 0] }}
-                  transition={{ repeat: Infinity, duration: 4.8, ease: "easeInOut", delay: 1 }}
-                  className="hidden sm:flex absolute -bottom-4 left-2 bg-white/95 backdrop-blur-md border border-slate-200 shadow-lg px-4 py-2 rounded-2xl items-center gap-3 z-20 pointer-events-none transform-gpu"
-                >
-                  <div className="w-8 h-8 rounded-xl bg-[#f7c037]/20 flex items-center justify-center text-[#062039]">
-                    <FiZap className="w-4 h-4 text-[#f7c037]" />
-                  </div>
-                  <div className="text-left">
-                    <div className="text-[11px] font-bold text-[#062039] uppercase tracking-wider">
-                      {slide.floatingStat2.title}
-                    </div>
-                    <div className="text-[10px] text-slate-500">{slide.floatingStat2.subtitle}</div>
-                  </div>
-                </motion.div>
-              </div>
+              </AnimatePresence>
             </div>
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        </div>
       </div>
     </section>
   );
