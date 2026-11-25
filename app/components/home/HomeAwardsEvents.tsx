@@ -7,6 +7,7 @@ import {
   FiExternalLink,
   FiChevronLeft,
   FiChevronRight,
+  FiCheckCircle
 } from "react-icons/fi";
 import { FaTrophy } from "react-icons/fa";
 
@@ -36,7 +37,7 @@ export default function HomeAwardsEvents() {
       desc: "Honored for sub-second indexed search, AES-256 cloud vaults, and enterprise ERP document linking.",
       image: "/images/awards/award3.jpeg",
     },
-     {
+    {
       title: "Innovation in Enterprise SCM Automation",
       forum: "14th CFO & Finance Transformation Summit – Mumbai",
       location: "Mumbai",
@@ -70,7 +71,7 @@ export default function HomeAwardsEvents() {
       highlight: "Explaining the importance of complainces and audit trails",
       image: "/images/events/event32.jpeg",
     },
-     {
+    {
       title: "Samvada",
       edition: "Enterprise Technology Showcase",
       date: "New Delhi, India",
@@ -107,12 +108,12 @@ export default function HomeAwardsEvents() {
   return (
     <section className="relative py-10 sm:py-14 bg-white border-b border-slate-200 text-[#353535] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
-        
+
         {/* Seamless Enterprise Ecosystem Banner */}
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-[#41a0c8]/20 via-[#1267a7]/10 to-[#9eddf7]/20 rounded-2xl sm:rounded-3xl blur-md opacity-60 group-hover:opacity-100 transition duration-500 pointer-events-none" />
           <div className="relative bg-gradient-to-b from-[#f8fafc] via-white to-[#f0f7fd] border border-slate-200/80 rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-sm overflow-hidden flex flex-col items-center justify-center">
-            
+
             {/* Heading */}
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight text-[#062039] text-center mb-6 sm:mb-8">
               Seamlessly Connected Enterprise Systems
@@ -164,11 +165,10 @@ export default function HomeAwardsEvents() {
               aria-selected={activeTab === "awards"}
               aria-controls="awards-events-panel"
               onClick={() => selectTab("awards")}
-              className={`inline-flex items-center gap-2 px-5 py-3 text-sm font-bold border-b-2 transition-colors ${
-                activeTab === "awards"
+              className={`inline-flex items-center gap-2 px-5 py-3 text-sm font-bold border-b-2 transition-colors ${activeTab === "awards"
                   ? "border-[#41a0c8] text-[#062039]"
                   : "border-transparent text-slate-500 hover:text-[#41a0c8]"
-              }`}
+                }`}
             >
               <FiAward className="w-4 h-4" />
               Awards & Recognitions
@@ -180,11 +180,10 @@ export default function HomeAwardsEvents() {
               aria-selected={activeTab === "events"}
               aria-controls="awards-events-panel"
               onClick={() => selectTab("events")}
-              className={`inline-flex items-center gap-2 px-5 py-3 text-sm font-bold border-b-2 transition-colors ${
-                activeTab === "events"
+              className={`inline-flex items-center gap-2 px-5 py-3 text-sm font-bold border-b-2 transition-colors ${activeTab === "events"
                   ? "border-[#41a0c8] text-[#062039]"
                   : "border-transparent text-slate-500 hover:text-[#41a0c8]"
-              }`}
+                }`}
             >
               <FiCalendar className="w-4 h-4" />
               Events & Key Summits
@@ -303,9 +302,8 @@ export default function HomeAwardsEvents() {
                   onClick={() => setActiveIndex(index)}
                   aria-label={`Show ${item.title}`}
                   aria-current={index === activeIndex ? "true" : undefined}
-                  className={`h-2 rounded-full transition-all ${
-                    index === activeIndex ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-300 hover:bg-slate-400"
-                  }`}
+                  className={`h-2 rounded-full transition-all ${index === activeIndex ? "w-8 bg-[#41a0c8]" : "w-2 bg-slate-300 hover:bg-slate-400"
+                    }`}
                 />
               ))}
             </div>
