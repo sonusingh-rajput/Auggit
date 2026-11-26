@@ -258,14 +258,14 @@ export default function HomeAwardsEvents() {
                             <FiCheckCircle className="w-4 h-4 mt-0.5 text-emerald-600 flex-shrink-0" />
                             <span>{"highlight" in item ? item.highlight : ""}</span>
                           </p>
-                          {"link" in item && item.link && (
+                          {"link" in item && Boolean(item.link) && (
                             <a
-                              href={item.link}
+                              href={String(item.link)}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-1.5 mt-auto pt-4 text-xs font-bold text-[#41a0c8] hover:text-[#1267a7] transition-colors"
                             >
-                              Visit {item.linkText || "Official Website"}
+                              Visit {("linkText" in item && String(item.linkText)) || "Official Website"}
                               <FiExternalLink className="w-3.5 h-3.5" />
                             </a>
                           )}
