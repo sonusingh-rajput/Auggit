@@ -1,0 +1,29 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 220' width='400' height='220'>
+  <defs>
+    <linearGradient id='aBg' x1='0%' y1='0%' x2='100%' y2='100%'>
+      <stop offset='0%' stop-color='#08264b'/>
+      <stop offset='60%' stop-color='#0f4955'/>
+      <stop offset='100%' stop-color='#146761'/>
+    </linearGradient>
+  </defs>
+  <rect width='400' height='220' fill='url(#aBg)' rx='16'/>
+  <!-- Grain Elevators / Silos -->
+  <g transform='translate(30, 30)'>
+    <rect x='20' y='40' width='70' height='120' rx='4' fill='#d1fae5' stroke='#062039' stroke-width='2'/>
+    <path d='M15 40 L55 10 L95 40 Z' fill='#10b981'/>
+    <rect x='110' y='50' width='60' height='110' rx='4' fill='#a7f3d0' stroke='#062039' stroke-width='2'/>
+    <path d='M105 50 L140 25 L175 50 Z' fill='#059669'/>
+  </g>
+  <!-- Sugarcane / Agricultural Produce Truck -->
+  <g transform='translate(145, 105)'>
+    <rect x='0' y='25' width='145' height='55' rx='4' fill='#064e3b' stroke='#34d399' stroke-width='2'/>
+    <path d='M5 25 Q70 -5 140 25 Z' fill='#fef08a' stroke='#f59e0b' stroke-width='1.5'/>
+    <path d='M145 42 L185 42 L200 58 L200 78 L145 78 Z' fill='#0f2f57' stroke='#34d399' stroke-width='2'/>
+    <rect x='155' y='47' width='30' height='16' rx='3' fill='#e2e8f0'/>
+    <circle cx='35' cy='82' r='16' fill='#022c22' stroke='#a7f3d0' stroke-width='4'/>
+    <circle cx='85' cy='82' r='16' fill='#022c22' stroke='#a7f3d0' stroke-width='4'/>
+    <circle cx='175' cy='82' r='16' fill='#022c22' stroke='#a7f3d0' stroke-width='4'/>
+  </g>
+  <rect x='20' y='20' width='145' height='26' rx='6' fill='#ffffff' fill-opacity='0.15'/>
+  <text x='92' y='37' font-family='sans-serif' font-size='11' font-weight='bold' fill='#a7f3d0' text-anchor='middle' letter-spacing='1'>AGRI &amp; SUGAR MILLS</text>
+</svg>
